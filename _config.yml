@@ -7,11 +7,11 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "en-US"
+locale                   : "en-AU"
 title                    : "John Hutchinson"
 title_separator          : "-"
 name                     : &name "John Hutchinson"
-description              : &description "I have a professor emeritus position in the Mathematical Sciences Institute [MSI] at the Australian National University [ANU]"
+description              : &description "I am professor emeritus in the Mathematical Sciences Institute [MSI] at the Australian National University [ANU]"
 url                      : https://johnehutchinson.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "johnehutchinson/johnehutchinson.github.io"
