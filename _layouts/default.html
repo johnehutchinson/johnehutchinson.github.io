@@ -16,7 +16,16 @@ layout: compress
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
-    {{ content }}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {{ content }}
+        </div>
+        <div class="col-md-4">
+          {% include author-profile.html %}
+        </div>
+      </div>
+    </div>
 
     <div class="page__footer">
       <footer>
