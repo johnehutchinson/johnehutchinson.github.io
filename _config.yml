@@ -25,18 +25,20 @@ author:
   name             : "John Hutchinson"
   pronouns         : # example: "she/her"  
   bio              : "Emeritus Professor"
-  location         : "Canberra Australia"
+  institute        : "Mathematical Sciences Institute" # New line added
   employer         : "Australian National University"
-  uri              : # URL
-  email            : "john.hutchinson@anu.edu.au" 
+  location         : "Canberra Australia"
+  email            : "john.hotchinson@anu.edu.au"
+  uri              : https://johnehutchinson.github.io
+ 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    :  "https://scholar.google.com.au/citations?user=tJQZjKUAAAAJ&hl=en&oi=ao"
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : # "http://orcid.org/yourorcidurl"
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   researchgate     : # URL
   scopus           : # URL
 
@@ -49,7 +51,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # "bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username

@@ -1,0 +1,11 @@
+bundle exec jekyll serve --incremental -l -H localhost
+
+--incremental  
+Speeds up build process by only regenerating the files that have changed since the last build
+It may not detect changes in certain files, such as _config.yml
+
+
+bundle exec jekyll serve --livereload -H localhost
+
+--livereload 
+ensures that the browser automatically refreshes to show the latest changes.
