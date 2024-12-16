@@ -21,15 +21,14 @@ repository               : "johnehutchinson/johnehutchinson.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "John_H.jpeg"
   name             : "John Hutchinson"
   pronouns         : # example: "she/her"  
   bio              : "Emeritus Professor"
-  institute        : "Mathematical Sciences Institute" # New line added
-  employer         : "Australian National University"
-  location         : "Canberra Australia"
-  email            : "john.hotchinson@anu.edu.au"
-  uri              : https://johnehutchinson.github.io
+  employer         : "<a href='https://maths.anu.edu.au'> Mathematical Sciences Institute</a> [MSI], Australian<br>National University [ANU]"
+  location         : "Canberra, Australia"
+  email            : "john.hutchinson@anu.edu.au"
+  uri              : "https://johnehutchinson.github.io"
  
 
   # Academic websites
