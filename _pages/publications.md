@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "Publications"
-permalink: /publications/
+title: "Publications (MD)"
+permalink: /publications-md/
 author_profile: true
 ---
 
@@ -13,27 +13,27 @@ author_profile: true
 
 <!-- New style rendering if publication categories are defined -->
 {% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
+  {% for category in site.publication_category %}
+{% assign title_shown = false %}
     {% for post in site.publications reversed %}
       {% if post.category != category[0] %}
         {% continue %}
       {% endif %}
-      {% if title_shown == false %}
-## {{ category[1].title}}
+      {% unless title_shown %}
+## {{ category[1].title }}
         {% assign title_shown = true %}
-      {% endif %}
-      - **{{ post.title }}** {% if post.authors %}by {{ post.authors }}{% endif %}
-        {% if post.url %}
-          [Read more]({{ post.url }})
-        {% endif %}
+      {% endunless %}
+- **{{ post.title }}** {% if post.authors %}by {{ post.authors }}{% endif %}
+  {% if post.url %}
+    [Read more]({{ post.url }})
+  {% endif %}
     {% endfor %}
   {% endfor %}
 {% else %}
   {% for post in site.publications reversed %}
-    - **{{ post.title }}** {% if post.authors %}by {{ post.authors }}{% endif %}
-      {% if post.url %}
-        [Read more]({{ post.url }})
-      {% endif %}
+- **{{ post.title }}** {% if post.authors %}by {{ post.authors }}{% endif %}
+  {% if post.url %}
+    [Read more]({{ post.url }})
+  {% endif %}
   {% endfor %}
 {% endif %}
