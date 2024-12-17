@@ -1,12 +1,12 @@
 ---
 layout: archive
-title: "Publications (HTML)"
-permalink: /publications-html/
+title: "Publications"
+permalink: /publications/
 author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  You can also find my articles on [my Google Scholar profile]({{site.author.googlescholar}}).
 {% endif %}
 
 {% include base_path %}
@@ -19,18 +19,21 @@ author_profile: true
       {% if post.category != category[0] %}
         {% continue %}
       {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
+      {% if title_shown == false %}
+## {{ category[1].title}}
         {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
+      {% endif %}
+      - **{{ post.title }}** {% if post.authors %}by {{ post.authors }}{% endif %}
+        {% if post.url %}
+          [Read more]({{ post.url }})
+        {% endif %}
     {% endfor %}
   {% endfor %}
 {% else %}
   {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+    - **{{ post.title }}** {% if post.authors %}by {{ post.authors }}{% endif %}
+      {% if post.url %}
+        [Read more]({{ post.url }})
+      {% endif %}
   {% endfor %}
 {% endif %}
-
-
-

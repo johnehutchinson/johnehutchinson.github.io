@@ -21,3 +21,4 @@ config.yml			site-wide settings, after initial set-up should
 _data/authors.yml		not relevant, only if more than one person for website
 _includes/author-profile.html	additional customization after config.yml 
 _pages/about.md			file for main homepage
+_pages/publications.md		file for publications page
