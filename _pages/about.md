@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About"
+title: "Research"
 author_profile: true
 redirect_from: 
   - /about/
@@ -10,11 +10,20 @@ redirect_from:
 I am a mathematician (emeritus professor) in MSI at the ANU. I did my PhD in mathematical logic, but afterwards published in a number of other fields: geometric measure theory, fractals, elliptic systems, theoretical numerical analysis for geometric problems, and random fractals. See
 [Publications](/publications/).
 
-I had the good fortune to publish a paper on fractals at the right time, which ended up being in the top 10 most highly cited paper
+I had the good fortune to publish a paper on fractals at the right time, which ended up being in the top 10 most highly cited paper in most years 2000-2010, according to the American Mathematical Society.
 
-Currently I am interested in understanding more about quantum computing and machine learning, and the social consequences thereof.
+Currently I am interested in understanding more about quantum computing, A.I., and machine learning, and the social consequences thereof.
 
-I enjoy teaching, but have done little of that since formally retiring in 2014. My notes were well received by students and some of them are still used in MSI courses. I designed the course and wrote the books *Introduction to Contemporary Mathematics* for selected Year 11-12 students, and *Introduction to Analysis* for upper level second year mathematics students. See [Teaching](/teaching) for these and notes for various other courses.
+Teaching
+======
+
+I enjoy teaching, but have done little since formally retiring in 2014. My notes were well received by students and some of them are still used in MSI courses. I designed the course and wrote the books *Introduction to Contemporary Mathematics* for selected Year 11-12 high school students, and *Introduction to Analysis* for upper level second year mathematics students. For this and other teaching material see [Teaching](/teaching).
+
+In 2010 I was elected by ANU students at large to give the symbolic Last Lecture in the Great Hall at University House: *Mathematics, Free Will and the Human Condition.* (The Last Lecture was an ANU "tradition" that existed from 2006--2018.)
+
+
+
+
 
 
 
