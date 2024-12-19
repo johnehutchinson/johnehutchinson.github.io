@@ -19,7 +19,9 @@ bundle exec jekyll serve --livereload -H localhost --port 4002 --livereload-port
 config.yml			site-wide settings, after initial set-up should 
 					rarely need to be updated
 _data/authors.yml		not relevant, only if more than one person for website
-_includes/author-profile.html	additional customization after config.yml 
+_data/navigation.yml		to change order etc in top menu bar
+_includes/author-profile.html	additional customization after config.yml, in particular, 
+				order of items in sidebar 
 _pages/about.md			file for main homepage
 _pages/publications.md		file for publications page
 _publications			contains .md files linked to from _pages/publications.md
