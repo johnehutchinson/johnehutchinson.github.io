@@ -1,0 +1,30 @@
+bundle exec jekyll serve --incremental -l -H localhost
+	--incremental  
+Speeds up build process by only regenerating the files that have changed since the last build
+It may not detect changes in certain files, such as _config.yml
+
+*******
+bundle exec jekyll serve --livereload -H localhost
+	--livereload 
+ensures that the browser automatically refreshes to show the latest changes.
+
+*******
+bundle exec jekyll serve --livereload -H localhost --port 4002 --livereload-port 35731
+	if ports 4001 and 35730 already in use
+
+
+
+
+
+config.yml			site-wide settings, after initial set-up should 
+					rarely need to be updated
+_data/authors.yml		not relevant, only if more than one person for website
+_data/navigation.yml		to change order etc in top menu bar
+_includes/author-profile.html	additional customization after config.yml, in particular, 
+				order of items in sidebar 
+_pages/about.md			file for main homepage
+_pages/publications.md		file for publications page
+_publications			contains .md files linked to from _pages/publications.md
+
+
+
