@@ -17,6 +17,9 @@ main:
   - title: "CV"
     url: /cv/
 
+  - title: "Template"
+    url: /template/
+
   - title: "Portfolio"
     url: /portfolio/
 

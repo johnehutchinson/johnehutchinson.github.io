@@ -258,3 +258,15 @@
     }
   }
 }
+
+.research-sidebar {
+  padding-top: 0 !important; /* Override any padding at the top */
+}
+
+.research-sidebar ul li.subheading {
+  margin-left: 20px !important; /* Adjust the value as needed for proper indentation */
+}
+
+.research-sidebar ul li.mainheading {
+  margin-left: 0 !important; /* Ensure main headings are not indented */
+}

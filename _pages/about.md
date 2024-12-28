@@ -7,8 +7,8 @@ redirect_from:
   - /about.html
 ---
 
-I am a mathematician (emeritus professor) in MSI at the ANU. I did my PhD in mathematical logic, but afterwards published in a number of other fields: geometric measure theory, fractals, elliptic systems, theoretical numerical analysis for geometric problems, and random fractals. See
-[Publications](/publications/).
+I am a mathematician in MSI at the ANU. I did my PhD in mathematical logic, but afterwards published in a number of other fields: geometric measure theory, fractals, elliptic systems, theoretical numerical analysis for geometric problems, and random fractals. See my
+[Research](/research/) page.
 
 I had the good fortune to publish a paper on fractals at the right time, which ended up being in the top 10 most highly cited paper in most years 2000-2010, according to the American Mathematical Society.
 
