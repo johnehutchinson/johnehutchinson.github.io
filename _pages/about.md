@@ -1,11 +1,14 @@
 ---
 permalink: /
-title: "Research"
+title: 
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
+
+Research
+======
 
 I am a mathematician in MSI at the ANU. I did my PhD in mathematical logic, but afterwards published in a number of other fields: geometric measure theory, fractals, elliptic systems, theoretical numerical analysis for geometric problems, and random fractals. See my
 [Research](/research/) page.

@@ -8,6 +8,15 @@ main:
   - title: "Research"
     url: /research/
 
+  - title: "High School"
+    url: /high_school/ 
+
+  - title: "Undergraduate"
+    url: /undergraduate/ 
+
+  - title: "Graduate"
+    url: /graduate/ 
+
   - title: "Talks"
     url: /talks/    
 
