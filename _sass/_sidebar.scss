@@ -12,6 +12,8 @@
 
   @include clearfix();
   margin-bottom: 1em;
+  margin-left: -10px; /* Adjust the value as needed to move the sidebar to the left */
+
 
   @media screen and (min-width: $sidebar-screen-min-width) {
     height: 100vh;
@@ -264,7 +266,7 @@
 }
 
 .research-sidebar ul li.subheading {
-  margin-left: 20px !important; /* Adjust the value as needed for proper indentation */
+  margin-left: 10px !important; /* Adjust the value as needed for proper indentation */
 }
 
 .research-sidebar ul li.mainheading {

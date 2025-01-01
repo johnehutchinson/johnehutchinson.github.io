@@ -27,7 +27,7 @@ A lucky break came with [Hut81](#Hut81), it languished for a few years but then 
 
 The papers [HR98](#HR98), [HR00a](#HR00a) with Ludger Rüschendorf develop a random version of this approach. In [BHS03](#BHS03), [BHS05](#BHS05), [BHS08](#BHS08), [BHS12](#BHS12) with Michael and Örjan Stenflo the notion of V-variable fractals is developed. These are random fractals which in some sense are intermediate between homogeneous random fractals and standard random (i.e. recursive) fractals. The unpublished [BHS03](#BHS03) is an informal user-friendly introduction. [FHH17](#FHH17) with Uta Freiberg and Ben Hambly gives a detailed analysis of the spectral properties of V-variable fractals.
 
-**References**
+***References***
 
 - <a id="FHH17"></a>[FHH17] **Freiberg, U.; Hambly, B. M.; Hutchinson, John E.** "Spectral asymptotics for V-variable Sierpinski gaskets." *Ann. Inst. Henri Poincaré Probab. Stat.*, vol. 53, no. 4, 2017, pp. 2162-2213.
 
@@ -65,7 +65,7 @@ In 1975 at the ANU, Neil Trudinger encouraged a number of us to run a seminar se
 
 [Hut81](#Hut81) answers a question of De Giorgi, pointed out to me by Giusti, concerning the equivalence of two measures for hypersurfaces, and gives a negative answer with the proof motivated by fluid flow around a Cantor type set in the plane. [Hut86](#Hut86) develops a suggestion of Leon Simon and introduces a generalised notion of curvature for objects potentially with singularities. Related regularity issues are addressed in [Hut86](#Hut86), [Hut87](#Hut87), [Hut90](#Hut90). The nonuniqueness of tangent cones in [HM86](#HM86) with Michael Meier answers a small question of Allard. The paper [FH97](#FH97) with Yi Fang introduces a number of novel ideas, but unfortunately has slipped under the radar. [HT00](#HT00) with Yoshi Tonegawa studies phase transition interfaces in the geometric measure theory setting.
 
-**References**
+***References***
 
 - <a id="HT00"></a>[HT00] **Hutchinson, John E.; Tonegawa, Yoshihiro** "Convergence of phase interfaces in the van der Waals-Cahn-Hilliard theory." *Calc. Var. Partial Differential Equations*, vol. 10, no. 1, 2000, pp. 49-84.
 
@@ -90,7 +90,7 @@ In 1975 at the ANU, Neil Trudinger encouraged a number of us to run a seminar se
 
 In the early 1990's, through the Centre for Mathematical Analysis [CMA] directed by Neil Trudinger and containing a very active research group led by Leon Simon, I met Gerd Dziuk. This led to a fruitful collaboration [DH94], [DH95], [DH96], [DH98], [DH99a], [DH99b], and [DH06] involving theoretical and numerical work concerning geometric problems.
 
-**References**
+***References***
 
 - <a id="DH06"></a>[DH06] **Dziuk, Gerhard; Hutchinson, John E.** "Finite element approximations to surfaces of prescribed variable mean curvature." *Numer. Math.*, vol. 102, no. 4, 2006, pp. 611-648.
 
@@ -112,7 +112,7 @@ In the early 1990's, through the Centre for Mathematical Analysis [CMA] directed
 
 In the same CMA milieu as mentioned before, but a few years earlier, I met Nicola Fusco. This led to another very fruitful collaboration, with [FH85], [FH86], [FH89], [FH91], [FH94], [FH95] motivated initially by Giaquinta’s book *Multiple Integrals in the Calculus of Variations and Nonlinear Elliptic Systems*. Separately, [AFH03] with Luigi Ambrosio and Nicola studies the dimension of the singular set for the Mumford-Shah functional used in image segmentation and pattern recognition.
 
-**References**
+***References***
 
 - <a id="AFH03"></a>[AFH03] **Ambrosio, Luigi; Fusco, Nicola; Hutchinson, John E.** "Higher integrability of the gradient and dimension of the singular set for minimisers of the Mumford-Shah functional." *Calc. Var. Partial Differential Equations*, vol. 16, no. 2, 2003, pp. 187-215.
 
@@ -134,7 +134,7 @@ After many enjoyable years as a graduate student at Stanford just south of San F
 
 On returning to Australia after my PhD there was little in the way of activity in the field of mathematical logic and so I resolved to change fields. I was fortunate to obtain a position at the ANU and then took the opportunity to move into the general area of geometric measure theory in 1.2.
 
-**References**
+***References***
 
 - <a id="Hut76a"></a>[Hut76a] **Hutchinson, John E.** "Model theory via set theory." *Israel J. Math.*, vol. 24, no. 3–4, 1976, pp. 286–304.
 

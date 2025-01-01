@@ -6,4 +6,4 @@ author_profile: false
 
 ---
 
-Graduate
+The notes and other material here are roughly at the beginning graduate level in a U.S. university, and beyond.
