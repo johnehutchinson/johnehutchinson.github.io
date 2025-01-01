@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  <aside class="sidebar research-sidebar">
+    <ul>
+      <li class="mainheading"><a href="#publications">Publications</a></li>
+      <li class="subheading"><a href="#1-fractals-and-stochastics">1 Fractals and Stochastics</a></li>
+      <li class="subheading"><a href="#2-geometric-measure-theory-analytic-methods-for-geometric-problems">2 Geometric Measure Theory, Analytic Methods for Geometric Problems</a></li>
+      <li class="subheading"><a href="#3-numerical-analysis-for-geometric-problems">3 Numerical Analysis for Geometric Problems</a></li>
+      <li class="subheading"><a href="#4-multivariable-variational-problems-regularity-and-singularities-of-solutions">4 Multivariable Variational Problems, Regularity and Singularities of Solutions</a></li>
+      <li class="subheading"><a href="#5-mathematical-logic-model-theory-and-set-theory">5 Mathematical Logic, Model Theory and Set Theory</a></li>
+      <li class="mainheading"><a href="#grants">Grants</a></li>
+      <li class="mainheading"><a href="#patent">Patent</a></li>
+    </ul>
+  </aside>
+
+  <div class="archive">
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      <h1 class="page__title">{{ page.title }}</h1>
+    {% endunless %}
+    {{ content }}
+  </div>
+</div>

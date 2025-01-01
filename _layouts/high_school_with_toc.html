@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  <aside class="sidebar research-sidebar">
+    <ul>
+      <li class="mainheading"><a href="#years-11-12-course--introduction-to-contemporary-mathematics">Years 11, 12:  Introduction to Contemporary Mathematics</a></li>
+      <li class="subheading"><a href="#text">Text</a></li>
+      <li class="subheading"><a href="videos">Videos</a></li>
+      <li class="subheading"><a href="final-days">Final Days</a></li>
+      <li class="mainheading"><a href="#professional-development-workshops-for-teachers">Professional Development Workshops for Teachers</a></li>
+      <li class="mainheading"><a href="#1962-high-school-exams-and-solutions">1962 High School Exams and Solutions</a></li>
+    </ul>
+  </aside>
+
+  <div class="archive">
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      <h1 class="page__title">{{ page.title }}</h1>
+    {% endunless %}
+    {{ content }}
+  </div>
+</div>

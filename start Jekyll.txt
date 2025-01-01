@@ -14,8 +14,6 @@ bundle exec jekyll serve --livereload -H localhost --port 4002 --livereload-port
 
 
 
-
-
 config.yml			site-wide settings, after initial set-up should 
 					rarely need to be updated
 _data/authors.yml		not relevant, only if more than one person for website

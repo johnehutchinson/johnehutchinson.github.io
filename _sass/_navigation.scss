@@ -51,6 +51,12 @@
   }
 }
 
+/* Styles for the active menu item */
+nav ul li.active a {
+  color: #8B4513; /* Change text color */
+  /* background-color: #007bff; */ /* Change background color */
+  font-weight: bold; /* Make the text bold */
+}
 
 /*
    Post pagination navigation links
