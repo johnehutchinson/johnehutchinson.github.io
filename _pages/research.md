@@ -1,11 +1,10 @@
 ---
-<!--layout: archive -->
 layout: research_with_toc
 title: "Research"
 permalink: /research/
 author_profile: false 
-
 ---
+ 
 I was fortunate in having the opportunity to do research in a number of different areas of mathematics. Nowadays, with the pressure to continuously publish, it would be much more difficult if not impossible to have the luxury of exploring new fields. 
 
 
