@@ -5,12 +5,16 @@ It may not detect changes in certain files, such as _config.yml
 
 *******
 bundle exec jekyll serve --livereload -H localhost
-	--livereload 
-ensures that the browser automatically refreshes to show the latest changes.
 
-*******
+bundle exec jekyll serve:  Starts Jekyll server using Bundler to ensure correct versions of gems are used.
+--livereload: ensures browser automatically refreshes to show the latest changes.
+-H localhost: specifies Jekyll server should bind to the localhost address, meaning it will only be accessible from the local machine.
+
 bundle exec jekyll serve --livereload -H localhost --port 4002 --livereload-port 35731
 	if ports 4001 and 35730 already in use
+
+option  --incremental  Speeds up build process by only regenerating the files that have changed since the last build
+BUT: It may not detect changes in certain files, such as _config.yml
 
 
 
