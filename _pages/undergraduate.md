@@ -1,11 +1,11 @@
 ---
 layout: undergraduate_with_toc
-title: "Undergraduate"
+title: ""
 permalink: /undergraduate/
 author_profile: false 
-
 ---
 
+*Books and Notes for upper level first and second year courses. <br> The 2010 "ANU Last Lecture".*
 
 - [First Year University](#first-year-university)
 - [Second Year University](#second-year-university)
@@ -38,6 +38,6 @@ fractals and to diﬀerential and integral equations.
 ## Last Lecture 2010
 
 In 2010 I was nominated, and then elected by ANU students at large, to give the symbolic "Last Lecture" in the Great Hall at University House: *Mathematics, Free Will and the Human Condition.* (The "Last Lecture" was an ANU "tradition" that existed from 2006--2018.)<br>
-[Last Lecture 2010](/files_from_ANU/Last%20Lecture.m4v)<br>
+[Last Lecture 2010](/files_from_ANU/Last%20Lecture.mp4) (poor video quality)<br>
 [Last Lecture Slides](/files_from_ANU/Last%20Lecture.pdf) (Just the slides)
 

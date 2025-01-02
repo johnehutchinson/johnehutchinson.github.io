@@ -1,6 +1,6 @@
 ---
 layout: high_school_with_toc
-title: "High School"
+title: " "
 permalink: /high_school/
 author_profile: false 
 
@@ -13,6 +13,8 @@ author_profile: false
 }
 </style>
 
+*High school course: Introduction to Contemporary Mathematics.*<br> 
+*High school 1962 [sic] public examination papers in mathematics.*
 
 - [Years 11, 12 Course:  Introduction to Contemporary Mathematics](#years-11-12-course--introduction-to-contemporary-mathematics)
   - [Text](#text)

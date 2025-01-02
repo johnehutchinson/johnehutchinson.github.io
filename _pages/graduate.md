@@ -1,10 +1,10 @@
 ---
 layout: graduate_with_toc
-title: "Graduate"
+title: " "
 permalink: /graduate/
 author_profile: false 
-
 ---
+*Site under development*
 
 The ver 1 notes and other material here are roughly at the beginning graduate level in a U.S. university, and beyond.
 
