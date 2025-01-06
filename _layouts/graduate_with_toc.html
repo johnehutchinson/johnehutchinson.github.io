@@ -13,6 +13,7 @@ layout: default
 {% endif %}
 
 <div id="main" role="main">
+<!--
   <aside class="sidebar graduate-sidebar">
     <ul>
       {% capture toc %}
@@ -24,7 +25,7 @@ layout: default
       {{ toc | markdownify | replace: '<ul>', '<ul class="toc-list">' | replace: '<li>', '<li class="toc-item">' }}
       </ul>
   </aside>
-
+-->
   <div class="archive">
     {% unless page.header.overlay_color or page.header.overlay_image %}
       <h1 class="page__title">{{ page.title }}</h1>

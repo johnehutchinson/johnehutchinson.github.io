@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: " "
+title: ""
 author_profile: true
 redirect_from: 
   - /about/
@@ -19,10 +19,10 @@ Currently I am interested in understanding more about quantum computing, A.I., a
 Teaching
 ======
 
-I enjoy teaching, but have done little since formally retiring in 2014. My notes were well received by students and some of them are still used in MSI courses. I designed the course and wrote the books *Introduction to Contemporary Mathematics* for selected Year 11-12 high school students, and *Introduction to Analysis* for upper level second year mathematics students. For this and other teaching material see [High School](/high_school/), [Undergraduate](/undergraduate/), and [Graduate](/graduate/).
+I have enjoyed teaching. My notes were well received by students and some of them are still used in MSI courses. I designed the course and wrote the books *Introduction to Contemporary Mathematics* for selected Year 11-12 high school students, and *Introduction to Analysis* for upper level second year mathematics students. For this and other teaching material see [High School](/high_school/), [Undergraduate](/undergraduate/), and [Graduate](/graduate/).
 
 
-In 2010 I was elected by ANU students at large to give the symbolic Last Lecture in the Great Hall at University House: *Mathematics, Free Will and the Human Condition.* (The Last Lecture was an ANU "tradition" that existed from 2006--2018.)
+In 2010 I was elected by students at large to give the symbolic ANU Last Lecture in the Great Hall at University House: *Mathematics, Free Will and the Human Condition.* (The Last Lecture was an ANU "tradition" that existed from 2006--2018.)
 
 
 

@@ -19,6 +19,7 @@
     height: 100vh;
     overflow-y: auto;               // Add scrollbar if the sidebar is too long
     position: fixed;
+    top:60px; /* Add this line to keep the sidebar at the top */
     padding-top: $masthead-height;
   }
 
@@ -271,4 +272,9 @@
 
 .research-sidebar ul li.mainheading {
   margin-left: 0 !important; /* Ensure main headings are not indented */
+}
+
+.main-content {
+  margin-left: 220px; /* Adjust the value to ensure it does not overlap with the sidebar */
+  padding: 20px;
 }
