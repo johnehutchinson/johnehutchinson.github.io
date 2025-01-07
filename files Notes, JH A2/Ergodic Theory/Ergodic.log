@@ -1,0 +1,263 @@
+This is pdfeTeX, Version 3.141592-1.20a-2.2 (Web2C 7.5.3) (format=pdflatex 2005.9.7)  11 JUL 2006 21:12
+entering extended mode
+\write18 enabled.
+**Ergodic.tex
+(./Ergodic.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, d
+utch, italian, norsk, portuges, spanish, swedish, nohyphenation, loaded.
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amscls/amsart.cls
+Document Class: amsart 2004/08/06 v2.20
+\linespacing=\dimen102
+\normalparindent=\dimen103
+\normaltopskip=\skip41
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip42
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen104
+))
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count79
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count80
+\leftroot@=\count81
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count82
+\DOTSCASE@=\count83
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count84
+\c@MaxMatrixCols=\count85
+\dotsspace@=\muskip10
+\c@parentequation=\count86
+\dspbrk@lvl=\count87
+\tag@help=\toks15
+\row@=\count88
+\column@=\count89
+\maxfields@=\count90
+\andhelp@=\toks16
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks17
+\multlinegap=\skip43
+\multlinetaggap=\skip44
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 407.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+)
+\copyins=\insert233
+\abstractbox=\box28
+\listisep=\skip45
+\c@part=\count91
+\c@section=\count92
+\c@subsection=\count93
+\c@subsubsection=\count94
+\c@paragraph=\count95
+\c@subparagraph=\count96
+\c@figure=\count97
+\c@table=\count98
+\abovecaptionskip=\skip46
+\belowcaptionskip=\skip47
+\captionindent=\dimen113
+\thm@style=\toks19
+\thm@bodyfont=\toks20
+\thm@headfont=\toks21
+\thm@notefont=\toks22
+\thm@headpunct=\toks23
+\thm@preskip=\skip48
+\thm@postskip=\skip49
+\thm@headsep=\skip50
+\dth@everypar=\toks24
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks25
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/pdftex.def
+File: pdftex.def 2002/06/19 v0.03k graphics/color for pdftex
+\Gread@gobject=\count99
+))
+\Gin@req@height=\dimen114
+\Gin@req@width=\dimen115
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2001/02/04 v1.1 Conversion with epstopdf on the fly (HO)
+)
+(/Users/john/Library/texmf/tex/latex/pdfsync.sty
+Package: pdfsync 2004/01/31 v0.6
+\PDFPOS=\write3
+\PDFSYNC@folio=\count100
+\PDFSYNC@rder=\count101
+) (./Ergodic.aux)
+\openout1 = `Ergodic.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Try loading font information for U+msa on input line 8.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 8.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/context/base/supp-pdf.tex
+(/usr/local/teTeX/share/texmf.tetex/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Miscellaneous (2004.10.26)
+\protectiondepth=\count102
+\scratchcounter=\count103
+\scratchtoks=\toks26
+\scratchdimen=\dimen116
+\scratchskip=\skip51
+\scratchmuskip=\muskip11
+\scratchbox=\box29
+\scratchread=\read1
+\scratchwrite=\write4
+\zeropoint=\dimen117
+\onepoint=\dimen118
+\onebasepoint=\dimen119
+\minusone=\count104
+\thousandpoint=\dimen120
+\onerealpoint=\dimen121
+\emptytoks=\toks27
+\nextbox=\box30
+\nextdepth=\dimen122
+\everyline=\toks28
+\!!counta=\count105
+\!!countb=\count106
+\recursecounter=\count107
+)
+loading : Context Support Macros / PDF (2004.03.26)
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen123
+\MPnumerator=\count111
+\everyMPtoPDFconversion=\toks29
+)
+**** pdfsync.sty: Synchronization is enabled.
+\openout3 = `Ergodic.pdfsync'.
+
+**** pdfsync.sty: Synchronizing par
+**** pdfsync.sty: Synchronizing math
+**** pdfsync.sty: Synchronizing hbox
+**** pdfsync.sty: Synchronizing extra
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+[1{/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (10.52238pt too wide) in paragraph at lines 133--134
+[]\OT1/cmr/m/n/10.95 ([][]\OT1/cmr/m/it/10.95 minimality \OT1/cmr/m/n/10.95 ---
+ same as min-i-mal-ity in a topo-log-i-cal dy-nam-i-cal system---
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+[2]
+Overfull \hbox (10.70563pt too wide) in paragraph at lines 174--175
+[]\OT1/cmr/m/n/10.95 Example: In par-tic-u-lar, toral trans-la-tions of $[][]\U
+/msb/m/n/10.95 T[] \OT1/cmr/m/n/10.95 = \U/msb/m/n/10.95 R[]\OML/cmm/m/it/10.95
+ =\U/msb/m/n/10.95 Z[]$ \OT1/cmr/m/n/10.95 by $[][](\OML/cmm/m/it/10.95 []; []
+ []\OT1/cmr/m/n/10.95 )$
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+[3] (./Ergodic.aux) ) 
+Here is how much of TeX's memory you used:
+ 2325 strings out of 95217
+ 27137 string characters out of 1184539
+ 2073234 words of memory out of 4528069
+ 5268 multiletter control sequences out of 10000+50000
+ 11451 words of font info for 44 fonts, out of 2000000 for 2000
+ 219 hyphenation exceptions out of 1000
+ 34i,8n,31p,318b,229s stack positions out of 5000i,500n,6000p,200000b,40000s
+ 49 PDF objects out of 300000
+ 0 named destinations out of 131072
+ 1 words of extra memory for PDF output out of 65536
+</usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm
+/cmex10.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmmi6.pf
+b></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/symbols/msbm10.pfb></
+usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/symbols/msbm7.pfb></usr/l
+ocal/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmmi8.pfb></usr/local/teTeX
+/share/texmf.tetex/fonts/type1/bluesky/cm/cmr8.pfb></usr/local/teTeX/share/texm
+f.tetex/fonts/type1/bluesky/cm/cmmi10.pfb></usr/local/teTeX/share/texmf.tetex/f
+onts/type1/bluesky/cm/cmsy8.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1
+/bluesky/cm/cmti10.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/
+cm/cmsy10.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmbx10
+.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmcsc10.pfb></u
+sr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmr10.pfb>
+Output written on Ergodic.pdf (3 pages, 93713 bytes).

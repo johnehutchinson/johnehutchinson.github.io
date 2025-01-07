@@ -1,0 +1,40 @@
+\BOOKMARK [1][-]{section.1}{1. Notation}{}
+\BOOKMARK [1][-]{section.2}{2. Topological Entropy via an Open Cover}{}
+\BOOKMARK [1][-]{section.3}{3. Topological Entropy via the Metric}{}
+\BOOKMARK [1][-]{section.4}{4. Pressure}{}
+\BOOKMARK [1][-]{section.5}{5. Measure Theoretic Entropy}{}
+\BOOKMARK [1][-]{section.6}{6. Subshifts and Pressure}{}
+\BOOKMARK [2][-]{subsection.6.1}{6.1. Overview}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{6.2. Bernouilli Shifts}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{6.3. Markov Shifts}{section.6}
+\BOOKMARK [2][-]{subsection.6.4}{6.4. Pressure}{section.6}
+\BOOKMARK [2][-]{subsection.6.5}{6.5. Ruelle Transfer Operator}{section.6}
+\BOOKMARK [1][-]{section.7}{7. Cookie Cutter Sets and Pressure Functions}{}
+\BOOKMARK [2][-]{subsection.7.1}{7.1. The Underlying Set}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{7.2. Pressure Function}{section.7}
+\BOOKMARK [2][-]{subsection.7.3}{7.3. Bounded Distortion}{section.7}
+\BOOKMARK [1][-]{section.8}{8. Perron Frobenius Theorem}{}
+\BOOKMARK [2][-]{subsection.8.1}{8.1. Basic Notions}{section.8}
+\BOOKMARK [2][-]{subsection.8.2}{8.2. Examples}{section.8}
+\BOOKMARK [2][-]{subsection.8.3}{8.3. Interpretation}{section.8}
+\BOOKMARK [2][-]{subsection.8.4}{8.4. Main Theorem}{section.8}
+\BOOKMARK [2][-]{subsection.8.5}{8.5. Limit Theorem}{section.8}
+\BOOKMARK [1][-]{section.9}{9. Graph Directed IFS}{}
+\BOOKMARK [2][-]{subsection.9.1}{9.1. Directed Graph}{section.9}
+\BOOKMARK [2][-]{subsection.9.2}{9.2. Graph Directed IFS}{section.9}
+\BOOKMARK [2][-]{subsection.9.3}{9.3. Associated Matrices}{section.9}
+\BOOKMARK [2][-]{subsection.9.4}{9.4. The Dimension Theorem}{section.9}
+\BOOKMARK [1][-]{section.10}{10. Ruelle Perron Frobenius, Special case}{}
+\BOOKMARK [2][-]{subsection.10.1}{10.1. Pressure}{section.10}
+\BOOKMARK [2][-]{subsection.10.2}{10.2. IFS invariant Gibbs measure}{section.10}
+\BOOKMARK [2][-]{subsection.10.3}{10.3. Shift invariant Gibbs measure}{section.10}
+\BOOKMARK [1][-]{section.11}{11. Thermodynamic Formalism and Cookie Cutters}{}
+\BOOKMARK [2][-]{subsection.11.1}{11.1. Notation}{section.11}
+\BOOKMARK [2][-]{subsection.11.2}{11.2. IFS with Weights}{section.11}
+\BOOKMARK [2][-]{subsection.11.3}{11.3. Two Ways of Pushing Measures Forward}{section.11}
+\BOOKMARK [2][-]{subsection.11.4}{11.4. The Adjoint Operators on Functions}{section.11}
+\BOOKMARK [2][-]{subsection.11.5}{11.5. Properties of the Transfer Operator}{section.11}
+\BOOKMARK [1][-]{section.12}{12. Shannon Breiman McMillan Theorem}{}
+\BOOKMARK [1][-]{section.13}{13. Variational Principle}{}
+\BOOKMARK [1][-]{section.14}{14. Ruelle Perron Frobenius Theorem}{}
+\BOOKMARK [1][-]{section*.2}{References}{}

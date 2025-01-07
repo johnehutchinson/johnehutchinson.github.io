@@ -1,0 +1,15 @@
+\contentsline {section}{\tocsection {}{1}{\textbf {Introduction}}}{1}{section.1}
+\contentsline {section}{\tocsection {}{2}{\textbf {Finite Exchange Economy}}}{1}{section.2}
+\contentsline {subsection}{\tocsubsection {}{2.1}{Commodity Space}}{1}{subsection.2.1}
+\contentsline {subsection}{\tocsubsection {}{2.2}{Set of Agents}}{1}{subsection.2.2}
+\contentsline {subsection}{\tocsubsection {}{2.3}{Preference Relations}}{2}{subsection.2.3}
+\contentsline {subsection}{\tocsubsection {}{2.4}{Initial Endowments}}{2}{subsection.2.4}
+\contentsline {section}{\tocsection {}{3}{\textbf {Redistribution in an Economy}}}{2}{section.3}
+\contentsline {subsection}{\tocsubsection {}{3.1}{Defined concepts}}{2}{subsection.3.1}
+\contentsline {subsection}{\tocsubsection {}{3.2}{Edgeworth Box}}{2}{figure.2}
+\contentsline {subsection}{\tocsubsection {}{3.3}{Core of an economy}}{3}{subsection.3.3}
+\contentsline {section}{\tocsection {}{4}{\textbf {Prices in an Economy}}}{3}{section.4}
+\contentsline {subsection}{\tocsubsection {}{4.1}{Pricing System}}{3}{subsection.4.1}
+\contentsline {subsection}{\tocsubsection {}{4.2}{Walras Equilibrium}}{4}{subsection.4.2}
+\contentsline {section}{\tocsection {}{}{References}}{4}{section*.2}
+\contentsfinish 

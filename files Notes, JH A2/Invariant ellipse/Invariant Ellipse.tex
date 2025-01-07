@@ -1,0 +1,118 @@
+\documentclass[a4paper]{amsart}
+
+\usepackage{color}
+\usepackage[colorlinks=true, citecolor=red]{hyperref}  %needs to come before amsrefs package to work with \cite{}*{}
+\usepackage{amssymb,latexsym}
+\usepackage[alphabetic]{amsrefs}
+\usepackage[mathscr]{eucal}
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[all]{xy}
+\usepackage{titletoc}
+%\usepackage{txfonts}   %  \fint  for integral average
+
+%\usepackage{showkeys}  %options notref  notcite 
+
+%\input{rgb.tex}
+
+%\textcolor{DarkRed}{text in DarkRed}
+
+
+\CompileMatrices
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}%[section]
+
+
+\theoremstyle{remark}
+\newtheorem{defn}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{discussion}[theorem]{Discussion}
+
+%\numberwithin{equation}{section}
+
+%\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\expected}{\mathbb{E}}
+\DeclareMathOperator{\prb}{Prob}
+\DeclareMathOperator{\spt}{spt}
+\DeclareMathOperator{\lap}{\Delta}
+\DeclareMathOperator{\Tr}{Tr}
+
+\raggedbottom
+
+\addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm} 
+\addtolength{\topmargin}{-1cm} 
+\addtolength{\textheight}{2cm}
+
+ 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\title{}  
+\author{John E.\ Hutchinson}
+\date{\today}
+
+
+\maketitle
+
+
+Suppose $ T:\mathbb{R}^2 \to \mathbb{R}^2 $ is linear.  Then either $ T $ has 2 (perhaps equal) real e-values or $ T $ has complex conjugate e-values.
+
+The proof of the following proposition uses just linear algebra.
+
+\begin{proposition} Suppose $ T:\mathbb{R}^2 \to \mathbb{R}^2 $ is linear with e-values $ \lambda e^{\pm i\theta} $ and $ \lambda > 0 $. Then $ \lambda ^{-1} T $ leaves some ellipse invariant.
+\end{proposition}
+
+\begin{proof} Using the same matrix as in the real case,  consider $ T $ as a (complex) linear map $ T: \mathbb{C}^2 \to \mathbb{C} ^2 $.
+Diagonalising, there exists a linear $ S: \mathbb{C}^2 \to \mathbb{C} ^2 $ such that
+\begin{equation} \label{mid}
+S (\lambda ^{-1} T) S^{-1} = Q = \begin{bmatrix} e^{  i\theta}& 0 \\ 0 & e^{ - i\theta} \end{bmatrix}.
+\end{equation} 
+ $ Q $ fixes the unit sphere 
+\begin{align*}
+  \{ (z_1,z_2 ) \in \mathbb{C} ^2 : |z_1|^2 + |z_2|^2 = 1 \} &= \{ (x_1,y_1,x_2,y_2) : x_1^2 + y_1^2 + x_2^2 + y_2^2 = 1 \}  \\
+   & =:S^3 \subset \mathbb{R} ^4.
+\end{align*} 
+  
+Imbed $ \mathbb{R} ^ 2 \subset \mathbb{C} ^2 \cong \mathbb{R} ^ 4 $ via $ (x_1,x_2) \leftrightarrow (x_1,x_2) \leftrightarrow (x_1,0,x_2,0) $.  Let $ V = S( \mathbb{R}^2) \subset \mathbb{R} ^4 $.  Note $ V $ is a real 2-dimensional subspace and $ S $ is injective onto its image.
+
+Let 
+\[
+ C = V \cap S^3  \subset V  \subset \mathbb{R} ^ 4,  \quad E = S^{-1}(C) \subset \mathbb{R}^2 .
+ \]
+Then $ C $ is a unit circle and $ E $ is an ellipse.
+
+Then  
+\[
+Q(C) = C 
+\]
+since $  Q(C) $ is a circle from the third term in \eqref{mid}, and $ Q(C)\subset V $ from the first term in \eqref{mid}.  But there is only one unit circle in $ V $.
+
+Applying $ S^{-1} $ to the left of the first two terms in \eqref{mid}, and applying this to $ C $,
+\[ 
+\lambda ^{-1}T S^{-1}(C) = S^{-1}Q(C) = S^{-1} (C).
+\] 
+That is,
+\[
+\lambda ^{-1}T (E) = E. \qedhere
+\] 
+\end{proof} 
+
+
+ 
+\end{document} 
+

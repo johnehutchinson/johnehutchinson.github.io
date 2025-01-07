@@ -1,0 +1,242 @@
+\documentclass[a4paper]{amsart}
+
+\usepackage{color}
+\usepackage[colorlinks=true, citecolor=red]{hyperref}  %needs to come before amsrefs package to work with \cite{}*{}
+\usepackage{amssymb,latexsym}
+\usepackage[alphabetic]{amsrefs}
+\usepackage[mathscr]{eucal}
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[all]{xy}
+\usepackage{titletoc}
+%\usepackage{showkeys}  %options notref  notcite 
+
+\input{rgb.tex}
+
+\CompileMatrices
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}%[section]
+
+
+\theoremstyle{remark}
+\newtheorem{defn}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{discussion}[theorem]{Discussion}
+
+%\numberwithin{equation}{section}
+
+%\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\expected}{\mathbb{E}}
+\DeclareMathOperator{\prb}{Prob}
+\DeclareMathOperator{\spt}{spt}
+\DeclareMathOperator{\lap}{\Delta}
+\DeclareMathOperator{\Tr}{Tr}
+
+\raggedbottom
+
+\addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm} 
+\addtolength{\topmargin}{-1cm} 
+\addtolength{\textheight}{2cm}
+
+ 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\title{PDE's}  
+\author{John E.\ Hutchinson}
+\date{\today}
+
+%\begin{abstract} 
+%\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{22/4/09: Dirichlet Problem}} 
+Comments  about solving the Dirichlet energy mininisation problem using Sobolev spaces.  
+
+In particular,   note that \emph{the full minimising sequence  converges (not just a subsequence), and the convergence is in the (strong) $ W^{1,2} $ sense}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sobolev Spaces}
+Suppose $ \Omega \subset \mathbb{R}^n $ where $ \Omega $ is a bounded domain (i.e.\ open and connected).
+
+
+\begin{definition}
+\begin{align*} 
+W^{1,2}(\Omega) &= \{ u \in L^2(\Omega) : Du \in L^2(\Omega), \text{ where $ Du $   is the weak derivative}\},\\
+W_0^{1,2}(\Omega) &= \emph{closure of $ C_0^1(\Omega) $ in $ W^{1,2}(\Omega)$} .
+\end{align*} 
+\end{definition} 
+See \cite{GT}*{\S\S 7.3, 7.5}
+
+\medskip
+By ``$  Du $ is the weak derivative'' we mean for $ i=1,\dots n $ there exists $ v_i \in L^2(\Omega) $ s.t.\
+\begin{equation} \label{wd}
+\int_\Omega u\, D_i\phi = - \int_\Omega v_i \phi \quad  \forall \phi \in C_0^1(\Omega),
+\end{equation}
+in which case $ v_i $ is unique and is denoted by $D_i u$.  
+
+ \begin{remark}[An expression for the $ W^{1,2}(\Omega) $ norm]
+From~\eqref{wd}, if $ u \in L^2(\Omega) $ then $ D_i u $ exists and is in $ L^2(\Omega) $, i.e.\  $ u \in W^{1,2} (\Omega)$,  iff the right side of ~\eqref{wde}  is finite, in which case
+\begin{equation} \label{wde}
+\int_\Omega |D_iu|^2 = \sup \left\{ \int_\Omega u\, D_i\phi : \phi \in C_0^1(\Omega), \ \|\phi\|_{L^2} \leq 1 \right\}.
+\end{equation}
+\end{remark} 
+
+\begin{remark}[$ W^{1,2}$ Inner  Product] Note that $ W_0^{1,2} (\Omega)$ is an inner product space with 
+\[
+(f,g)_{W^{1,2}} = \int_\Omega Df\cdot Dg .
+\]
+Similarly for $ W^{1,2}(\Omega) $ if we take equivalence classes modulo  constant functions.
+ \end{remark} 
+ 
+ \begin{remark}[Weak Convergence]   \label{rwc}  One says  \emph{$ u_n  \rightharpoonup u $ (weakly) in $ L^2 (\Omega)$} if $ \int_\Omega u_n \phi \to  \int_\Omega u \phi $ for all $ \phi $ in some dense subset of $ L^2(\Omega ) $. It follows
+ \[
+ \int_\Omega |u|^2 \leq \liminf  \int_\Omega |u_n|^2.
+ \]
+ 
+ One says \emph{$ u_n  \rightharpoonup u $ (weakly) in $ W^{1,2}(\Omega) $} if $ u_n  \rightharpoonup u $   in $ L^2 $ and $ D_{u_n}  \rightharpoonup D_u $   in $ L^2 (\Omega)$ \ for all $ i $. 
+ 
+ It follows from \eqref{wd} and \eqref{wde} that if $  u_n \in W^{1,2}(\Omega) $, $ u_n \rightharpoonup u $ in $ L^2(\Omega) $ and $ \int_\Omega|Du_n|^2 $ is uniformly bounded by $ K $ say, then $ u \in W^{1,2}(\Omega)$, $ \int_\Omega |Du|^2 \leq K $, and $ u_n \rightharpoonup u $ in $ W^{1,2}(\Omega) $. 
+  \end{remark} 
+  
+\begin{remark}[Membership in $ W_0^{1,2}(\Omega) $] \label{rmw} One can check that if $ u \in W^{1,2}(\Omega) $ then $ u \in W_0^{1,2}(\Omega) $ iff 
+$\int_\Omega D_i u\, \phi = -\int_{\Omega} u\, D_i   \phi   $ for all $ \phi $ in some dense subset of $ W^{1,2} (\Omega)$.   It follows that membership in $ W_0^{1,2}(\Omega) $ is preserved under  $ W ^{1,2}(\Omega) $ weak convergence.
+ \end{remark} 
+  
+  
+  
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dirichlet PDE Problem}  The classical Dirichlet PDE problem
+\[
+\lap u =  g \text{  in }\Omega, \quad u = 0 \text{ on } \partial \Omega,
+\]
+can be reformulated as follows:
+
+\medskip
+\emph{Suppose $ g \in L^2(\Omega) $.  Solve}
+\begin{equation}\label{ddp}
+\begin{gathered}
+u \in W_0^{1,2} (\Omega), \\
+\int_\Omega Du\,  D\phi = - \int_\Omega g\phi \quad \forall \phi \in W_0^{1,2} (\Omega).
+\end{gathered} 
+\end{equation} 
+
+Using the inner product on $ W_0^{1,2} (\Omega)$ and the Riesz representation theorem there exists a unique $ u \in W_0^{1,2} (\Omega)
+$ solving~\eqref{ddp}.  Moreover $  u \in W^{2,2} (\Omega)$, and higher regularity follows from higher regularity of $ g $, see \cite{GT}*{Ch 8}.
+
+\bigskip 
+ The more general classical problem 
+\[
+\lap u =  g \text{  in }\Omega, \quad u = f \text{ on } \partial \Omega,
+\]
+is reformulated as follows after setting $ w = u-f $:
+
+\medskip 
+\emph{Suppose $ g \in L^2(\Omega) $, $ f \in W^{2,2}(\Omega) $.  Solve}
+\begin{equation}\label{dddp}
+\begin{gathered}
+w \in W_0^{1,2} (\Omega), \\
+\int_\Omega Dw\,  D\phi = - \int_\Omega (g - \lap f) \phi \quad \forall \phi \in W_0^{1,2} (\Omega).
+\end{gathered} 
+\end{equation} 
+This is then covered by the previous problem.  
+
+One only needs $ f \in  W^{1,2}(\Omega) $, if one replaces $ \int_\Omega \lap f \, \phi $ by $ -\int_\Omega Df\, D\phi (\Omega)$.  And similarly,  one can also take $ g \in W^{-1,2}(\Omega)$, the dual of $  W^{1,2}(\Omega)$.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dirichlet Energy Minimisation Problem} We   solve the energy minimisation problem, examine  the minimising sequence, and relate the minimiser to the previous PDE problem.  
+
+The classical energy minimisation problem is reformulated as follows.
+
+\medskip 
+\emph{Suppose $ f \in W^{1,2}(\Omega) $.  Show there exists $ u \in W^{1,2}(\Omega) $ which minimises $ \int_\Omega |Du|^2 $, subject to the constraint $ u-f \in W_0^{1,2}(\Omega) $.}
+
+\medskip (The constraint is a formulation of the condition $ u=f $ on $ \partial \Omega $.)
+
+\begin{proof}[Proof and Discussion] \mbox{}
+
+\textbf{1}.  \emph{Minimising Sequence}:  Let $ \gamma $ be the inf of $ \int_\Omega |Du|^2 $ such that $ u-f \in W_0^{1,2}(\Omega) $.  Let $ (u_n )\subset  W^{1,2}(\Omega)$ be a minimising sequence.
+
+\medskip \textbf{2}.  \emph{$ L^2 $ convergent subsequence}:  Since $ W^{1,2}(\Omega) \subset L^2(\Omega ) $ is a compact imbedding, there is a subsequence $ (u_n) $ such that $ u_n \to u $ (say) in $ L^2 (\Omega)$ and $ \int_\Omega |Du|^2 \downarrow \gamma $.
+
+\medskip \textbf{3}.  \emph{$ W^{1,2} $ weakly convergent subsequence}:  
+From Remark \ref{rwc}, $ u \in W^{1,2}(\Omega)$, $ \int_\Omega |Du|^2 \leq \gamma $, and $ u_n \rightharpoonup u $ in $ W^{1,2} (\Omega)$. 
+
+\medskip \textbf{4}. \emph{$ u $ is a minimiser}:  From Remark~\ref{rmw}, $ u-f \in W_0^{1,2}(\Omega) $ and so $ \int_\Omega |Du|^2 = \gamma $
+since we already know $ \int_\Omega |Du|^2 \leq \gamma $ from \textbf{3}.
+
+\medskip \textbf{5}. \emph{Strong $ W^{1,2} $ convergence of the \underline{full} sequence}:  We   get this directly from \textbf{1}   by noting
+\[
+\int_\Omega |Du_n|^2 + \int_\Omega |Du_m|^2 = \frac{1}{2} \int_\Omega |Du_n - Du_m|^2 + 2 \int_\Omega \left|D \frac{u_n+u_m}{2}\right|^2.
+\]
+The left side terms both decrease to $ \gamma $,    the second right side term is $ \geq \gamma $, and so $ \int_\Omega |Du_n - Du_m|^2 \to 0  $. 
+By Poincare, $ \int_\Omega | u_n -  u_m|^2 \to 0 $.  
+
+Then $ u-f \in W_0^{1,2}(\Omega) $ since $ W_0^{1,2}(\Omega) $ is certainly closed under strong $  W ^{1,2}$ convergence.
+
+Moreover, $ \int_\Omega |Du|^2 \leq \gamma $ by Fatou's lemma, and so $ \int_\Omega |Du|^2= \gamma $.
+
+\medskip \textbf{6}. \emph{$ u $ satisfies Laplace's equation}:     Suppose $ \phi \in W_0^{1,2}(\Omega)$.  Because
+\[
+\int_\Omega |D(u+\phi)|^2 = \int_\Omega |Du|^2 + 2 \int_\Omega Du\,  D\phi + \int_\Omega |D\phi|^2,
+\]
+it follows $\int_\Omega Du\, D\phi = 0 $.  Since otherwise, as small linear terms dominate  quadratic terms, we could find $ \phi $ such that $ u+\phi $ has less energy than $ u $. 
+\end{proof} 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{9} 
+
+\bib{GT}{book}{
+   author={Gilbarg, David},
+   author={Trudinger, Neil S.},
+   title={Elliptic partial differential equations of second order},
+   series={Grundlehren der Mathematischen Wissenschaften [Fundamental
+   Principles of Mathematical Sciences]},
+   volume={224},
+   edition={2},
+   publisher={Springer-Verlag},
+%   place={Berlin},
+   date={1983},
+   pages={xiii+513},
+%   isbn={3-540-13025-X},
+%   review={\MR{737190 (86c:35035)}},
+}
+
+\end{thebibliography}
+
+\end{document} 
+

@@ -1,0 +1,433 @@
+\documentclass[a4paper]{amsart}
+
+\usepackage{color}
+\usepackage[colorlinks=true, citecolor=red]{hyperref}  %needs to come before amsrefs package to work with \cite{}*{}
+\usepackage{amssymb,latexsym}
+\usepackage[alphabetic]{amsrefs}
+\usepackage[mathscr]{eucal}
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[all]{xy}
+\usepackage{titletoc}
+
+\CompileMatrices
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}%[section]
+
+\theoremstyle{remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{discussion}[theorem]{Discussion}
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\expected}{\mathbb{E}}
+\DeclareMathOperator{\prb}{Prob}
+\DeclareMathOperator{\spt}{spt}
+\DeclareMathOperator{\lap}{\Delta}
+
+\raggedbottom
+
+\addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm} 
+\addtolength{\topmargin}{-1cm} 
+\addtolength{\textheight}{2cm}
+% \renewcommand{\l@subsection}{\@contentsline{2}{5em}{7em}}
+
+%\makeatletter
+%\makeatother
+
+ 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\title{Spectral Theory, Self-Adjoint Operators}  
+\author{John E.\ Hutchinson}
+\date{\today}
+
+\maketitle
+
+
+%\renewcommand*\l@subsection{\@tocline{4}{50em}{7em}{10em}{10em}}
+
+
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Definitions}}
+
+I follow mainly \cite{RN}.
+
+\medskip
+Let $ \mathcal{H} $ be a complex Hilbert space.
+
+Assume $  A:\mathcal{D}(A) \ (\subset \mathcal{H} ) \to \mathcal{H} $ with  $ A $ is a linear operator with domain $ \mathcal{D}(A) $ dense in $ \mathcal{H} $.
+
+\begin{enumerate}
+
+\item 
+$ A $ is \emph{closed} if $ f_n \to f $, $ (f_n)_{n\geq 1} \subset \mathcal{D}(A) $ and $ Af_n \to g $, imply $ f \in \mathcal{D}(A) $ and $ Af = g $.
+
+\item 
+ $ A $ is \emph{symmetric} if
+\[ 
+(Af,g) = (f, AG) \ \forall f,g \in \mathcal{D}(A).
+\]
+It follows that $ (Af,f) $ is real for all $ f \in \mathcal{D}(A) $.
+
+
+\item The \emph{adjoint} $ A^* $ of $ A$ is defined by 
+\begin{align*}
+\mathcal{D}(A^*) &= \{ g : \exists h \text{ s.t. } (Af,g) = (f,h) \ \forall f \in \mathcal{D}(A) \} ,\\
+   A^*g &= h \text{ for each such } g \in \mathcal{D}(A^*) .
+\end{align*}
+
+
+
+\item  If $ A $ is symmetric, then the adjoint $ A^* $   extends $ A $, written $ A\subset A^* $. 
+
+$ A$  is \emph{self-adjoint} if $ A = A^* $.   
+
+In particular,  $ A $ is symmetric, which implies $ A \subset A^*$.  But the point is that for $ A $ to be s.a., the adjoint extension is $ A $ itself.
+
+\end{enumerate} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Basics of bounded self-adjoint operators}}
+
+In this section,  all operators are \emph{bounded self-adjoint} and in particular  everywhere defined.
+
+\subsection{Bounds}  \label{secbd} Let
+\begin{align*}
+m &= \min \{ (Af,f) : \| f \| = 1 \}, \\
+M &= \max \{ (Af,f) : \| f \| = 1 \}.
+\end{align*}
+Then
+\[
+\| A \| = \max \{ |m|, |M| \},
+\]
+(easy, \cite{RN}*{p230}),
+
+
+\medskip By $ A \leq B $ for two s.a.\ operators is meant
+\[
+(Af,f) \leq (Bf,f)\ \forall f \in \mathcal{H} .
+\]
+Then
+\[
+m \| f \|^2 \leq (Af,f) \leq M \|f\|^2,\ \text{ i.e. } m I \leq A \leq MI .
+\]
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Monotone sequences of s.a.\ operators}\label{secms}
+If $ A_n $ are s.a.\ operators and 
+\[
+c_1 I \leq A_1 \leq A_2 \leq  \dots \leq c_2 I 
+\]
+then
+$ A_n \to A $ in norm (i.e.\ strongly) for some bounded s.a.\ $ A $, \cite{RN}*{p263}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Square root of s.a.\ operators}
+If $ \mathbb{O} \leq A $ is s.a.\ then arguing as for (2) below, $ \exists $ unique $ B =: A^{1/2} $ s.t.
+\begin{enumerate}
+
+\item $  \mathbb{O} \leq B $ is s.a.\ and $ B^2 = A $.
+\item $ B $ is the strong limit of polys  in $ A $.
+\item $ B $ commutes with all operators that commute with $ A $.
+\end{enumerate}
+See \cite{RN}*{pp 263--265}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Inverse of s.a.\ operators}
+Suppose 
+\[
+\mathbb{O} < m I \leq A \leq MI .
+\]
+Then if $ M < 2c $, $ \| I - cA \| < 1 $ and so
+\[
+A^{-1} = c \big(I-(I-cA)\big)^{-1} = cI + cI(I-cA) + c (I-cA)^2 +\cdots , \]
+with strong convergence.  Moreover,
+\[
+M^{-1}I \leq A \leq m^{-1}I .
+\]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Projections}}  See \cite{RN}*{pp 266--268}.
+
+\subsection{Basics}
+If $ M \subset \mathcal{H} $ is closed let $ P = P_M $ be the  (orthogonal) \emph{projection}%
+\footnote{All projections are orthogonal unless otherwise stated.} onto $ M $.
+
+That is, if $ f = g + h $ with $ g \in M $ and $ h \in  M^\perp $, then $ Pf = g $.
+
+\medskip
+It follows
+\begin{enumerate}
+
+\item $ P^2 = P $, $ P $ is s.a., $ P_{M^\perp} = I - P $.
+\item Conversely, if $ P ^2 = P $ and $ P $ is s.a.\  then $ P $ is an orthogonal projection.  (Note that $ \mathcal{R} (P) = \text{ker\,} (I-P) $ and so is closed)
+\item $ (Pf,f) = \| Pf\|^2 $.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Further properties}
+Suppose $ P_1 = P_{M_1} $ and $ P_2 = P_{M_2} $.  Then
+\begin{enumerate}
+
+\item $ P_1$ and $  P_2  $ commute implies $ P_1 P_2 = P_{M_1 \cap M_2 } $.
+\item $ P_1 P_2 = 0 $ implies
+\[
+P_2 P_1 = 0, \quad M_1 \cap M_2 = \{0\}, \quad M_1 \perp M_2, \quad P_1 + P_2 = P_{M_1 \oplus M_2}.
+\]
+\item $ P_1 $ and $ P_2 $ commute implies $ P_1 +P_2 - P-1 P_2 = P_{M_1 + M_2 } $.
+\item $ P_1 P_2 + P_2 $ iff $ P_1 \geq P_2 $ iff $ M_2 \subset M_1 $.
+In this case, $ P_1 - P_2 = P_{M_1 \cap M_2^\perp} $.
+\end{enumerate} 
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Functions of a bounded s.a.\ operator}}
+
+\subsection{Polynomials}  \label{secpo}
+Suppose $ A $  is bounded s.a.\ and $ mI \leq A \leq MI $.
+
+\medskip
+If $ p = p(\lambda) $ is a polynomial then \emph{$ p(A) $ is a well defined s.a.\ operator} and the correspondence $ p \to p(A) $ is 
+\begin{enumerate}
+
+\item \emph{linear};
+\item \emph{multiplicative};
+\item \emph{monotonic}, and in particular \emph{preserves positivity}:
+\[ p(\lambda) \leq q ( \lambda ) \text{ for } \lambda \in [m,M] \Longrightarrow p(A) \leq q(A) . \]
+\emph{Proof}:  Sufficient to show 
+\[ p(\lambda) \geq 0 \text{ if } \lambda \in [m,M] \Longrightarrow p(A) \geq 0 .\]
+
+But under this hypothesis, 
+\[
+p( \lambda ) = \prod_i(\lambda - a_i) \prod_j(b_j- \lambda )\prod_k \big( (\lambda - c_k)^2 + d_k^2\big)
+\]
+where $ p(\lambda ) = 0 $ for $\lambda = a_i < m $, $\lambda = b_j > M $, $ \lambda = c_k $ is a double root for $ m \leq c_k \leq M $ and then $ d_k = 0 $, or $ \lambda = c_k \pm d_k $ and then $ d_k \neq 0 $.
+ 
+Each of the factors is positive s.a.\ if $ \lambda $ is replaced by $ A $, and hence so is the product~$ p(A) $. 
+
+\item $ |p(\lambda) - q(\lambda ) | \leq \epsilon $ on $ [m,M] $ implies $ \|p(A) - q(A)\| \leq \epsilon $.
+
+\end{enumerate} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Larger classes of functions}
+
+\begin{enumerate}
+
+\item Suppose $ u $ is u.s.c., i.e.\  $ \limsup_{\mu\to \lambda} f(\mu) \leq f(\lambda) $.
+For example, $ u =  \mathcal{X}_I $ if $ I $ is a \emph{closed} interval.
+Then $ \exists $ polynomials $ 0 \leq p_n \downarrow u $  in $ [m,M] $.
+
+Hence $ c \leq p_n(A) \downarrow $ and so the  limit exists  by Section~\ref{secms}  and is denoted by $ u(A) $.
+
+\item Moreover $ cI \leq u(A) $ \emph{is s.a.} and independent of the sequence $ p_n $.  The \emph{analogous properties to those in Section~\ref{secpo}} are preserved.
+
+\item    \emph{If $ u=v $ on $ [m,M]$ then $ u(A) = v(A) $.} (From (4) in Section~~\ref{secpo}).)
+
+\item Similarly if $ u $ is the difference of two  u.s.c.\  functions then $ u(A) $ is well defined with analogous properties.  An example is $ u =  \mathcal{X}_I $ if $ I $ is   \emph{any} interval.
+
+
+
+\end{enumerate} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Spectral decomposition of bounded s.a.\ operators}}
+Assume $ A $ is a bounded s.a.\ operator with $ mI \leq A \leq MI $.
+
+\subsection{Associated projection maps}  For $ \lambda \in \mathbb{R} $ define 
+\[
+ e_\lambda  := \mathcal{X}_{(-\infty, \lambda ] },   \quad   E_ \lambda  := e_\lambda(A). 
+  \]
+Then $ E_\lambda $ is (bounded) s.a.\  operator 
+Moreover, \emph{$ E_\lambda $ is an orthogonal projection onto $ M_\lambda $}, say.
+
+\emph{Proof}: $ e_\lambda^2 = e_\lambda  $    and so $ E_\lambda^2 = E_ \lambda $. 
+
+\medskip  We often write $ E_{(-\infty, \lambda]} = E_\lambda$.
+More generally, for any interval $ I $, 
+\[
+e_I := \mathcal{X}_I, \quad  E_I := e_I(A) .
+\]
+Then again $ E_I : \mathcal{H} \to \mathcal{H} $ with range $ M_I $ (say) is a projection, since $ e_I^2 = e_I^2 $ and so $ E_I^2 = E_I $.
+
+Note that $ E_{(a,b]} = E_b - E_a $ since $ e_{(a,b]} = e_b - e_a $.   
+
+In this way $ E $ is an operator valued measure defined on Borel subsets of $ \mathbb{R} $ and    $ E_B =E(B)$ are orthogonal projections.
+
+\subsection{Approximate eigenspace and eigenvalue}  \label{secaee} Suppose $ I $ is an interval with endpoints $ \mu \pm\epsilon $.  Then
+\begin{gather*}
+( \mu - \epsilon )e_I( \lambda ) \leq \lambda e_I(\lambda) 
+                                          \leq (\mu + \epsilon ) e_I ( \lambda ) \ \forall \lambda  \\
+\therefore ( \mu - \epsilon )E_I  \leq A E_I 
+                                          \leq (\mu + \epsilon ) E_I 
+ \end{gather*}
+Hence $ \|AE_I - \mu E_I \| \leq \epsilon $ from Section~\ref{secbd}, and so 
+\begin{equation} \label{sest}
+\| A \phi - \mu \phi \| \leq \epsilon \|\phi\| \quad  \forall \phi \in \mathcal{M}_I.
+\end{equation}                                     
+For small $ \epsilon $ we can thus think of $ \mathcal{M}_I $ as an \emph{approximate ``eigenspace'' for $ A $ with ``approximate'' eigenvalue $\mu$}.
+
+\medskip
+Let $ m=\xi_0  < \xi_1  <  \xi_2 < \xi_3 < \dots < \xi_N =M $  be a partition of $ [m,M] $. Let $ I_1= [\xi_0, \xi_1 ] $ and $  I_n = (\xi_{n-1}, \xi_n ] $ for $ 1< n \leq N$.
+
+Then for $ \lambda \in [m,M] $ 
+\begin{align}
+1&= \sum_{n=1}^N e_{I_n} ( \lambda ) , \quad \lambda 
+        = \sum_{n=1}^N \lambda e_{I_n} ( \lambda ), \text{ and so}\\
+ I&= \sum_{n=1}^N E_{I_n}  , \quad A
+        = \sum_{n=1}^N A E_{I_n}  , \label{defI}
+        \end{align} 
+Then for $ f \in \mathcal{H} $, 
+\begin{align} 
+ f= \sum_{n=1}^N E_{I_n} f  = \sum_{n=1}^N (f,\phi_n) \phi_n, \label{idest}\\
+ Af =  \sum_{n=1}^N A E_{I_n}f \approx  \sum_{n=1}^N \xi_n  (f,\phi_n) \phi_n \label{frs} ,
+\end{align} 
+where $ \phi_n := E_{I_n}f / \|E_{I_n}f  \| $, and  in case $  E_{I_n}f = 0 $ then we \emph{drop} the corresponding term in the sum.  Note that the unit vector $ \phi_n $ must depend  on $ f $ unless   $ M_{I_n} $ is one dimensional.
+ 
+
+
+This gives an ``approximate'' spectral decomposition of $\mathcal{H} $ into orthogonal ``approximate'' eigenspaces $ \mathcal{M}_n = \mathcal{R} (E_{I_n})$ for $ A $, ``approximate'' unit eigenfunctions $\phi_n $  by the previous discussion,   and ``approximate'' eigenvalues $ \xi_n  $. 
+Note that   $ \phi_n $ depends on $ f $ unless   $ \mathcal{M}_n $ is one dimensional.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spectral Resolution}
+Suppose $ A $ and notation as in the previous section.  If $ |I_n| \leq \epsilon $ it follows from \eqref{sest}
+that 
+\begin{equation} \label{rsest} 
+\| A - \sum_{n=1}^N \lambda_n E_{I_n} \| \leq \epsilon ,
+\end{equation} 
+for any $ \lambda_n \in I_n $.
+
+From this and the first equation in \eqref{defI} one can pass to a Riemann Stieltjes limit to get
+\begin{gather*}
+I = \int_m^M   dE_\lambda , \quad  f = \int_m^M  dE_\lambda f \ \forall f \in \mathcal{H} ,
+\quad (f,g) = \int_m^M  d(E_\lambda f ,g)\ \forall f,g \in \mathcal{H} ,\\
+A = \int_m^M \lambda \, dE_\lambda , \quad Af = \int_m^M \lambda \, dE_\lambda f \ \forall f \in \mathcal{H} ,
+\quad (Af,g) = \int_m^M \lambda \, d(E_\lambda f ,g)\ \forall f,g \in \mathcal{H} ,
+\end{gather*}
+Here $ E $ can be considered as either an increasing, operator valued, distribution function $ \lambda \mapsto E_\lambda  =E_{(-\infty, \lambda ]} $ supported on $ [m,\infty ) $; or as an operator valued measure  supported on $ [m,M] $.  Likewise $ E_\lambda f $ is function valued distribution function or measure, and $ (E_\lambda f ,g)$ is a real distribution function or measure.
+
+\medskip
+Replace $ \lambda $ by $ \lambda ^r $ and $ A $ by $ A^r $ in \eqref{rsest}.  This is valid for $ r=0 $ by \eqref{idest} and for integers $ r\geq 1 $ from \eqref{rsest} because of the orthogonality of the $ E_{I_n}$.
+It follows that 
+\[
+u(A) = \int_m^M u(\lambda)\, dE_\lambda  
+\]
+for polynomials $u $, and hence for continuous functions $ u $ by an approximation argument.
+
+It follows tthat
+\[
+(u(A)f,g)  = \int_m^M u(\lambda)\, d(E_\lambda  f,g)
+\]
+because a similar fact is true for the approximating Riemann sums.  This gives \emph{uniqueness} of the function  $ 
+\lambda \mapsto (E_\lambda  f,g) $ and hence of $ E_\lambda $,  at points of continuity and hence everywhere by right continuity and density of continuity points.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Examples}
+For a \emph{compact symmetric s.a.\ operator} $ A $,  setting $ L_\phi f := (f,\phi) $,  one  has
+\[
+A = \sum_{n\geq 1} \lambda_n \phi_n L_{\phi_n}, \quad Af = \sum_{n \geq 1} \lambda_n(f,\phi_n) \phi_n,
+\quad (Af,g) = \sum_{n \geq 1} \lambda_n(f,\phi_n) \overline{(g,\phi_n)},
+\] 
+where $ (\phi_n)_{n\geq 1} $ is an orthonormal basis of $ \mathcal{H}  $ and the e-values $\lambda_n \to 0 $.
+
+ Writing $ E $ as a measure or a distribution function respectively, this corresponds to
+ \begin{align*}
+E &= \sum_n \delta_{\lambda_n} \phi_n L_{\phi_n}, 
+      \quad E_\lambda = \sum_{\lambda_n \leq \lambda} \phi_n L_{\phi_n}, \\
+Ef &= \sum_n \delta_{\lambda_n} \phi_n (f,\phi_n), 
+      \quad E_\lambda f = \sum_{\lambda_n \leq \lambda} \phi_n (f,\phi_n), \\
+(Ef,g) &= \sum_n \delta_{\lambda_n} (f,\phi_n) \overline{(g,\phi_n)}, 
+      \quad E_\lambda f = \sum_{\lambda_n \leq \lambda}  (f,\phi_n)   \overline{(g,\phi_n)}.
+\end{align*}
+
+
+
+
+\medskip For an example with continuous spectrum consider the multiplier case 
+\[
+\mathcal{H} = L^2(0,1), \quad (Af)(x) = x f(x),\quad \text{i.e. }  Af = mf,
+\]
+where $ m(x) =x $.
+
+It follows $ (A^r f)(x) = x^r f(x) $ for all integers $ r\geq 0 $ and so
+\[
+\big(u(A)f\big)(x) = u(x) f(x),
+\]
+for all polynomials $ u $, and hence for all continuous and semi continuous $ u $.
+
+In particular, $ (E_\lambda f)(x) = e_\lambda(x) f(x) $ where $ e_\lambda(x) = \mathcal{X}_{(-\infty, \lambda ]}$.
+Hence for \emph{fixed} $ x $, $  (E_\lambda f)(x) $ is the function of $ \lambda  $ which \emph{jumps} from $ 0 $ to $ f(x) $ at $ \lambda = x $.   Hence the measure $  dE_\lambda f(x) $ is the \emph{point measure} $ f(x) \delta _x (\lambda )$.
+
+Hence $ Af = \int_0^1 \lambda \, dE_\lambda f $ becomes
+\[  x f(x) = \int_0^1 \lambda \, d\big( f(x) \delta _x( \lambda )  \big), \]
+and the right side also directly gives $ x f(x) $.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{9} 
+
+
+
+\bib{RN}{book}{
+   author={Riesz, Frigyes},
+   author={Sz.-Nagy, B{\'e}la},
+   title={Functional analysis},
+   publisher={Dover Publications Inc.},
+   note={Translated from the second French edition by Leo F. Boron;
+   Reprint of the 1955 original},
+   date={1990},
+   pages={xii+504},
+}
+		
+
+
+
+\end{thebibliography}
+
+
+
+
+
+\end{document}
+
+

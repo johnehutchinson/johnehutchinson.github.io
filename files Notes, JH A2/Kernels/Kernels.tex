@@ -1,0 +1,1627 @@
+\documentclass[a4paper]{amsart}
+
+\usepackage{color}
+\usepackage[colorlinks=true, citecolor=red]{hyperref}  %needs to come before amsrefs package to work with \cite{}*{}
+\usepackage{amssymb,latexsym}
+\usepackage[alphabetic]{amsrefs}
+\usepackage[mathscr]{eucal}
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[all]{xy}
+\usepackage{titletoc}
+%\usepackage{txfonts}   %  \fint  for integral average
+
+%\usepackage{showkeys}  %options notref  notcite 
+
+%\input{rgb.tex}
+
+%\textcolor{DarkRed}{text in DarkRed}
+
+
+\CompileMatrices
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}%[section]
+
+
+\theoremstyle{remark}
+\newtheorem{defn}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{discussion}[theorem]{Discussion}
+
+%\numberwithin{equation}{section}
+
+%\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\expected}{\mathbb{E}}
+\DeclareMathOperator{\prb}{Prob}
+\DeclareMathOperator{\spt}{spt}
+\DeclareMathOperator{\lap}{\Delta}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\vol}{vol}
+
+\raggedbottom
+
+\addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm} 
+\addtolength{\topmargin}{-1cm} 
+\addtolength{\textheight}{2cm}
+
+ 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+%\title{Integral Kernels, Hilbert Schmidt, trace Class, and Mercer's theorem}  
+\title[Weyl Asymptotics and  Heat Kernels]{Weyl Asymptotics and  Heat Kernels. \\
+Tauberian theory, Integral Kernels, \\Hilbert Schmidt, trace Class, and Mercer's theorem.} 
+\author{John E.\ Hutchinson}
+\date{\today}
+
+\begin{abstract} 
+
+ 
+
+ 
+For kernels, trace class, Hilbert Schmidt operators and Mercer's theorem, see \cite{WikT}, \cite{Lax}*{p329}.\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Dirichlet and Neumann Problems}} \label{secdn}
+
+We recall some standard material.
+
+\bigskip Fix $ f \in L^2(\Omega) $.  Then $ u \in H_0^1(\Omega) $ is defined to be a weak solution of the \emph{Dirichlet problem}
+\begin{equation} \label{dir1} 
+\lap u  = f \text{ in } \Omega, \quad 
+u  = 0 \text{ on } \partial \Omega ,
+\end{equation} 
+if 
+\begin{equation} \label{dir2} 
+\int Du \, Dv = -\int _{\Omega} fv \quad \forall v \in H_0^1(\Omega).
+\end{equation} 
+If $ u $ and $ f $ are smooth, it follows from integration by parts and   the boundary condition, that this is equivalent to the classical notion in \eqref{dir1}.
+
+\bigskip Since 
+\[
+\left| \int _{\Omega} fv \right| \leq \| f \|_{L^2} \|v\|_{L^2} \leq c \|f\|_{L^2} \|v\|_{H_0^1},
+\]
+it follows that $ v \mapsto \int fv $ is a bounded linear functional on $ H_0^1 $, and so by the Riesz representation theorem \emph{there exists a unique solution of \eqref{dir2} and hence of \eqref{dir1}}.
+
+ We write $ u = \lap^{-1} f $, where $ \lap^{-1} : L^2 \to H_0^1\hookrightarrow L^2 $ is the ``inverse of the Dirichlet Laplacian''.
+ 
+ \bigskip  Since $ H_0^1\hookrightarrow L^2 $ is compact it follows $  \lap^{-1} : L^2 \to   L^2 $ is bounded and compact.  From \eqref{dir2} it follows that  $ \lap^{-1} $ is symmetric w.r.t.\ the $ L^2 $ inner product.  From \eqref{dir2} and Poincare's inequality it follows that $ \lap^{-1} $ is 
+ positive definite.
+ 
+ It follows from the spectral theory for compact bounded self adjoint operators, applied to $ \lap^{-1} $, that there exist eigenvalues $ 0 < \lambda _1 \leq \lambda _2 \leq \lambda _3 \cdots$ and corresponding eigenfunctions $ \phi_n \in H_0^1 \subset L^2 $ for $ \lap $.  
+ That is
+ \[
+ \lap \phi_n = - \lambda _n \phi_n .
+ \]
+  It also follows that (after normalisation),   $( \phi_n ) $ is a complete orthonormal basis for  $ L^2 $.  
+ 
+ \bigskip It follows from standard regularity theory \cite{Eva}*{Remark on p 335} that the $ \phi_n $ are $ C^\infty $ if $ \partial \Omega $ is $ C^\infty $.  In particular, $ \phi_n = 0 $ on $ \partial \Omega $ since $ \phi_n \in H_0^1 $.
+ 
+ \bigskip It follows from the variational characterisation of eigenvalues that $ \lambda _1 < \lambda _2 $, see \cite{Eva}*{Theorem 2, p 336}.   
+ 
+ \bigskip Using \eqref{dir2},
+\[
+ \int D\phi_n D\phi_m  = \lambda _n \int \phi_n \phi_m = \delta _{nm},   \quad  \int | D\phi_n|^2  \geq c \int |\phi_n|^2 >0,
+ \]
+Hence $ (\lambda _n^{-1/2} \phi_n)$ is an orthonormal basis for $ H_0^1 $.
+ 
+\bigskip \bigskip
+
+Fix $ f \in L^2 (\Omega) $.  Then $ h \in H_1(\Omega) $ is said to be a weak solution of the \emph{Neumann problem}  
+\begin{equation} \label{neu1} 
+\lap u  = f \text{ in } \Omega, \quad 
+\frac{\partial u} {\partial \nu}  = 0 \text{ on } \partial \Omega ,
+\end{equation} 
+if 
+\begin{equation} \label{neu2} 
+\int _{\Omega} Du \, Dv = -\int _{\Omega} fv \quad \forall v \in H ^1(\Omega).
+\end{equation} 
+(Note $v \in H ^1(\Omega)$, no boundary conditions are imposed.) If $ u $ and $ f $ are smooth, it follows from integration by parts, standard regularity theory  and   the boundary condition, that this is equivalent to the classical notion in \eqref{neu1}.
+
+If there \emph{is} a solution of \eqref{neu2}, setting $ v=1 $ implies $ \int f = 0 $.  Under this assumption and working in the space $\L^2 := \{ f \in  L^2 : \int f = 0 \} $, it follows as before that 
+\emph{there exists a unique solution $ u \in \L^2 $ of \eqref{neu2} and hence of \eqref{neu1}}.  
+  
+  We write $ u = \lap^{-1} f $, where now $ \lap^{-1} : \L^2 \to H^1\cap \{ f : \int f = 0 \} \hookrightarrow \L^2 $ is the ``inverse of the \emph{Neumann} Laplacian''.
+ Again similarly to before, $  \lap^{-1} : \L^2 \to   \L^2 $ is compact, symmetric w.r.t.\ the $ L^2 $ inner product, and  positive definite on $ \L^2 $.
+ 
+Also, there exist eigenvalues $ 0 < \gamma  _1 \leq \gamma  _2 \leq \gamma  _3 \cdots$ and corresponding eigenfunctions $ \psi_n \in H ^1\cap \{ f : \int f = 0 \}  \subset \L^2 $. That is
+ \[
+ \lap \psi_n = - \gamma  _n \psi_n .
+ \]
+ (The   constant eigenfunctions are not in $ \L^2 $ except for the zero function.)
+After normalisation,   $( \psi_n ) $ is a complete orthonormal basis for  $ \L^2 $.   
+
+ \bigskip It follows from standard regularity theory  that the $ \psi_n $ are $ C^\infty $ if $ \partial \Omega $ is $ C^\infty $.  In particular, 
+ $ \dfrac{\partial u} {\partial \nu} = 0 $ on $ \partial \Omega $.
+   
+ \bigskip   Using \eqref{neu2},
+\[
+ \int D\psi_n D\psi_m  = \gamma  _n \int \psi_n \psi_m = \delta _{nm} ,   \quad  \int | D\psi_n|^2  \geq c \int |\psi_n|^2 >0.
+ \]
+Hence $ (\gamma  _n^{-1/2} \psi_n)$ is an orthonormal basis for $ H ^1 \cap \{ f : \int f = 0 \} $.
+
+ \begin{example} \mbox{}
+ \begin{enumerate}
+ \item  The usual Fourier orthonormal basis for $ L^2(-\pi, \pi) $ is 
+ \[
+ \frac{1}{\sqrt{2\pi}},\   \frac{1}{\sqrt{\pi}}\cos nx ,\   \frac{1}{\sqrt{\pi}}\sin nx \quad (n\geq 1).
+ \]
+They are the pointwise solutions of $ \lap \phi = \lambda \phi $ on $ [-\pi.\pi] $ for some   $ \lambda $, i.e.\ the trigonometric functions,  which satisfy $ \phi(-\pi) = \phi(\pi) $.
+ 
+They is obtained by working with the Laplacian on the compact manifold $ S^1 $ essentially as before but with no boundary restrictions. Or equivalently by working with  the space of $ 2\pi $-periodic functions.
+
+
+
+ 
+ \item Testing $  \cos \alpha x $ and $ \sin \alpha x $ for the Dirichlet boundary condition gives the following orthonormal basis 
+for $ L^2(-\pi, \pi) $:
+\[
+  \frac{1}{\sqrt{\pi}}\cos (n- 1/2) x ,\   \frac{1}{\sqrt{\pi}}\sin nx \quad (n\geq 1).
+ \]
+ They are the pointwise solutions of $ \lap \phi = \lambda \phi $ on $ [-\pi.\pi] $, i.e.\ the trigonometric functions,  which satisfy $ \phi(-\pi) = \phi(\pi) =0$.
+ 
+ \item Testing $  \cos \alpha x $ and $ \sin \alpha x $ for the Neumann boundary condition gives the following orthonormal basis 
+for $ \L^2(-\pi, \pi) $:
+\[
+  \frac{1}{\sqrt{\pi}}\cos n x ,\   \frac{1}{\sqrt{\pi}}\sin (n- 1/2) x \quad (n\geq 1).
+ \]
+Adding the constant function $ 1/\sqrt{2\pi} $ gives the orthonormal basis 
+\[
+ \frac{1}{\sqrt{2\pi}},\   \frac{1}{\sqrt{\pi}}\cos n x ,\   \frac{1}{\sqrt{\pi}}\sin (n- 1/2) x \quad (n\geq 1).
+ \]
+for  $ L^2(-\pi, \pi) $.
+ They are the pointwise solutions of $ \lap \phi = \lambda \phi $ on $ [-\pi.\pi] $, i.e.\ the trigonometric functions,  which satisfy $ \phi'(-\pi) = \phi'(\pi) =0$.
+  \end{enumerate}
+ \end{example} 
+ 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Heat Equation Basics in $ \mathbb{R}^n $}} \label{hefs}
+
+\emph{See \cite{Bas}.  For a very nice treatment of some of the following with  $ \Omega \subset \mathbb{R}^d  $ see ~\cite{Dod}.  }
+ 
+\subsection{Heat Equation}
+ Consider the heat equation either on a bounded domain $ \Omega \subset \mathbb{R}^n $, in particular $ (0,L)\subset \mathbb{R} $, or a compact Riemannian manifold $ (M,g) $.
+ 
+For $ \Omega $,   
+\[
+\lap = \frac{\partial^2}{\partial x_1^2} + \dots +  \frac{\partial^2}{\partial x_1^2} .
+\]
+
+For $ M $, 
+\[
+\lap = \frac{1}{\sqrt{g}} \frac{\partial}{\partial x_i}  \left( g^{ij} \sqrt{g}  \frac{\partial}{\partial x_j} \right).
+\]
+
+Thus we take the usual negative laplacian in either case.
+
+
+
+
+
+
+\bigskip
+The \emph{heat equation} for $ u = u(t,x) $ is 
+\begin{equation} \label{idp}
+\begin{aligned}
+\partial_t u  &= \lap u \quad t >0,  \ x \in \Omega \text{ or } M,\\
+  u(0,x) &= f(x)\quad  \text{(initial condition)}.
+\end{aligned} 
+\end{equation} 
+In the case of $ \Omega $ for the Dirichlet problem, zero boundary condition $ u(x,t) = 0 $ for $ x \in \partial \Omega $.  For $ M $ and for the Neumann problem on $ \Omega $ (see Section~\ref{secdn}) no boundary conditions are imposed, except that one can assume $ \int u(0,x ) \, dx =0 $ --- this condition is preserved under the flow.    
+ 
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fundamental Solution}
+The \emph{fundamental solution} is written $ H = H(t,x,y) $ and is uniquely characterised by%
+ \footnote{See \cite{Eva}*{pp46, 47} for a discussion of this in the case $ \Omega = \mathbb{R}^n $.} 
+\begin{align}
+ \partial_ t H(t,x,y) &= \lap_x H(t,x,y), \ t>0,   \ x,y \in \Omega\, (M),\\
+ H(0,x,y) &= \delta_y(x),\ \text{ (i.e.\  $ H(t ,\cdot ,y) \to \delta_y $ as $ t \to 0 $).}\label{ibc}
+ \end{align}
+In the case of $ \Omega $, $ H(t,x,y)  $  is also required to satisfy the relevant boundary condition, which in the Dirichlet case is 
+\begin{equation} \label{dbc}
+H(t,x,y) = 0 \text{ if }  t >0 ,\ y \in  \Omega ,\  x \in \partial \Omega.
+\end{equation}  
+
+ \emph{The motivation is that  $  H(t,x,y)  $ is the solution at time $ t $ and place $ x $ with initial condition $ \delta_y $} (a ``unit pulse'' at $ y $) applied at time $ 0 $.
+
+It follows from regularity theory that $ H $ is smooth for $ t>0 $.  
+
+It follows from Proposition~\ref{repgf} that $ H(t,x,y) = H(t,y,x) $. 
+
+ It follows from  \eqref{ics} that 
+\[
+H(t+s,x,y) = \int H(t,x,z) \, H(s,z,y)\, dz.
+\]
+The condition \eqref{ibc} says
+\[
+\lim_{t\to 0+} \int_{\Omega} H(t,x,y)\, f(y)\, dy = f(x),
+\]
+uniformly for $ f\in C(\overline{\Omega}) $ and $ f=0 $ on $ \partial \Omega $.
+
+\medskip Given an initial condition $ f(x) $ it follows that
+\begin{equation} \label{ics} 
+u(t,x,y) = \int  H(t,x,y) \, f(y)\, dy .
+\end{equation} 
+Thus we can regard $ H $ as a linear operator from an appropriate space of functions over $ \Omega $  ($ M $) into a space of functions over $   \Omega $  ($ M $) for each $ t > 0 $, or into a space of functions over $ \mathbb{R} ^+ \times \Omega $ ($ \mathbb{R} ^+ \times M $).
+
+\bigskip
+\noindent \emph{Example:} (See \cite{Ful}.) The heat kernel for the interval $ [0,L] $ is 
+\begin{equation} \label{hkint} 
+H(t,x,y) = \frac{1}{\sqrt{4\pi t} }\sum_{n=-\infty}^\infty \left( e^{-(x-y+2nL)^2 /4t} \pm  e^{-(x+y+2nL)^2 /4t} \right).
+\end{equation} 
+where ``$ + $'' corresponds to the Neumann problem and ``$ - $'' to the Dirichlet problem.  This can be shown by the ``method of images''. 
+
+Note also that
+\begin{align*} 
+\int_0^L H(t,x,x)\, dx   &= \frac{1}{\sqrt{4\pi t} }\left( \int_0^L \left( 1  \pm e^{-x^2/t} \pm e^{-(x-L)^2/t} \right) + O(t) \right) \\
+&=  \frac{L}{\sqrt{4\pi t} } \pm \frac{1}{2} +O(t^{1/2}).
+\end{align*}
+Thus from the short term asymptotics one can read off the length and the type of boundary condition. 
+
+\bigskip  The \emph{probabilistic interpretation} of $ H $ is that for each $ y\in \Omega \, (M) $ and $ t>0 $, $ H(t,x,y)  $ is the probability  density for  a Brownian particle at $ y $ at time $  0 $ to move  to $ x $ at time $ t $. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Duhamel's Principle} This allows us to solve the initial value problem \eqref{idp} with a forcing term, that is to solve
+\begin{equation} \label{}
+\begin{aligned}
+\partial_t u(t,x)  &= \lap_x u(t,x)  + g(t,x) \quad t>0,  \ x \in \Omega \text{ or } M,\\
+  u(0,x) &= f(x)\quad  \text{(initial condition)}.
+\end{aligned} 
+\end{equation} 
+The idea is to treat the contribution due to the forcing term  up to time $ t $ as a ``sum'' (i.e.\ integral) of initial data terms of the form $ g(s,y) \, ds $ in the time interval $ [s, s+ ds] $.  Thus we conjecture the solution is
+\begin{equation} \label{} 
+u(t,x) = \int_{\Omega} H(t,x,y)\, f(y)\, dy     + \int_0^t\int_{\Omega} H(t-s,x,y)\, g(s,y)\, dy\, ds.
+\end{equation} 
+
+To see this formally we compute for $ t> 0 $ and smooth data  that 
+\begin{equation} \label{duh}
+\begin{aligned} 
+\partial_t u(t,x) - \lap_x u(t,x) &=
+ \int_{\Omega}  ( \partial _t - \lap _x) H(t,x,y) \, f(y) \, dy    + \int_{\Omega} H(0,x,y) \, g(t,y)\, dy \\
+& \qquad  + \int_0^t \int_{\Omega} (\partial _t - \lap_x ) H(t-s,x,y)\, g(s,y)\, dy\, ds \\
+ &= 0+g(t,x) + 0 = g(t,x).
+ \end{aligned}
+ \end{equation}  
+The initial condition is satisfied as before.
+
+\bigskip \emph{This idea is also used in constructing a parametrix}, see pages~\pageref{ppar} ff.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Semigroup Approach and Eignefunction Expansion for Heat Kernel} (See also Section~\ref{sgt}.) Thinking of the heat equation \eqref{idp} as an ODE on the space $ H^1_0(\Omega) $, \emph{we write $ e^{t \lap} $ for the integral operator $ H $} and $ e^{t \lap} f(x) $ for the solution to \eqref{idp}.  This is motivated by the fact that the solution of the O.D.E. 
+\[
+\frac{ d}{dt}x(t) = L x, \quad x(0) = x_0,  
+\]
+where $ x(t) \in \mathbb{R}^d  $ and $ L: \mathbb{R}^d  \to \mathbb{R}^d  $ is   linear, is given by
+\[
+x(t)=e^{tL} x_0 := \left( \sum_{n\geq 0} \frac{1}{n!}(tL)^n \right) x_0.
+\]
+
+ 
+Let the eigenvalues and eigenfunctions of $ \lap $ be $ \lambda _n $ and $ \phi_n $ for $ n \geq 1 $. They are the smooth pointwise solutions of $  \lap \phi = -\lambda \phi $, which  in the case of $ \Omega $ 
+ also  satisfy  the   boundary conditions in \eqref{dir2} or \eqref{neu2}.
+
+  
+  \begin{proposition}  \label{repgf} The fundamental solution is given by the integral operator whose kernel is  $ \sum_n e^{-t\lambda _n} \phi_n(x) \phi_n(y)$.  That is, 
+\begin{equation} \label{}
+   e^{t\lap} := H(t,x,y) = \sum_n e^{-t\lambda _n} \phi_n(x) \phi_n(y).
+\end{equation} 
+\end{proposition}
+
+\begin{proof} 
+ \begin{align*} 
+( \partial_t - \lap_x) H(t,x,y) &=
+( \partial_t - \lap_x)  \sum_n e^{-t\lambda _n} \phi_n(x) \phi_n(y)\\
+&=   \sum_n (- \lambda _n + \lambda _ n) e^{-t\lambda _n} \phi_n(x) \phi_n(y) = 0, 
+\end{align*} 
+and
+\begin{align*} 
+u(t,x) := \int H(t,x,y) f(y)\, dy &= \int \sum_n e^{-t\lambda _n} \phi_n(x) \phi_n(y) f(y)\, dy \\
+&= \sum_n e^{-t\lambda _n} a_n \phi_n(x)   \quad \text{where } a_n := (f,\phi_n) \\
+&\to \sum_n a_n \phi_n(x) = f(x) \quad \text{in the $ L^2 $ sense as $ t \to 0 $,} 
+\end{align*} 
+if  for example $ \sum_n \lambda _n^2 a_n^2 < \infty $, since then
+\[
+\sum_n \left|  e^{-t\lambda _n} -1 \right|^2 a_n^2 \leq \sum_n t^2 \lambda _n^2 a_n^2 \to 0 \text{ as } t \to 0.
+\]
+\end{proof}
+
+
+Note that  the initial data $u(0,x) =  f(x) = \sum_n a_n \phi _n(x) $ evolves according to  
+\begin{equation} \label{tev}
+ u(t,x) =  \sum_n e^{-t\lambda _n} a_n \phi_n(x)  .
+\end{equation} 
+This justifies the notation $ u(t,x) = e^{t \lap} f(x) $. 
+
+
+
+ 
+\begin{proposition} For $ t > 0 $, $ e^{t\lap} $ is trace class and $ \Tr e^{t\lap} = \sum_n e^{-t \lambda _n } $.
+\end{proposition}
+
+\begin{proof}
+Note that the eigenvalues are $ e^{-t \lambda _n } $ from the last line in the previous proof.  Or  note that 
+\begin{equation} \label{stev} 
+ \int_M H(t,x,x)\, dx  = \sum_n e^{-t \lambda _n }  
+\end{equation} 
+ from the previous proposition.
+ \end{proof} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Semigroup Theory}} \label{sgt}
+This summarises the results in ~\cite{Eva}*{Section 7.4}.
+
+\subsection{Reinterpreting the Heat Equation}
+Consider the Dirichlet problem in \eqref{idp} and    rewrite it as
+\begin{equation} \label{sgd}
+\begin{aligned}
+\frac{d}{dt}u (t)    &= \lap u(t), \\
+u(0) &= f,
+\end{aligned}
+\end{equation}
+which we will now interpret as  an ODE in the function space $ L^2 $.
+ 
+We    make this more precise as follows.
+
+\bigskip
+First note the following properties of $ \lap $.
+
+\begin{enumerate}
+\item The domain of $ \lap $ is $ \mathcal{D} (\lap) := H^1_0 \cap H^2 $, which is \emph{dense in $ L^2 $}.
+ 
+\item $ \lap $ is \emph{closed}.  That is
+\begin{gather*}
+u_k \in \mathcal{D} (\lap), \ u_k \to u \ \& \ \lap u_k \to f \text{ in } L^2 , \\
+\Longrightarrow u \in \mathcal{D} (A) \ \& \ f= \lap u  .
+\end{gather*}
+In fact $ u_k \to u $ in $ H^2 $ under these hypotheses. 
+To see this use the easy regularity result 
+\[
+\| u_k - u_\ell \| _{H^2} \leq c \|\lap u_k - \lap u_\ell \|_{L^2} + c \|u_k - u_\ell \|_{L^2}.
+\]
+It follows $ (u_k)$  is Cauchy in $ H^2 $. Hence $ u_k \to u $ in $ H^2 $, and so $ u \in \mathcal{D} (\lap ) $ and $ \lap u = f $.
+
+\item If $ \lambda \geq 0 $ then $ \lambda - \lap $ is invertible with domain $ L^2 $ and $ \|(\lambda  - \lap )^{-1} \| \leq 1/ \lambda $.  
+
+The invertibility is standard and the estimate comes from the fact $ (\lambda  - \lap ) u = f $ implies, using the $ L^2 $ inner product and norm,
+\[
+( \lambda u , u ) + ( Du,Du) = (f,u)
+\] 
+and so 
+\[
+\lambda \|u\|_{L^2} \leq \|f \|\, \|u\|,
+\]
+which gives the result.
+  \end{enumerate} 
+ 
+\bigskip  It   follows that the hypotheses of the Hille Yosida theorem are satisfied, see Theorem~\ref{HL}.  This gives the existence and uniqueness of a solution 
+\begin{equation} \label{} 
+ u(t,x) = e^{ t \lap } f (x),
+\end{equation} 
+via the semigroup $ e^{ t \lap }  $ as discussed in the following.
+
+\bigskip \noindent \emph{Regularity}:  Proposition~\ref{dsg} together with the fact the hypotheses of the Hille Yosida theorem are satisfied, shows that if $ f \in H^1_0 \cap H^2  $ then the same is true for the solution $ u(t,\cdot) $ with $ t>0 $.  
+
+But much more is true.  In particular, if $ f\in L^2 $ then $ u (t,\cdot) $ is $ C^\infty $ for $ t > 0 $.  See \cite{Ber}, in particular Proposition 3.2 (smoothing effect) p 29, Remark 3.13 p34 and Remark 2.5 p 16.
+
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Contractive Semigroups}  In this section $ X $  is a real Banach space, namely $ L^2 (\Omega)$ for us.
+
+\begin{definition}  A family $(S(t) =S_t )_{t \geq 0 } $ of bounded linear operators $ S(t)\in \mathcal{B} (X) $ is a \emph{contractive semigroup} if for   $ u \in X $ and $ t_1,t_2 \geq 0 $: 
+\begin{enumerate}
+\item $ S_0   f  = f $; 
+\item $ S_{t_1+t_2} f  = S_{t_1} S_{t_2} f = S_{t_2} S_{t_1} f $;
+\item $ t \mapsto S_t f $ is continuous from $ [0,\infty ) $ into $ X $;
+\item $ \|S_t f \| \leq \| f \|$.
+ \end{enumerate} 
+\end{definition}  
+ We can think of $ S_t $ as generating a nice flow on $ L^2 $. 
+ 
+ But we   have yet to invoke a generator $A $, which for us will be $\lap $. 
+ 
+ 
+ 
+\begin{definition} We say that $ A $ is the \emph{infinitesimal generator} of the contractive semigroup   $ (S_t)_{t\geq 0} $ if 
+\[
+Au = \lim_{t\to 0^+} \frac{S_t u - u}{t},
+\]
+in the sense that the domain $ \mathcal{D} (A) $ of $ A $ is the set of $ u $ for which the limit exists, and in this case $ Au $ is as shown. 
+ \end{definition} 
+It is clear that $ A $ exists and is unique. 
+
+\bigskip
+The following differential properties are analogous to the case $ S_t = e^{tA} $  where $ A $ is a linear transformation in $ \mathbb{R}^n $.
+ 
+ 
+ \begin{proposition} \label{dsg} Suppose $ A $ is the infinitesimal generator of the contractive semigroup   $ (S_t)_{t\geq 0} $.  Assume $ u \in \mathcal{D} (A) $.
+ Then
+ \begin{enumerate}
+ \item  $ S_t u \in \mathcal{D} (A) $ for $ t \geq 0 $.
+ \item $ A S_t u = S_t A u $ for $ t \geq 0 $.
+ \item $ \frac{d}{dt} S_t u = A S_t u $, and in particular $ t\mapsto S_t u $ is $ C^1 $ in $ (0,\infty) $.
+ \end{enumerate}
+ \end{proposition} 
+ The proofs are straightforward, see \cite{Eva}*{p415}. 
+ 
+In analogy with the finite dimensional case we write
+\begin{equation} \label{} 
+ S_t = e^{tA}.
+\end{equation} 
+ 
+ \begin{proposition}  Suppose $ A $ is the infinitesimal generator of the contractive semigroup   $ (S_t)_{t\geq 0} $.  Then $ \mathcal{D} (A) $ is dense in $ X $ and $ A $ is closed.
+ \end{proposition}
+ 
+ \begin{proof}  Fix $ f \in X $ and let%
+ \footnote{Here we are using integration of Banach space valued functions, see \cite{Eva}*{pp649,670}.
+}
+ \[
+ u_t = \int_0^t S_s f \, ds.
+ \]
+ It is straightforward to check by the semigroup properties that $ u_t \in \mathcal{D} (A) $ and $ Au_t = S_t f - f $.
+Using $ u_t/t \to f $ as $ t\to 0^+ $, density follows. 
+
+\medskip To prove closedness suppose $ u_k \to u $ and $ Au_k \to f $.
+By Proposition~\ref{dsg} 
+\[  
+S_t u_k - u_k = \int _0^t S_s A u_k\, ds.
+\]
+Letting $ k \to \infty$,
+\[  
+S_t u  - u  = \int _0^t S_s f\, ds.
+\]
+Hence 
+\[
+\lim_{t\to 0^+} \frac{S_t u - u}{t} = f,
+\]
+and so $ u \in \mathcal{D} (A) $ and $ f = Au $.
+\end{proof}  
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Resolvents} 
+
+\begin{definition} The \emph{resolvent set} $ \rho(A) $ is the set of   real numbers $\lambda  $  such that 
+$ \lambda -A : \mathcal{D} (A) \to X $ is one to one and onto.  Equivalently, the \emph{resolvent operator}
+\begin{equation} \label{} 
+R_ \lambda  := ( \lambda - A )^{-1} :X \to X 
+\end{equation}
+ is well defined.
+ \end{definition}
+ 
+ It is straightforward to check that $ R_ \lambda $ is closed and hence bounded by the closed graph theorem.
+ 
+ \begin{proposition}%
+ \footnote{For a ``bare hands'' approach to the last claim in the case of the heat equation we follow  \cite{Eva}*{Example 4, \S 4.3.2}.
+ 
+ \smallskip 
+The \emph{Laplace transform}   of  $ u \in L^1 [0,\infty) $  is 
+ \[
+ u^{\#} ( \lambda, t) := \int_0^\infty e^{- \lambda  t } u(t)\, dt  \text{ for } \lambda \geq 0 .
+ \]
+ 
+ Suppose 
+\begin{align*} 
+ \partial_t u (t,x) &= \lap u (t,x) \quad t>0,\ x \in \Omega, \\
+   u(0,x) &= f(x).
+   \end{align*} 
+   Then 
+\[
+   \lap_x u^{\#} ( \lambda , x)  =  \int_0^\infty  e^{- \lambda  t } \partial_t u(t,x)\, dt 
+ = \lambda \int_0^\infty e^{- \lambda  t } u(t,x)\, dt  - f(x).
+\]
+ 
+That is, \emph{the solution of the  resolvent equation 
+\[
+(\lambda  - \lap)  v(x) = f(x),
+\]
+is the Laplace transform of the solution of the original problem with initial data $ f $.}
+}
+ 
+ 
+ Suppose $   \lambda, \mu \in \rho(A) $.  Then:
+ \begin{enumerate}
+ \item $ A R_ \lambda u = R_ \lambda A u $ for $ u \in \mathcal{D} (A) $.
+ \item $ R_ \lambda - R _ \mu = ( \mu - \lambda ) R_ \mu R_ \lambda $   (resolvent identity).
+ \item $ R_ \lambda - R_ \mu = R_ \mu R_ \lambda $.
+ \item $ R_ \lambda f = \int_0^\infty e^{- \lambda t } S_t f \, dt $  for $ f \in X $  (the resolvent operator   is the Laplace transform of the semigroup).
+  It follows $ \|R_ \lambda \| \leq  \lambda ^{-1} $.
+ \end{enumerate} 
+ \end{proposition} 
+ 
+ \begin{proof} The first 3 parts are straightforward computations, see \cite{Eva}*{p417}.  
+ 
+ For the last part let
+ \[
+  \widetilde{R}_ \lambda f = \int_0^\infty e^{- \lambda t } S_t f \, dt .
+  \]
+The integral is well defined as $ \|S_t\| \leq 1 $.  First we show 
+ \begin{align} 
+ & ( \lambda - A )  \widetilde{R}_ \lambda  f  = f , \label{osi} \\
+   \text{i.e.\ } \quad &A  \widetilde{R}_ \lambda  f  = -f + \lambda  \widetilde{R}_ \lambda  f, \notag\\
+   \text{i.e.\ }\quad & \lim_{h\to 0^+} \frac{S_h \widetilde{R}_ \lambda  f - \widetilde{R}_ \lambda  f}{h}
+             = -f + \lambda  \widetilde{R}_ \lambda  f.\notag
+\end{align} 
+  This is checked by direct computation.
+  
+  But $ A  \widetilde{R}_ \lambda u =  \widetilde{R}_ \lambda A u $ for $ a \in \mathcal{D} (A) $ from the closedness of $A  $.  It follows 
+ \begin{equation} \label{otsi} 
+   \widetilde{R}_ \lambda  ( \lambda - A )  u = u 
+ \end{equation} 
+ for $ u \in \mathcal{D} (A) $.  
+ 
+ From \eqref{osi} and \eqref{otsi} it follows that $  \widetilde{R}_ \lambda  = ( \lambda - A)^{-1} = R_ \lambda $.
+    \end{proof} 
+ 
+  
+  %%%%%%%%%%%%
+  \subsection{Generating contractive semigroups} 
+  
+  \begin{theorem}[Hille-Yosida theorem] \label{HL} Let $ A $ be a closed and densely defined operator on the Banach space $ X $.  Then $ A $ is the generator of a contraction semigroup iff
+\begin{align*} 
+&\lambda  - A : \mathcal{D} \to X \text{ is one-one and onto, i.e.\ } \lambda \in \rho(A), \\
+& \|  R_ \lambda \| \leq \frac{1}{\lambda  } \text{ for } \lambda  > 0 .
+\end{align*}
+  \end{theorem}  
+ 
+  \begin{proof}[Proof Outline]  Let 
+  \[
+  A_ \lambda = - \lambda + \lambda ^2 R_ \lambda = \lambda A R_ \lambda = A( I - \lambda ^{-1} A)^{-1}.
+  \]
+   One first  checks that 
+   \[
+   A_ \lambda u  \to A u \text{ as } \lambda \to \infty, \text{ for } u \in \mathcal{D} (A) .
+   \]
+   
+ Next let 
+ \[
+ S_{ \lambda } (t) := e^{ t A_ \lambda } = e^{- \lambda t} \sum_{ k \geq 0} \frac{ ( \lambda ^2 t ) ^k} { k !} R_ \lambda ^k .
+ \]
+  Then $ \| S_ \lambda (t) \| \leq 1 $ essentially since $ \| R_ \lambda \| \leq  \lambda ^{-1} $.
+  
+  Using 
+  \[
+  \frac{ d } { dt } S_ \lambda (t) u = A_ \lambda S_ \lambda (t) u = S_ \lambda (t) A_ \lambda u, \]
+  it follows that 
+  \[
+  \| S_ \lambda (t) u - S_ \mu (t) u \| \leq	  t \| A_ \lambda u - A_ \mu  u \| \to 0 \text{ as } \lambda ,\mu \to \infty .
+  \]
+Hence   
+$ 
+S(t) u := \lim_ {\lambda \to \infty } u 
+$ 
+exists  for $ t \geq 0 $ and $ u \in \mathcal{D} ( A ) $.  
+  
+  
+It also follows that $ S(t) $ is a contraction semigroup.
+
+By a limiting argument, one shows that $ A $ is the generator of $ S(t) $.
+    \end{proof}
+ 
+
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Weyl's Formula}} 
+
+\subsection{The Formula and Consequences}
+\begin{theorem}
+For a compact $ d$-dimensional Riemannian manifold $ M $,% 
+\footnote{$ f(t)\sim g(t) $   means $ \lim_t f(t)/g(t) =1 $, where $ t\to 0 $ or $ t\to \infty $ etc.\  as will be clear from context.}
+\begin{equation} \label{wyf} 
+\sum_n e^{-t \lambda _ n }= \int _M H(t,x,x)\, dx  \sim \frac{\vol(M)} {(4\pi)^{d/2}}\, t^{-d/2} \text{ as } t\to 0^+  .
+\end{equation} 
+\end{theorem} 
+
+\begin{proof}
+The equality follows from \eqref{stev}. The asymptotic equivalence follows from \eqref{gamm}. Using this,
+\[
+ \int _M H(t,x,x)\, dx   \sim \int_M \frac{1}{(4\pi t)^{d/2}} = \frac{\vol (M)}{(4\pi t)^{d/2}} .
+\]
+
+\end{proof} 
+
+
+
+
+The point is that \emph{the spectrum  of the Laplacian, or equivalently by  \eqref{stev} the  short term asymptotics of the heat kernel,  determine the dimension and (more surprisingly) the volume of the manifold}.   (In fact much more geometry is determined from this data.) 
+
+Let $ N( \lambda ) $ be the number of eigenvalues $ \leq \lambda $, or equivalently let $ dN $ denote the discrete measure with unit mass at each $ \lambda _ n $.  Then we can write
+\[
+ \sum_n e^{-t \lambda _ n } = \int e^{-\lambda t} \, dN( \lambda ) . 
+ \]
+   By the Tauberian theorem~\ref{tath},  it then follows that \eqref{wyf} is equivalent to 
+\begin{equation} \label{} 
+N( \lambda ) \sim \frac{\vol(M)}{(4\pi)^{d/2}\, \Gamma \left(\frac{d}{2} + 1 \right)}\, \lambda ^{d/2} \text{ as } \lambda \to \infty .
+\end{equation} 
+ This is clearly equivalent to
+\begin{equation} \label{} 
+\frac{\lambda_n ^{d/2} } {n } \sim \frac{(4\pi)^{d/2}\, \Gamma \left(\frac{d}{2} + 1 \right) } { \vol(M)} \text{ as } n \to \infty .
+\end{equation} 
+ 
+Note that 
+\[
+\Gamma\left(\frac{d}{2}+1\right)   = \begin{cases} \left(\frac{d}{2} \right) ! & d \text{ even}, \\
+                                                         \left(\frac{d}{2}-1 \right)  \left(\frac{d}{2}-2 \right)\cdot  \ldots \cdot \frac{1}{2} \sqrt{\pi} & d \text{ odd} .
+                                                              \end{cases}
+\] 
+ 
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Construction of a Parametrix} \label{ppar}
+This is the first step in the construction of the heat kernel. 
+ We outline the construction   following \cite{Ros}*{Section 3.2, pp 90--99} and \cite{Bas}.%
+\footnote{There is a problem with the discussion in \cite{Bas}.  He effectively works with $ \widehat{K} $ instead of $ K_0 $.  But  since $ (\partial_t - \lap_x)\widehat {K} (t,x,y) $ blows up as $ t\to 0^+ $, one needs instead to work with $ K_0 $.
+
+The treatment in \cite{Gri} avoids this two step process and in this way also gives an introduction to pseudo differential operators.} 
+
+\bigskip The heat kernel for $ \mathbb{R}^n $ is
+\[ \frac{1}{(4\pi t)^{n/2}} e^{-|x-y|^2/4t} .\] 
+
+Thus a reasonable first approximation to the heat kernel on $ M $ for $ x $ near $ y $ and $ t $ small is
+\begin{equation} \label{alph}
+\widehat{K}(t,x,y) = \frac{1}{(4\pi t)^{n/2}} e^{-d(x,y)^2/4t} 
+\end{equation} 
+where $ d $ is the   geodesic distance on $ M $.  Note that $ \widehat{K} (0,x,y) = \delta _x (y)$.
+
+In order to build this into the heat kernel by iterating Duhamel's construction, we first need need to replace $ \widehat{K}(t,x,y) $ by $ K_0(t,x,y)  $ where $ K_0 $ is still a delta function at $ t=0 $ but where also $ (\partial _t -\lap_x )K_0(t,x,y) \to 0 $ as $ t \to 0 $.
+
+For this assume we can write for each $ k \geq 1$ 
+\begin{equation} \label{koexp}  
+K_0(t,x,y)  =  \widehat{K}(t,x,y) \big( 1 + tu_1(x,y) + \dots +  t^k u_k(x,y) \big)
+\end{equation} 
+ 
+ 
+ By iteratively solving PDE's (in fact ODE's for $d =d(x,y)$ in 
+ \[
+ U_ \epsilon = \{(x,y) \in M\times M : (x,y) < \epsilon \}
+ \]
+for $ \epsilon >0 $ sufficiently small we successively find  $ C^\infty $ functions $ u_i $ on $ U_ \epsilon $ such that 
+\[
+(\partial _ t - \lap _x ) K_0(t,x,y) = - \widehat{K}(t,x,y) t^k \lap u_k.
+\]
+
+Choosing $ k > n/2 $ and a cut-off function equal to $ 1 $ on $ U_{ \epsilon /2 } $ and $ 0 $ on $ M\times M \setminus U_ \epsilon $ , one gets
+\begin{equation} \label{par} 
+\begin{aligned}
+K_0(t,x,y) &\in C^\infty \big( (0,\infty) \times M \times M \big), \\
+        \lim_{t\to 0^+} \int _M K_0(t,x,y)\, f(y) \, dy &= f(x) \quad  \forall f \in C^0(M), \quad \text{i.e.\ } K_0(0,x,y)  = \delta_y(x),\\
+ Q(t,x,y) &=O(t) \text{ as } t \to 0^+, \quad   Q(t,x,y) := (\partial_t - \lap _x ) K_0(t,x,y).  
+  \end{aligned}
+\end{equation}      
+In view of \eqref{par} we say that $ K_0 $ is a \emph{parametrix}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Construction of the Heat Kernel and Consequences}  Motivated by the argument in \eqref{duh} we define 
+\begin{align*} 
+K_1(t,x,y)  &= K_0(t,x,y) - \int_0^t \int_M K_0(t-s,x,z)\, Q(s,z,y)\, dz\, ds, \\
+\text{i.e.\ } K_1 &=: K_0 - K_0 \# Q.
+\end{align*} 
+
+Thus in the second term on the right we are using the kernel $ K_0 $ to form a weighted ``sum'' of the $ Q $ over $ [0,t]\times M $, essentially just taking a convolution in time and space in a natural manner.  The point is that as in \eqref{duh} we get
+\begin{align*} 
+(\partial_t - \lap_x) K_1(t,x,y) & = (\partial_t - \lap_x) K_0(t,x,y)   - \int_M K_0(0,x,z)\, Q(t,z,y)\, dz \\
+           &\qquad - \int_0^t \int_M (\partial_t - \lap_x)  K_0(t-s,x,z)\, Q(s,z,y)\, dz\, ds \\ 
+           &= Q(t,x,y) - Q(t,x,y) - Q\# Q (t,x,y) =  - Q\# Q (t,x,y).\\
+\text{i.e.\ }  (\partial_t - \lap_x) K_1&=  - Q\# Q.      
+\end{align*} 
+For the penultimate  line we used in order the definition of $ Q $ in the last line of \eqref{par}, the fact $ K_0(0,x,y) $ is a delta ``function'' from the second line in \eqref{par}, and the definition of $ Q $ together with the definition of $ \# $.
+
+Similarly, setting
+\[
+K_2 = K_1 + K_0 \#Q \#Q,
+\]
+one gets
+\[
+(\partial_t - \lap_x) K_2 =  - Q\# Q  +    Q\# Q + Q\#   Q\# Q  = Q\#   Q\# Q .
+\]
+
+In general
+\begin{align} 
+K_k &= K_0  - K_0\#Q + K_0 \#Q \#Q - K_0 \#Q \#Q\#Q + \dots +(-1)^k K_0 \#^k Q ,\label{bet}\\
+(\partial_t - \lap_x) K_k &=  \#^k Q.     \notag
+\end{align} 
+
+Each time we take another ``power'' of $ Q $ we pick up another factor of $ t $, and in fact because of the integration we pick up $ t^k/k! $ with $  K_k $. 
+It follows that the heat kernel
+\begin{equation} \label{} 
+H(t,x,y) := \lim_{k\to \infty} K_k(t,x,y)
+\end{equation}
+exists for   $ t >0 $ and $ x,y \in M $, and similarly for all derivatives.
+
+In particular, 
+\begin{align}
+H(t,x,y) &= K_0(t,x,y) \big( 1 + O(t)\big) \quad \text{as } t\to 0 \notag \\
+    &=  \frac{1}{(4\pi t)^{n/2}} e^{-d(x,y)^2/4t} \big( 1 + O(t)\big) \quad \text{as } t\to 0 \label{gamm}
+    \end{align}
+    by \eqref{koexp} and \eqref{alph}.
+
+
+Moreover,
+\begin{equation} \label{}
+(\partial_t - \lap_x )H(t,x,y) = \lim_{k \to \infty } \#^k Q(t,x,y) = 0 .
+\end{equation}
+
+Also 
+\begin{equation} \label{} 
+H(0,x,y) = K_0(0,x,y) = \delta _y(x) .
+\end{equation} 
+
+From the last three equations it follows that $ H $ is the heat kernel on $ M $.
+ 
+
+
+
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Karamata's Tauberian Theorem}} 
+
+Suppose $ \mu $ is a Borel measure on $ [0,\infty) $.  Provided 
+\begin{equation} \label{LT}
+(\mathcal{L} \mu)(t) := \int _0^\infty   e^{-tx} d\mu (x) < \infty 
+\end{equation} 
+for all $ t> 0 $, then $  \mathcal{L} \mu$ is called  the \emph{Laplace Transform} of $ \mu $.
+
+Note that $ \mu $ may grow at any polynomial rate at $ \infty $.
+
+\medskip \begin{remark}\mbox{}
+\begin{enumerate}
+
+\item In the following, the easy (Abelian) direction is \eqref{Ab} implies \eqref{Taub}.  The reverse (Tauberian) direction is more difficult.
+
+\item For $ \alpha > 0 $, $ \Gamma (\alpha) := \int _0^\infty x^ {\alpha -1}e^{-x}\, dÊx $, $  \Gamma (\alpha+1 )=  \alpha  \Gamma (\alpha )$,  $ \Gamma (n +1) = n! $ if $ n \in \mathbb{N}_0 $.   Also, $ \Gamma(1/2) = \sqrt{\pi} $.
+
+\item Setting $ \mu = \sum_{n\geq 0} a_n \delta_n $, $ e^{-\lambda}= r $, $ \alpha = 0 $  gives the usual Abel summation result.  Except that we are using positive measures and hence $ a_n \geq 0$.  However, once can also get results for signed measures, see~\cite{Kor}*{pp 31--33}.
+
+In fact, the usual Abelian and Tauberian theorem, with a general one sided assumption (Tauberian condition) in the latter case, also follow.  See 
+~\cite{Kor}*{\S\S 1.15, 1.21}.
+
+\item One does need a Tauberian condition, which here is that the measures are nonnegative.  For example, if $ \mu = \sum_{n \geq 0} (-1)^n \delta _n $ and $ \alpha = 0 $ then 
+\[
+\lim_{t\to 0}   \int e^{-tx} d\mu (x)  =  \sum_{n \geq 0} e^{-tx}(-1)^n = \frac{1}{1+e^{-t}} \to \frac{1}{2} ,  
+\]
+but 
+\[
+\lim_{x\to \infty} \mu [0,x] = \sum_{n\geq 0} (-1)^n \delta _n 
+\]
+does not exist.
+
+
+
+\item The proof is from \cite{Sim}*{pp 108 -- 109}.  See also ~\cite{Tay}*{pp 89, 90} (a confusing error: in the proof there, $ b $ should be replaced by $ a/ \Gamma( \alpha) $) and ~\cite{Are}*{Section 6.2}.
+
+\item For Weiner's Tauberian Theorem see \cite{Rud}*{p 229} and for his general approach \cite{Kor}*{Chapter 2}.  For a survey which discusses both Karamata and Weiner, and how their work gives the Hardy Littlewood results, see ~\cite{Bor}.
+
+\end{enumerate} 
+
+
+\hfill $\square$  \end{remark} 
+
+  \begin{theorem} \label{tath} Suppose $ \alpha \geq 0 $ and $ \mu $ is as above.%
+  \footnote{Either of the two following conditions implies finiteness as in~\eqref{LT}.}
+ Then each of the following implies the other:
+ \begin{align}
+ \mu[0,x] &\sim  \frac{ax^{ \alpha }}{\Gamma(\alpha + 1)}  \text{ as } x \to \infty  , \label{Ab}\\
+  \int e^{-tx} d\mu (x) &\sim  \frac{a}{t^{ \alpha } }  \text{ as } t \to 0^+   . \label{Taub}
+\end{align} 
+\emph{(}The Tauberian theorem is \eqref{Taub} $ \Longrightarrow $ \eqref{Ab} and the Abelian theorem is 
+\eqref{Ab} $ \Longrightarrow $ \eqref{Taub}.\emph{)}
+\end{theorem}
+
+\begin{proof} If $ \alpha = 0 $ then \eqref{Taub} says $ \mu [0,\infty) = a $ and \eqref{Ab} says 
+$ \int e^{-tx} d\mu(x) \to a $ as $ t \to 0+ $.  Both are equivalent by the monotone convergence theorem.
+
+\bigskip 
+Assume \eqref{Taub} and  $ \alpha > 0 $.
+
+Let $ \mu_t = t^ \alpha \rho_{t\#}\mu $.  Then for $ s > 0 $, 
+\begin{align*}
+\int e^{-sx} d\mu_t(x) & = t^ \alpha \int e^{-stx} d \mu(x) \quad \text{by the defn of $ \mu_t $} \\
+       & \to as^{ - \alpha }  \text{ as } t \to 0^+ \quad \text{from \eqref{Taub}} \\
+        &= \frac{a}{\Gamma( \alpha )} \int e^{-sx} x^{ \alpha -1} dx  \quad \text{by the defn of $ \Gamma $}.
+  \end{align*} 
+ By Stone Wierstrass (e.g.\ as in ~\cite{Con}) since the algebra generated by $ e^{-sx} $ for $ s>0 $ is dense in $ C_0(\mathbb{R} ^+ )$,
+\[  
+\mu_t \rightharpoonup  \frac{a}{\Gamma( \alpha )} x^{ \alpha - 1} L^1 \text{ as } t \to 0^+ .
+\]
+Hence as $ t\to 0^+ $, 
+\[
+t^ \alpha \mu [0,t^{-1}] = \mu_t[0,1] \to \frac{a}{\Gamma( \alpha)}  \int_0^1 x^{ \alpha - 1} dx   
+   =  \frac{a}{\alpha \Gamma( \alpha)} =  \frac{a}{\Gamma( \alpha+1)}.
+\]
+Replacing $ t $ by $ x^{ -1} $ gives \eqref{Ab}.
+
+\bigskip Assume \eqref{Ab} and  $ \alpha > 0 $.  
+
+Suppose $ \epsilon > 0 $.  Then
+\[
+\left| \mu[0,x] - \frac{ax^{ \alpha }}{\Gamma(\alpha + 1)} \right| \leq  \frac{ \epsilon } {\Gamma(\alpha + 1) } x^ \alpha 
+\quad \text{if }  x \geq N( \epsilon ) .
+\]
+Since
+\[
+ \frac{ 1 } {\Gamma(\alpha + 1) } \int e^{-tx}dx^ \alpha = t^{ - \alpha  }
+\]
+from the definition of the Gamma function, and since 
+\[
+\int_0^{ N( \epsilon )} e^{-tx} d\mu(x) \leq \mathbb{M} (\mu) ,
+\]
+it follows that
+\[
+\left|  \int e^{-tx} d\mu(x) - at^{ - \alpha } \right| \leq \epsilon t^{ - \alpha } + \mathbb{M} (\mu).
+\]
+Since $ \epsilon > 0 $ is arbitrary,
+\[
+\left|  t^ \alpha \int e^{-tx} d\mu(x) - a \right| \leq t^ \alpha  \mathbb{M} (\mu).
+\]
+This gives \eqref{Taub} with a control on the error term. 
+\end{proof} 
+
+\bigskip 
+%
+%\bigskip \textbf{Step A:} Motivated by  \eqref{Taub} define
+%\begin{equation} \label{}
+%\mu_t  := t^ \alpha \rho_{t\#}\mu,
+%\end{equation}
+%where
+%\[
+% \rho_{t\#}\mu (E) := \mu(t^{-1} E), \quad \int f(x)\, d \rho_{t\#}\mu(x) := \int f(tx) \, d\mu(x).
+% \]
+%That is
+%\begin{equation} \label{se} 
+%\mu_t(E) = t^ \alpha \mu(t^{-1}E), \quad \int f(x) \, d \mu_t(x) = t^ \alpha \int f(tx)\, d\mu(x).
+%\end{equation} 
+%In words: $ \mu_t $ is obtained by dilating $ \mu $ by the factor $ t $ and then weighting by the constant~$ t^ \alpha $.
+%
+%In particular, \eqref{Taub} becomes
+%\begin{equation} \label{}
+%\lim_{t\to 0} \int_0^\infty e^{-x} \, d\mu_t(x) = a
+%\end{equation} 
+%
+%\bigskip \textbf{Step B:}  We will show that $ \mu_t $ converges weakly against $ f \in C_0(\mathbb{R} ^+ )$  as $ t\to 0 $, and identify the limit measure.
+%
+%By Stone Wierstrass (e.g.\ as in ~\cite{Con}), it is sufficient to consider
+%\begin{equation} \label{mut}
+%\lim_{t\to 0} \int_0^\infty e^{-sx}\, d\mu_t(x) \text{ for } s>0 .
+%\end{equation}
+%(Since the algebra generated by $ e^{-sx} $ for $ s>0 $ is dense in $ C_0(\mathbb{R} ^+ )$.)
+%
+%But
+%\begin{align*}
+%\lim_{t\to 0} \int_0^\infty e^{-sx}\, d\mu_t(x) 
+%  &= \lim_{t\to 0} t^ \alpha \int_0^\infty e^{-stx}\, d\mu (x) \quad \text{by \eqref{se}} \\
+%  &= \lim_{t\to 0} s^{- \alpha } (st)^ \alpha \int_0^\infty e^{-stx}\, d\mu (x) \\
+%  &= as^{- \alpha } \quad \text{from \eqref{Taub}}.
+%\end{align*} 
+%In particular, the limit in \eqref{mut} does exist.
+%
+%\bigskip \textbf{Step C:} The \underline{important point} now is to show one can write
+%\[
+%s^{- \alpha } = c \int_0^\infty e^{-sx}\, d\nu(x)
+%\]
+%for a suitable constant $ c $ and measure $ \nu $, independent of  $ s$.
+%
+%
+%But 
+%\begin{align*}
+%\int_0^\infty e^{-sx} x^{ \alpha-1} \, dx 
+%  &= s^{- \alpha} \int_0^\infty e^{-sx} (sx)^{ \alpha-1} \, d(sx) \\
+%  &= s^{- \alpha} \int_0^\infty e^{-y} y^{ \alpha-1} \, dy \\
+%  &= s^{- \alpha} \Gamma (\alpha ).
+%   \end{align*}
+%Hence 
+%\[
+%s^{- \alpha } a = \frac{a}{\Gamma( \alpha ) }   \int_0^ \infty e^{-sx} \, d\nu ,
+%\]
+%where $ \nu = x^{\alpha - 1} \mathcal{L} ^1 $.
+%
+%It follows 
+%\begin{equation} \label{}
+%\mu_t \rightharpoonup \frac{a}{\Gamma(\alpha ) } \nu ,
+%\end{equation}
+%testing against $ C_0(\mathbb{R} ^+ ) $ functions.
+%  
+%
+%\bigskip \textbf{Step D:}  By properties of weak convergence, since $ \nu\{1\} = 0 $ and $ \nu\{0\} = 0 $ if $ \alpha > 0 $,
+%\[
+%\mu_t[0,1] \to \frac{a}{\Gamma( \alpha)}  \int_0^1 x^{ \alpha - 1} dx   
+%   =  \frac{a}{\alpha \Gamma( \alpha)} =  \frac{a}{\Gamma( \alpha+1)}.
+%\]
+%\end{proof} 
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Finite Dimensional Background: Kernels and Trace}} 
+
+\bigskip
+An $ n\times n $ matrix is  \emph{Gramian} if it is of the form $ A_{ij} = \langle v^i, v^j \rangle $ for vectors $ v^1,\dots v^n \in \mathbb{R}^n $.  It is clearly non negative and symmetric.
+The converse is true.
+
+\begin{proposition}
+A non negative symmetric matrix is Gramian.  
+\end{proposition}
+  
+\begin{proof}By symmetry there is an orthonormal change of basis $ U $ so that $ U^{-1}A U$ is diagonal.  By positive semidefiniteness, all entries on the diagonal are non negative. 
+
+So $ A^{1/2}$ exists (square root of the diagonal matrix in the new coordinates) and is also symmetric positive, semidefinite, and so
+\begin{equation} \label{aij} 
+A_{ij} =  \langle Ae_i, e_j\rangle =  \langle  A^{1/2} A^{1/2}e_i, e_j\rangle 
+=  \langle   A^{1/2}e_i, A^{1/2} e_j\rangle. 
+\end{equation} 
+Then $ A $ is Gramian with $ v^i = A^{1/2}  e_i $.
+\end{proof}
+
+\begin{remark}  Equivalently, let $ \phi ^k $ be the e-value of $ A $ with e-value $ \lambda _ k $.  Then setting $ A^{1/2} \phi ^k := \lambda_k ^{1/2}  \phi ^k$ for all $  k $, clearly defines the square root of $ A $.
+\hfill $\square$  \end{remark} 
+
+\begin{remark}[Kernel Perspective] This is useful for comparison  with integral operators and their kernels.
+
+Let $ T : \mathbb{R}^n \to \mathbb{R}^n $ correspond to the matrix $ A $.
+
+Think of $ u = (u_1,\dots, u_n ) \in \mathbb{R}^n $ as a function on $ X = \{1,\dots, n\} $.  
+
+Let $ \mu $ be the  measure $ \sum_{j=1}^n \delta _ j $.
+
+Let $ K(i,j) = A_{ij} $ be the ``kernel'' of $ T $.
+
+
+Then 
+\begin{equation} \label{kp}
+(Tu)(i) =  \sum_{j=1}^n A_{ij} u(j) = \int_X K(i,j)\, u(j)\, d\mu .
+\end{equation} 
+\hfill $\square$  \end{remark} 
+
+For a general integral operator, the kernel $ K $ is the continuous matrix representative. In case $ K $ is \emph{symmetric},  the bilinear expansion of $ K $ corresponds to diagonalisation of the matrix by means of an orthonormal basis, see Proposition~\ref{hsdiag}.
+
+\begin{remark}[Kernel Decomposition]
+Since $ (\phi_k ) $ form an orthonormal basis, using~\eqref{aij},
+\[
+A_{ij} =  \langle Ae_i, e_j\rangle
+  = \left\langle A\left( \sum_k \phi_i^k \phi^k\right) ,    \sum_k \phi_j^k \phi^k \right\rangle
+  = \left\langle \sum_k \lambda_k  \phi_i^k \phi^k,  \sum_k \phi_j^k \phi^k \right\rangle
+   =  \sum_k \lambda_k  \phi_i^k \phi_j^k  .
+  \]
+That is, in functional and kernel notation,
+\[
+K(i,j) =  \sum_k \lambda_k\,  \phi^k(i)\, \phi^k (j).
+\]
+
+Note that this gives  another Gramian representation via
+\[
+A_{ij} = \langle \theta^i, \theta^j \rangle, \quad \text{where }\theta^i := \sum_k \lambda_k^{1/2} \phi_i^k e_k .
+\]
+Compare this with 
+\[
+A_{ij} = \langle v^i, v^j \rangle, \quad \text{where }
+v^i = A^{1/2}  e_i = A^{1/2} \sum_k \phi^k_i \phi^k = \sum_k \lambda_k ^{1/2} \phi^k_i \phi^k .
+\]
+\hfill $\square$  \end{remark} 
+
+\begin{proposition}[Trace Formula] The \underline{trace}%
+\footnote{The \emph{trace}  is the sum of the diagonal elements.}
+ of $ T : \mathbb{R}^n \to \mathbb{R}^n $ is invariant under change of coordinates.  
+ 
+ Moreover
+ \begin{equation} 
+ \Tr(T) = \sum_{i=1}^n \lambda_i(T),
+\end{equation} 
+the sum of the eigenvalues of $ T $ according to their algebraic multiplicity.
+ \end{proposition}
+ 
+  \begin{proof}  Since $ \Tr (AB) = \Tr (BA) $ it follows $ \Tr (S^{-1}TS) = \Tr (SS^{-1}T) = \Tr T $, giving the first claim.  The second follows by choosing a basis so that $ T $ is in Jordan normal form.
+  \end{proof}  
+
+  \begin{remark} A coordinate free definition is to note $ \Hom(V,V) = V\otimes V^* $, define $ \Tr (v\otimes f ) = \langle v,f\rangle $, and extend by linearity.   One still needs to check the definition is consistent
+ \end{remark}
+
+
+
+ 
+\begin{proposition}[Polar decomposition] \label{pd} Suppose $ T : \mathbb{R}^n \to \mathbb{R}^n $.  Then $ T=UA $ where
+\begin{enumerate}
+
+\item $ A = (T^* T)^{1/2} $ is non  negative symmetric is called the \underline{absolute value} of $ T $,
+\item $ U $ is an isometry on $ \mathcal{R} (A) $, $ U=0 $ on $  \mathcal{R} (A)^\perp $.
+\end{enumerate}
+\end{proposition}
+ 
+\begin{proof} Straightforward,  see \cite{Lax}*{pp 330-1}.   Define $ A = (T^* T)^{1/2}$ as in (1) in the proposition, define $ U(Au) = Tu $ on the range of $ A $, and define $ U=0 $ on $  \mathcal{R} (A)^\perp $.
+\end{proof}
+
+\begin{remark} The non zero e-values  of $ A $ are called the \emph{singular values} of $ T $ and written
+$ s_j = s_j(T) $. 
+
+We can define $ \Tr $ on a finite dimensional space with inner product space $ ( \cdot  ) $ by
+\begin{equation} 
+\Tr(T) = \sum_i  ( Te_i, e_i ),
+\end{equation}
+for any orthonormal basis $ e_i $. It is easily checked this is independent of the choice of orthonormal basis and agrees with the previous definition.
+
+If $   f_i $ is an orthonormal basis of e-vectors for $ A $ with the e-values $ s_i(T) $, which is possible since $ A $ is symmetric, then clearly
+\begin{equation} 
+\Tr(T) = \sum_i s_i(T) (Uf_i, f_i) 
+\end{equation}
+and so
+\begin{equation} |\Tr(T)| \leq \sum_i s_i(T).
+\end{equation}
+ \end{remark}
+ 
+ \begin{remark} The \emph{trace norm} is defined by 
+ \begin{equation}
+\| \Tr(T) \|_{tr} = \sum_i s_i(T).
+\end{equation}
+This \emph{is} a norm  and $ \| \Tr(T) \|_{tr} = \| \Tr(T^*) \|_{tr} $. 
+
+The proof  is straightforward, see \cite{Lax}*{Theorem 2 p 331}, where a more general result in Hilbert spaces is proved.  See also the following section here. 
+   \end{remark} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Trace Class}} \label{prelim}
+
+In the following, $ \mathcal{H}$  is a separable Hilbert space over $ \mathbb{C} $, and $ T:\mathcal{H} \to \mathcal{H}  $ is linear and compact.
+
+\begin{theorem} 
+ A compact linear map $T: \mathcal{H} \to \mathcal{H} $ can be written as
+\begin{equation} 
+ T = U A 
+  \end{equation}
+  where 
+  \begin{enumerate}
+\item $ A = (T^* T)^{1/2} $ is non  negative compact symmetric and is called the \underline{absolute value} of $ T $,
+\item $ U $ is an isometry on $\overline{ \mathcal{R} (A)} $, $ U=0 $ on $  \mathcal{R} (A)^\perp $.
+\end{enumerate}
+\end{theorem} 
+
+\begin{proof} Essentially as for Proposition~\ref{pd}.  In fact, the result is true for bounded operators.
+\end{proof}
+
+  \begin{remark}
+ Equivalently, $ T $ is of the form
+ \[
+ Tf = \sum_k s_k\langle f,v_k\rangle u_k,
+ \]
+ where $ (u_k)_{k\geq 1} $ and $ (v_k)_{k\geq 1} $ are orthonormal bases and $ 0 \leq \alpha_k \to 0 $ as $ k \to \infty $.    The $ s_k $ are the \emph{singular values} of $ T $ and the e-values of $ A $, and are written in nondecreasing order.
+\hfill $\square$  \end{remark} 
+
+
+ 
+ \begin{remark} Recall  that a \emph{compact \underline{symmetric}} $ T $ has an orthonormal basis $ \phi_k $ of e-vectors with e-vectors $ \lambda_k $ such that $ \lambda_ k \to 0 $ as $ k \to \infty $.  Moreover, any $ T $ of this form is compact and symmetric.   See\cite{SS}*{pp 190--193}.
+ 
+ The e-values and the singular values are then equal up to sign.
+\hfill $\square$  \end{remark} 
+
+\begin{remark}[Overview] \label{rmHS} (See the following discussions and\cite{WikT}.)
+With the previous decomposition  we have: 
+\begin{align*}
+T \text{ compact} &\Longleftrightarrow  s_k \to 0 \\
+T \text{ is Hilbert Schmidt} & \Longleftrightarrow  \|T\|_2 := \sum_k s_k^2 <\infty \\
+T \text{ is trace class} & \Longleftrightarrow  \| T \| := \sum_k s_k  <\infty \\
+ T \text{ is finite rank} & \Longleftrightarrow  s_k = 0 \text{ eventually}.
+ \end{align*} 
+ 
+ In particular, 
+ \[
+ \text{ \{finite rank\} } \subset \text{ \{trace class\} } \subset \text{ \{Hilbert Schmidt\} } \subset \text{ \{compact\} }.
+ \]
+Also,  
+\[
+\|T \| \leq \|T\|_2 \leq \|T\|_1. 
+\]
+\hfill $\square$  \end{remark} 
+
+
+
+
+
+
+\begin{definition}
+The compact map $ T $ is \emph{trace class} if the trace  norm 
+\[
+\| T \|_{tr} :=  \| T \|_1 := \sum_i s_i(T) < \infty  .
+\]
+\end{definition} 
+
+\begin{proposition}
+Trace class operators form a Banach space under the trace norm. Moreover
+\begin{equation} 
+ \| T \|_{tr} = \sup \sum_n |(Tf_n,e_n)| ,
+\end{equation} 
+where the sup is over all pairs of orthonormal bases $ (f_n) $ and $ (e_n) $.
+\end{proposition}
+
+\begin{proof} See \cite{Lax}*{pp 331, 333}.  Main ideas are in the previous finite dimensional section.
+\end{proof}
+
+\begin{definition} The \emph{trace} of a bounded operator is 
+\begin{equation} \label{trd}
+\Tr(T) = \sum_n (Tf_n,f_n) , 
+\end{equation} 
+for any orthonormal basis $ (f_n) $, provided the series converges.
+\end{definition} 
+
+\begin{theorem}
+If $ T $ is trace class then \eqref{trd} converges absolutely to a limit independent of the orthonormal basis.  Moreover,
+\begin{enumerate}
+\item $ |\Tr T | \leq \| T \|_{\Tr}$, 
+\item  $ \Tr  $ is linear,
+\item $ \Tr T^* = \overline{\Tr T} $,
+\item $ \Tr (TB) = \Tr (BT) $ for any bounded operator $ B $.
+\end{enumerate} 
+\end{theorem}
+ 
+\begin{proof} See \cite{Lax}*{Theorems 3,4 p 333}.  Essentially no new ideas above the previous section. 
+\end{proof} 
+
+The following major result is due to Lidskii, 1959.
+\begin{theorem}[Trace Formula] If $ T $ is trace class then
+\begin{equation} 
+\Tr T = \sum_j \lambda_j(T),
+\end{equation}
+summing according to the algebraic multiplicity.
+\end{theorem} 
+
+\begin{proof} See \cite{Lax}*{pp334--341}. 
+
+If $ T $ is normal then there is an orthonormal basis of e-vectors and the result follows immediately from the definition of $ \Tr $.
+
+\medskip
+In general, first recall that the \emph{algebraic multiplicity} of an eigenvalue $ \lambda $   is the dimension of the corresponding space of its generalised e-vectors, i.e. the union of the null spaces of $ (\lambda I - T)^i $ over all positive integers $ i $.  It is finite for compact $ T $.  See~\cite{Lax}*{p267}.
+
+Using Gram Schmidt we can get an orthonormal basis of each generalised e-space.  Summing over all such basis vectors would give the result if they span $ \mathcal{H} $, but this need not be so.  In general,
+\[
+\Tr T = \sum_i \lambda_i + \sum_j (Th_j, h_j)
+\]
+where the $ h_j $ form an orthonormal basis for the complement space.
+
+The difficult part is to show the second term is zero.  See \cite{Lax}*{pp 335--341}.
+\end{proof} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Hilbert Schmidt Integral Operators}} 
+
+*** Note discussion in \cite{Dod}. 
+
+\begin{definition}  \label{intop} Suppose $ E \subset \mathbb{R}^n $ is measurable. If   (the \emph{kernel}) $ K: E \times E \to \mathbb{R} $ satisfies $ \int_{E\times E} K^2(x,y) < \infty $ then $ T:L^2(E) \to L^2(E) $ given by
+\[
+(Tf)(x) = \int_E K(x,y)\, f(y)\, dy 
+\]
+is called a \emph{Hilbert Schmidt integral operator}.
+
+\emph{In practice, almost all bounded operators of interest are integral operators in one or several dimensions.}  \cite{Lax}*{p 342}.
+\end{definition}
+
+ 
+
+\begin{remark}
+We just consider Hilbert Schmidt integral operators on
+ $ \mathcal{H} = L^2(E) $ as above.
+For such function spaces this is the same as being Hilbert Schmidt in the sense of Remark~\ref{rmHS}. See for example \cite{HL}*{Q21, pp 140, 141, with Hints}.
+
+See \cite{Lax}*{p352} for a summary of the properties of general Hilbert Schmidt operators.
+\hfill $\square$  \end{remark} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{proposition}
+\begin{gather*}
+  \|T \| \leq   \|T\|_2 = \|K\|_{L^2(E \times E)}\\
+  T^*   \text{ has kernel } \overline{K} \\
+  \text{Hilbert Schmidt } \Longrightarrow  \text{ compact} 
+\end{gather*}
+\end{proposition} 
+
+\begin{proof} Straightforward.  See \cite{SS}*{pp 187, 190}.
+\end{proof} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proposition}
+ If $ E = B_1(0)  \subset \mathbb{R}^n $ and $ |K(x,y) | \leq c |x-y|^{-d  + \alpha } $ for some $ \alpha > 0 $, then 
+$ T $ is bounded and compact.
+$ T $ is HS iff $ \alpha > d/2 $.
+\end{proposition}
+
+
+\begin{proof} See \cite{SS}*{Q28, p199, with Hint}.  Straightforward.
+\end{proof} 
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{proposition} \label{hsdiag} Suppose $ K $ is a real \underline{symmetric} HS kernel.  Then $ T :L^2 \to L^2 $ is symmetric (and compact as noted before).
+
+Let $ \phi_k $ be the corresponding e-functions with e-values $ \lambda_k $.
+Then
+\begin{enumerate}
+\item $ \sum_k \lambda_k ^2 < \infty $,
+\item $ K(x,y) = \sum_k \lambda_k \phi_k(x)\, \phi_k(y)$ ($ L^2 $ convergence),
+\item If we just assume $ T $ is symmetric and compact, then $ T $ is HS iff $ \sum_k \lambda_k ^2 < \infty $.
+\end{enumerate} 
+\end{proposition} 
+
+\begin{proof} Straightforward. See \cite{SS}*{Q34 p201, with Hint}.  For the second claim use the right side as a kernel and show it has the same effect on each $ \phi_k $, namely $ \lambda_k \phi_k $.
+\end{proof}
+ 
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Mercer's Theorem}} See \cite{Lax}*{pp 344}, \cite{RN}*{pp245, 246} and  \cite{WikM}.
+
+
+*** Note discussion in \cite{Dod}.
+
+In the following, think of the case $ E = \overline{\Omega}$ where $ \Omega $ is a bounded open subset of $  \mathbb{R}^n$, or $ E $ is a fractal.
+
+By $ K $ is non negative definite is meant that $ (Ku,u) \geq 0$ for all $ u \in L^2(E) $.  Or equivalently by approximation arguments,  $  \sum_{i,j} K(x_i,x_j) c_ic_j \geq 0 $ for all finite sequences $ x_1,\dots, x_n \in E $ and $ c_1,\dots, c_n \in \mathbb{R} $. 
+
+\begin{theorem}
+ Suppose $ E $ is a compact Hausdorff space and $ \mu $ is a Radon measure on $ X $.  Suppose $ K(x,y)$ is continuous, symmetric, and non negative definite. Let $ T$ be the corresponding integral operator (as in Definition~\ref{intop}).  
+
+From Proposition~\ref{hsdiag}, $ T : L^2(X) \to L^2(X) $ is compact in the $ L^2 $  norm.  Let $ \phi_k $ be the corresponding e-functions with e-values $ \lambda_k $.
+\begin{enumerate}
+\item The e-functions are continuous,
+\item $ T : C(X) \to C(X) $ is non negative, symmetric, and compact in the sup norm,
+\item $ K(x,y) = \sum_k \lambda_k\, \phi_k(x)\, \phi_k(y)$, where the convergence is absolute and uniform.
+\item $ \int K(x,x)\, dx = \sum_j \lambda_j   = Tr (T)$. In particular, $ T $ is trace class.
+\end{enumerate}
+\end{theorem} 
+
+\begin{proof}  (See  \cite{Lax}*{pp 343, 344} for details.)
+
+It is easy to check  $ T f $ is continuous for $ f \in L^2 $.  It follows that the e-functions are continuous.
+
+ $ K (x,x) \geq 0 $, from the  non negative property of $ K $ and its continuity. 
+
+$ T $ is non negative and symmetric from Proposition~\ref{hsdiag}.  Compactness in the sup norm follows from the Arzela Ascoli theorem.  
+
+The series $  \sum_k \lambda_k \phi_k(x)\, \phi_k(x)$ is an  increasing series of positive continuous functions 
+bounded by  $ K(x,x) $.  By Dini's theorem this gives uniform convergence.  
+
+Denote the kernel corresponding to the limit by $ K_\infty $. It follows from looking at the e-functions that $ K = K_\infty $.
+
+Finally, set $ x=y $ in (3) and integrate to get (4).
+\end{proof} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%See \cite{Lax} Sections 22.1, 22.2 and probably 22.4 for integral operators of the appropriate type
+
+%See Sections 23.1, 22.2 for Perron's theorem generalised to the infinite dimensional case.
+
+%See Theorem 8 p267 for Mercer's theorem in the integral operator case.
+
+%See min-max e-value principles p319.
+
+%See Section 30.5 for Mercer's theorem
+ 
+\begin{thebibliography}{9} 
+
+\bib{Are}{book}{
+  author={Arendt, Wolfgang},
+  title={Heat Kernels},
+  date={2005},
+  note={available online at tulka.mathematik.uni-ulm.de/2005/lectures/internetseminar.pdf},
+  }
+
+\bib{Bas}{misc}{
+  author={Baskin, Dean},
+  note = {online article},
+  date={2008},
+  title={Heat kernel and   Weyl asymptotics},
+  }
+  
+  \bib{Ber}{misc}{
+  author={Bernal, Anõbal Rodrõguez}
+    note = {lecture notes},
+  date={2005},
+  title={Introduction to semigroup theory for partial differential equations},
+  }
+
+
+\bib{Bor}{article}{
+  author={Borwein, David},
+  title={A century of Tauberian Theory},
+  date={2005},
+  note={available online},
+  }
+
+\bib{Con}{book}{
+   author={Conway, John B.},
+   title={A course in functional analysis},
+   series={Graduate Texts in Mathematics},
+   volume={96},
+   edition={2},
+   publisher={Springer-Verlag},
+%   place={New York},
+   date={1990},
+   pages={xvi+399},
+%   isbn={0-387-97245-5},
+%   review={\MR{1070713 (91e:46001)}},
+}
+
+\bib{Dod}{article}{
+   author={Dodziuk, Jozef},
+   title={Eigenvalues of the Laplacian and the heat equation},
+   journal={Amer. Math. Monthly},
+   volume={88},
+   date={1981},
+   number={9},
+   pages={686--695},
+%   issn={0002-9890},
+%   review={\MR{643271 (83d:35125)}},
+%   doi={10.2307/2320674},
+}
+
+\bib{Eva}{book}{
+   author={Evans, Lawrence C.},
+   title={Partial differential equations},
+   series={Graduate Studies in Mathematics},
+   volume={19},
+   publisher={American Mathematical Society},
+   place={Providence, RI},
+   date={1998},
+%   pages={xviii+662},
+%   isbn={0-8218-0772-2},
+%   review={\MR{1625845 (99e:35001)}},
+}
+
+\bib{Ful}{article}{
+   author={Fulling, S},
+   title={Minakshisundaram and the birth of geometric spectral asymptotics},
+   journal={Indian  Jour  for the Advancement of Math  Ed  and Res },
+   volume={32},
+   date={2004},
+   number={32},
+   pages={95--99},
+%   issn={0002-9890},
+%   review={\MR{643271 (83d:35125)}},
+%   doi={10.2307/2320674},
+}
+
+
+\bib{Gri}{misc}{
+  author={Grieser, Daniel},
+  note = {online article},
+  date={2004},
+  title={Notes on heat kernel  asymptotics},
+  }
+
+
+\bib{HL}{book}{
+   author={Hirsch, Francis},
+   author={Lacombe, Gilles},
+   title={Elements of functional analysis},
+   series={Graduate Texts in Mathematics},
+   volume={192},
+%   note={Translated from the 1997 French original by Silvio Levy},
+   publisher={Springer-Verlag},
+%   place={New York},
+   date={1999},
+   pages={xiv+393},
+%   isbn={0-387-98524-7},
+%   review={\MR{1678925 (99j:46001)}},
+}
+
+\bib{Kor}{book}{
+   author={Korevaar, Jacob},
+   title={Tauberian theory},
+   series={Grundlehren der Mathematischen Wissenschaften},
+   volume={329},
+   note={A century of developments},
+   publisher={Springer-Verlag},
+%   place={Berlin},
+   date={2004},
+   pages={xvi+483},
+%   isbn={3-540-21058-X},
+%   review={\MR{2073637 (2006e:11139)}},
+}	
+
+	
+\bib{Lax}{book}{
+   author={Lax, Peter D.},
+   title={Functional analysis},
+   series={Pure and Applied Mathematics (New York)},
+   publisher={Wiley-Interscience [John Wiley \& Sons]},
+%   place={New York},
+   date={2002},
+   pages={xx+580},
+%   isbn={0-471-55604-1},
+%   review={\MR{1892228 (2003a:47001)}},
+}
+
+\bib{RN}{book}{
+   author={Riesz, Frigyes},
+   author={Sz.-Nagy, B{\'e}la},
+   title={Functional analysis},
+   series={Dover Books on Advanced Mathematics},
+   publisher={Dover Publications Inc.},
+%   place={New York},
+   date={1990},
+   pages={xii+504},
+%   isbn={0-486-66289-6},
+%   review={\MR{1068530 (91g:00002)}},
+}
+
+\bib{Ros}{book}{
+   author={Rosenberg, Steven},
+   title={The Laplacian on a Riemannian manifold},
+   series={London Mathematical Society Student Texts},
+   volume={31},
+   note={An introduction to analysis on manifolds},
+   publisher={Cambridge University Press},
+   place={Cambridge},
+   date={1997},
+   pages={x+172},
+%   isbn={0-521-46300-9},
+%   isbn={0-521-46831-0},
+%   review={\MR{1462892 (98k:58206)}},
+%   doi={10.1017/CBO9780511623783},
+}
+
+\bib{Rud}{book}{
+   author={Rudin, Walter},
+   title={Functional analysis},
+   series={International Series in Pure and Applied Mathematics},
+   edition={2},
+   publisher={McGraw-Hill Inc.},
+%   place={New York},
+   date={1991},
+   pages={xviii+424},
+%   isbn={0-07-054236-8},
+%   review={\MR{1157815 (92k:46001)}},
+}
+
+\bib{Sim}{book}{
+   author={Simon, Barry},
+   title={Functional integration and quantum physics},
+   series={Pure and Applied Mathematics},
+   volume={86},
+   publisher={Academic Press Inc. [Harcourt Brace Jovanovich Publishers]},
+%   place={New York},
+   date={1979},
+   pages={ix+296},
+%   isbn={0-12-644250-9},
+%   review={\MR{544188 (84m:81066)}},
+}
+
+
+
+\bib{SS}{book}{
+   author={Stein, Elias M.},
+   author={Shakarchi, Rami},
+   title={Real analysis},
+   series={Princeton Lectures in Analysis, III},
+   note={Measure theory, integration, and Hilbert spaces},
+   publisher={Princeton University Press},
+%   place={Princeton, NJ},
+   date={2005},
+   pages={xx+402},
+%   isbn={0-691-11386-6},
+%   review={\MR{2129625 (2005k:28024)}},
+}
+
+
+\bib{Tay}{book}{
+   author={Taylor, Michael E.},
+   title={Partial differential equations. II},
+   series={Applied Mathematical Sciences},
+   volume={116},
+   note={Qualitative studies of linear equations},
+   publisher={Springer-Verlag},
+%   place={New York},
+   date={1996},
+   pages={xxii+528},
+%   isbn={0-387-94651-9},
+ %  review={\MR{1395149 (98b:35003)}},
+}
+
+
+
+\bib{WikM}{article}{
+ author={Wikipedia},
+   title={Mercer's Therorem},
+  note={Wikipedia} 
+     }
+	
+\bib{WikT}{article}{
+ author={Wikipedia},
+   title={Trace Class},
+  note={Wikipedia} 
+     }
+
+\end{thebibliography}
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+

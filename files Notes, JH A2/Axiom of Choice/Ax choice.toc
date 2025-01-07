@@ -1,0 +1,5 @@
+\contentsline {section}{\tocsection {}{1}{\textbf {Preliminaries}}}{1}{section.1}
+\contentsline {section}{\tocsection {}{2}{\textbf {Five equivalent versions of AC}}}{3}{section.2}
+\contentsline {section}{\tocsection {}{3}{\textbf {Proof of the various equivalences}}}{5}{section.3}
+\contentsline {section}{\tocsection {}{}{References}}{6}{section*.2}
+\contentsfinish 

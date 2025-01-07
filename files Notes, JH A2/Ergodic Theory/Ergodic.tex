@@ -1,0 +1,284 @@
+\documentclass[a4paper,11pt]{amsart}
+\usepackage{graphicx}
+\usepackage{amssymb, amsthm}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+      \usepackage{pdfsync}
+  
+  \begin{document}
+
+ \date{today}    
+
+\section{Basic Notions on Substitutions}
+
+\subsection{Sequences, words, languages}\mbox{}
+
+\begin{itemize}
+\item $\mathcal{A} $ is a  finite set that shall be called an \emph{alphabet}.
+
+\item A \emph{word} or \emph{block} is a  finite string of elements in
+$\mathcal{A} $.  
+
+\item The set of all  (finite) words over $\mathcal{A} $ is denoted by $\mathcal{A}^* $.  
+
+\item The empty word is $\epsilon$.
+
+\item If $W = w_1\dots w_s $ then $s$ is
+ the \emph{length} of $W$ and is denoted by $|W|$.  
+ 
+$|W|_a $ is the number of occurrences of   $a  \in \mathcal{ A}$  appearing in~$W$.
+
+\item A  \emph{(one-sided) sequence} of elements of  $\mathcal{A} $,
+ also called  a \emph{(right)  infinite word} on  $\mathcal{A} $,
+is an element $u = (u_n)_{n\geq 0} \in   \mathcal{A}^\mathbb{N} $. 
+ 
+A \emph{two-sided sequence} in $\mathcal{A} $, 
+ also called a \emph{biinfinite word}, is an
+element $u = (u_n)_{n\in \mathbb{Z}} \in   \mathcal{A}^\mathbb{Z} $.   
+  
+\item A word $ v = v_1\dots v_r $ is said to \emph{occur} at \emph{position}  (\emph{index}
+ or \emph{rank})  $m$
+in a sequence  or finite word $ u = (u_n) $ if 
+ \[ 
+ u_m = v_1, \dots , u_{m+r-1}=v_r.
+ \]
+We say $ v $  is a \emph{factor} of the $u $.
+
+\item The \emph{language} (respectively  \emph{language of length $n$})  of the sequence $u$,
+denoted by $\mathcal{L}(u)$   (respectively $\mathcal{L}_n(u)$),
+ is the set of all words  (respectively of
+length $n$)   which occur in $u$.
+  
+\item A sequence $u$ is \emph{recurrent} if every factor occurs infinitely often. 
+   
+A sequence $u$ is \emph{periodic}  (respectively \emph{ultimately periodic})  if there exists
+a positive integer $T$ such that
+   \[
+   \forall  n,   u_n = u_{n +T}, \quad   \text{respectively }   \exists n_0 \ \forall |n|\geq n_0, \   u_n = u_{n +T}.
+   \] 
+In both cases we say $u$ is  \emph{shift-periodic}. 
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Complexity function}\mbox{}
+
+\begin{itemize}
+\item 
+The \emph{complexity function} $p_u$ of  a sequence $u$ from a finite alphabet  is  
+\[
+ p_u (n) =  \text{Card}\, \mathcal{L}_n (u), \quad n \in \mathbb{N},
+ \] 
+i.e.\  the number of different words of length $n$ in $u$. 
+
+Then  $1\leq p_u(n) \leq d^n$ where the alphabet has  cardinality $d$.
+
+\item \textbf{Theorem}.  \emph{If $u$ is   ultimately periodic  then $p_u$ 
+is  bounded.}
+
+\emph{If there exists an integer $n$ such that $p_u(n) \leq n $ (in particular if $p_u$  is  bounded), then  
+$u$ is  ultimately periodic.}
+
+\item The \emph{topological entropy} of $u$ is  the exponential growth rate of the complexity of u as the length increases:
+\[ 
+H_{top} (u) = \lim_{n\to \infty} \frac{\log_d p_u(n)}{n},
+\]
+where $d$ is the cardinality of the alphabet $\mathcal{A}$.  
+
+The existence of the limit
+follows from the subadditivity of the function $ n\mapsto     \log_d p_u (n) $.    
+
+\item The topological entropy of $u$ equals  the topological entropy of its associated dynamical system.  See below.      
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Symbolic dynamical systems}\mbox{}
+
+\begin{itemize}
+
+\item
+$\mathcal{A}^\mathbb{N} $ has the product topology from the discrete
+topology on each copy of $\mathcal{A}$.  It is defined by the metric
+\[
+u \neq v \Longrightarrow d (u,v) = 2^{-\min \{n\in \mathbb{N}  : u_n \neq v_n\}}.
+\]  
+Similarly for $\mathcal{A}^\mathbb{Z} $ 
+
+\item The \emph{(left) shift operator} is denoted by $ S $.  
+
+\item The \emph{orbit} of $ u $ is $\mathcal{O}(u)$. 
+
+The closure is $X_u:= \overline{\mathcal{O}(u)} $. It is compact and $ S $ is continuous on $ X_u $.  It is finite iff $ u $ is shift-periodic.
+
+ $ (\overline{\mathcal{O}},S)$ is called  the \emph{symbolic dynamical system} associated with $ u $.
+ 
+ \item For $ u,w \in  \mathcal{A}^\mathbb{N} $ the following are equivalent
+ \begin{itemize}
+\item $ w \in X_u $ 
+\item $ \exists (k_n)_{n\geq 0} \text{ s.t. } w_0\dots w_n = u_{k_n}\dots u_{k_n+n}\  \forall n $.
+\item $ \mathcal{L}(w) \subset \mathcal{L}(u) $. 
+\end{itemize} 
+
+\item $ u $ is recurrent iff $ u $ is a limit point of $ X_u $ iff $ S $ is onto on $ X_u $.
+ 
+\item The \emph{cylinder set} $ [w_0\dots w_r] $ is the set of extensions of $ [w_0\dots w_r] $.
+
+Cylinder sets are clopen.  Clopen sets are finite unions of cylinders.
+
+\item Extend $ \mathcal{A} $ to $ \mathcal{B} $ by adding a new letter.  Then $ \mathcal{A}^* \cup \mathcal{A}^\mathbb{N} $ is a closed subset of $ \mathcal{B}^\mathbb{N} $ in a natural way.
+
+\item (\emph{minimality} --- same as minimality in a topological dynamical system--- return to this in Section 5)
+\end{itemize} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Topological dynamical systems} (p17)
+
+\begin{itemize}
+\item A \emph{topological dynamical system} $(X,T) $ is a compact metric space $ X $  with a continuous onto map $ T:X\to X $. (Sometimes the ``onto'' is dropped.)
+
+\item $(X,T) $  is \emph{minimal} if for all $ x\in X $ the orbit $ \mathcal{O} $ is dense  in $ X $.
+
+\item   $(X,T) $  is minimal  
+\begin{itemize}
+\item iff $X$  contains no nontrivial closed subset $ E $ s.t.\ $ T(E)\subset E $.
+\item iff for every nonempty open $ U  $, $ \bigcup _{n\geq 0} T^{-n}(U) = X$.
+\end{itemize}
+
+\item $  f:T\to T $ is \emph{$ T $-invariant} if $ \forall x\in X,\ f(Tx)=f(x) $.
+
+If $ f $ is continuous and  $(X,T) $  is minimal  then $ f $ is $ T $-invariant iff $ f $ is constant.
+
+\item The set of Borel probability  measures on $ X$ is a convex subset of the dual space of $ \mathcal{C} (X) $, is compact and metrizable
+in the weak-star topology.
+
+\item  A Borel measure $ \mu $ on $ X$ is invariant if $ T\mu = \mu $.
+
+$(X,T) $ has an invariant probability measure.  (Take any $ x\in X $ and any limit point of 
+$ \dfrac{1}{N}\sum_{n< N} \delta_{T^nx} $.)
+
+\item $ (X,T) $ is \emph{uniquely ergodic} if there exists exactly one $ T$-invariant Borel prob measure over $ X $.
+
+\item  $ (X,S) $ and $ (Y,T) $ are \emph{topologically equivalent} (or \emph{topologically isomorphic})  if $  \exists $ a homeomorphism $ f:X\to Y $ which \emph{conjugates} $ S $ and $ T $, i.e.\ $ f \circ S = T \circ f $.
+
+
+\item Example: If $ G $ is a compact group and $ T $ is mult by $ a \in G $ then $ (X,T) $  is a topological dynamical system.
+
+The Haar measure over  $ G $ is invariant.
+
+$ (X,T) $ is minimal iff  $ \{ a^n : n \in \mathbb{N} \} $ is dense.
+
+
+\item Example: In particular, toral translations of $ \mathbb{T}^d = \mathbb{R} ^d / \mathbb{Z} ^d $ by $ (\alpha_1,\dots \alpha_d ) $ are  topological dynamical systems.  
+
+They are minimal iff $  1,  \alpha_1,\dots \alpha_d  $ are rationally independent.
+
+
+\end{itemize} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Substitutions} (p7)
+
+\begin{itemize} 
+\item A substitution   is a map $ \sigma : \mathcal{A}  \to \mathcal{A}^* -\{\epsilon \} $.  
+
+It extends to a map     $ \sigma : \mathcal{A}^* \to \mathcal{A}^* $ (with $ \sigma (\epsilon ) = \epsilon $),
+and to maps over $ \mathcal{A} ^{\mathbb{N}} $ and $ \mathcal{A} ^{\mathbb{Z}} $.
+
+\item The Fibonacci substitution is $ \sigma(a) = ab, \sigma(b) = a $.
+
+(See also web notes by Wright).
+
+\end{itemize} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abelianization} (p8)
+
+\begin{itemize}
+\item The \emph{Incidence Matrix}   associated to the alphabet $ \mathcal{A} $ (with $ d $ symbols) and the substitution $ \sigma $ is the $d \times d$ matrix $ M_\sigma  $ for which the $ i $th entry in the  $ j $th column is  the number of times $ a_i $ occur  in  $  \sigma (a_j) $.  
+
+That is, $  M_\sigma(i,j) = | \sigma(a_j) |_{a_i} $.
+
+\item The    $ i $th entry in the  $ j $th  column of $ (M_\sigma)^n  $ is the number of times $  a_i $ occurs in $  \sigma^n (a_j) $.
+
+\item The Fibonacci substitution has $ M =    \begin{pmatrix}  
+      1 & 1 \\
+      1 & 0 \\
+   \end{pmatrix}$ 
+   
+   
+\end{itemize} 
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Measure-theoretic dynamical systems} (p19)
+
+\begin{itemize}
+\item Defn: $ (X,T,\mu, \mathcal{B} ) $ is a  \emph{measure-theoretic dynamical system} if $ \mu $ is a prob  measure on a $ \sigma$-algebra $ \mathcal{B} $ of subsets of $ X$ and $ T:X\to X$ is a Borel measurable map preserving $ \mu $.
+
+\item Suppose  $ (X,T) $ is a topological dynamical system, $ \mu $ is a $ T $-invariant Borel prob measure, $ \mathcal{B}  $  is the set of Borel sets.  Then  $ (X,T,\mu, \mathcal{B} ) $ is a   measure-theoretic dynamical system.
+
+[?? The article seems to require $ (X,T) $ be uniquely ergodic]
+
+\item $ (X,T,\mu, \mathcal{B} ) $ is \emph{ergodic} if every $ T $-invariant Borel set has full or zero measure.
+
+[?? This seems to require that $ X$ be a topological space]
+
+\item Ergodicity is equivalent to each of the following:
+\begin{itemize}
+\item every Borel $ B $ such that $ \mu(T^{-1}B \Delta B = 0 $ has zero or full measure;
+\item every Borel $ B $ such that $ \mu(B)>0 $ satisfies $ \mu (\bigcup_{n\geq 0} T^{-n}B) = 1 $.
+\end{itemize} 
+
+
+\item Suppose $ (X,T) $ is a uniquely ergodic topological system with corresponding measure $ \mu $.  Then   $ (X,T,\mu  ) $ is ergodic.
+
+\item Suppose $ (X,T,\mu, \mathcal{B} ) $ is a  measure-theoretic dynamical system.  Then $ T $ is ergodic iff every $ T  $-invariant measurable function is constant a.e.
+
+\item Let $ G $ be a compact metric group.  Let $ T $ be rotation by $ a\in G $.
+Then the following are equivalent:
+\begin{itemize}
+\item $ T $ is minimal;
+\item $ T $ is ergodic;
+\item $ T $ is uniquely ergodic;
+\item $ \{a^n: n \geq 0 \} $ is dense in $ G $.
+\end{itemize}
+In particular, from the last, $ G $ is abelian.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Shifts of Finite Type}
+
+\item 
+
+\end{itemize} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}  

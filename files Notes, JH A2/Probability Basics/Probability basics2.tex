@@ -1,0 +1,560 @@
+\documentclass[a4paper]{amsart}
+
+\usepackage{color}
+\usepackage[colorlinks=true, citecolor=red]{hyperref}  %needs to come before amsrefs package to work with \cite{}*{}
+\usepackage{amssymb,latexsym}
+\usepackage[alphabetic]{amsrefs}
+\usepackage[mathscr]{eucal}
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[all]{xy}
+\usepackage{titletoc}
+\usepackage{txfonts}   %  \fint  for integral average
+
+% \usepackage{showkeys}  %options notref  notcite 
+
+%\input{rgb.tex}
+
+%\textcolor{DarkRed}{text in DarkRed}
+
+
+\CompileMatrices
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}%[section]
+
+
+\theoremstyle{remark}
+\newtheorem{defn}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{discussion}[theorem]{Discussion}
+
+%\numberwithin{equation}{section}
+
+%\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\expected}{\mathbb{E}}
+\DeclareMathOperator{\prb}{Prob}
+\DeclareMathOperator{\spt}{spt}
+\DeclareMathOperator{\lap}{\Delta}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\var}{var}
+
+\raggedbottom
+
+%\addtolength{\textwidth}{2cm}
+%\addtolength{\oddsidemargin}{-1cm}
+%\addtolength{\evensidemargin}{-1cm} 
+%\addtolength{\topmargin}{-1cm} 
+%\addtolength{\textheight}{2cm}
+
+ 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\title{Probability Basics}  
+\author{John E.\ Hutchinson}
+\date{\today}
+
+%\begin{abstract} 
+%This is the abstract
+%\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Set Theoretic material} 
+
+ For a sequence $ (A_n) $ of subsets of a set $ X $ define
+ \begin{equation} \label{df} 
+ \liminf_{n\to \infty} A_n = \bigcup_{n \geq 1}\bigcap_{m\geq n} A_m,  \quad
+ \limsup_{n\to \infty}  A_n = \bigcap_{n \geq 1}\bigcup_{m\geq n} A_m.
+\end{equation} 
+ Note
+\begin{equation} \label{lim} 
+ \bigcap_{m\geq n} A_m  \uparrow \liminf_{n\to \infty}  A_n ,  \quad
+  \bigcup_{m\geq n} A_m  \downarrow \limsup_{n\to \infty}  A_n,   \quad \text{as } n \to \infty.
+\end{equation} 
+
+
+ In words, 
+\begin{equation} \label{words} 
+x \in \liminf_{n\to \infty} A_n \Longleftrightarrow  x \in A_n \text{ eventually}, \quad 
+x \in \limsup_{n\to \infty} A_n \Longleftrightarrow  x \in A_n \text{ i.o.} 
+\end{equation}  
+  In particular,   $  \liminf A_n $  is the smallest set detectible by tail events and $  \limsup A_n $  is the largest. 
+
+Clearly,
+\begin{equation} \label{dm} 
+(\liminf A_n)^c = \limsup  A_n^c, \quad (\limsup A_n)^c = \liminf A_n^c.
+\end{equation} 
+That is
+\begin{equation} \label{}
+\neg (A_n \text{ eventually}) \Longleftrightarrow   A_n^c \text{ i.o.}, \quad 
+\neg (A_n \text{ i.o.}) \Longleftrightarrow   A_n^c \text{ eventually}.
+\end{equation} 
+
+ 
+\bigskip
+  In terms of \emph{indicator} or \emph{characteristic} functions,
+\begin{equation} \label{in1} 
+\boldsymbol{1}_{\liminf_n A_n } = \liminf_n  \boldsymbol{1}_{A_n}, \quad 
+\boldsymbol{1}_{\limsup_n A_n } = \limsup_n  \boldsymbol{1}_{A_n},  
+\end{equation} 
+where on the right of each equality we are taking the liminf and limsup of a sequence of $ \{0,1\} $-valued \emph{functions}.
+ It follows from \eqref{words} and \eqref{in1}, since $ \boldsymbol{1}_A(x) $ is either $ 0 $ or $ 1 $, that 
+\begin{align} 
+  x \in A_n \text{ eventually} &\Longleftrightarrow 
+            \prod_{m\geq n } \boldsymbol{1} _{A_m}(x) = 1   \text{ eventually}           \Longleftrightarrow 
+            \lim_{n} \prod_{m\geq n }  \boldsymbol{1} _{A_m}(x) = 1, \label{in2}\\
+  x \in A_n \text{ i.o.} &\Longleftrightarrow 
+           \sum_n   \boldsymbol{1} _{A_n}(x) = \infty     \label{in3} .      
+ \end{align} 
+
+\bigskip 
+If $ X=\Omega $ is a sample space, the $ A_n $ are interpreted as events and we write 
+\begin{align} 
+   A_n \text{ eventually} &\Longleftrightarrow 
+            \prod_{m\geq n } \boldsymbol{1} _{A_m} = 1   \text{ eventually}           \Longleftrightarrow 
+            \lim_{n} \prod_{m\geq n }  \boldsymbol{1} _{A_m}  = 1, \label{ins2}\\
+ A_n \text{ i.o.} &\Longleftrightarrow 
+           \sum_n   \boldsymbol{1} _{A_n}  = \infty     \label{ins3} .      
+ \end{align} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Weak Law of Large Numbers}  The word ``weak'' refers to convergence in probability, as opposed to the later ``strong'' laws  which give convergence a.e.
+
+\begin{theorem} Suppose $ (X_n)_{n\geq 1} $ are iid real R.V.'s with mean $ \mu $ and finite variance.  Then for any $ \epsilon > 0 $, 
+\[
+\lim_{n \to \infty} P \Bigg( \left| \frac{X_1 + \dots + X_n}{n} - \mu  \right| \geq \epsilon \Bigg) = 0 .
+\]
+\end{theorem}
+
+
+\begin{proof} 
+By Chebyshev,
+\[
+P\left( \bigg| \sum_{i=1}^n (X_i - \mu) \bigg| \geq n \epsilon \right) 
+\leq \frac{ \mathbb{E} \left( \sum_{i=1}^n (X_i - \mu )\right)^2} { n^2 \epsilon ^2 } 
+   \leq \frac{ n\,  \mathbb{E} (X_1-\mu)^2   } { n^2 \epsilon ^2 } \to 0, \quad \text{as } n\to \infty.
+   \]
+The result follows.
+   \end{proof} 
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Zero One Law}  This follows trivially from the Borel-Cantelli Lemma, but is easy to show directly as follows.
+(See \cite{Lam}*{pp 37--41}.)
+
+
+
+Let $ X_n $ be R.V.'s.  The $ \sigma $-algebras $ \mathcal{B}(X_n,X_{n+1}, \dots ) $  are decreasing as $ n \to \infty $.  The intersection $ \mathcal{B}_\infty $ is called the \emph{tail field} of the sequence.
+
+It follows that $ \mathcal{B}_n := \mathcal{B} (X_n ) $ is independent of $   \mathcal{B}_\infty $ for every $ n $.
+
+If the $ X_n $ are independent then the following says   the tail field is trivial probabilistically.
+
+\begin{proposition}
+[Zero-One law]  For independent events, any tail event has probability $ 0 $ or $ 1 $.
+\end{proposition} 
+
+\begin{proof} $ \mathcal{B}_\infty $ is independent of $ \mathcal{B}_n $ for any $ n $, and so is independent of itself.  Hence $ P(E)^2 = P(E) $ for any tail event $ E $, which gives the result.
+\end{proof} 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Borel-Cantelli Lemma}
+
+\noindent \emph{(Partly from some now removed (?) web notes)}
+\begin{proposition}  
+For events $ A_1, A_2, \dots $ 
+\begin{enumerate}
+
+\item $ \sum_n P(A_n) <\infty \Longrightarrow P(A_n \text{ i.o.}) = 0$ , i.e.\ a.s.\ $ \exists n_0( \omega ) $ s.t.\ $ \neg A_n $ for $ n \geq n_0 $;
+\item $ A_n $ independent, $ \sum_n P(A_n) = \infty \Longrightarrow P(A_n \text{ i.o.}) = 1 $. 
+\end{enumerate} 
+\end{proposition} 
+
+\begin{proof}
+  For (1) assume   $ \sum_n P(A_n) <\infty $. 
+Hence
+\[\infty > \sum_n P(A_n) = \sum_n \mathbb{E} \boldsymbol{1}_{A_n} 
+    = \mathbb{E} \sum_n \boldsymbol{1}_{A_n},
+    \]
+The first equality is by the definitions and the second by the monotone convergence theorem.
+This implies (but is not equivalent to) $      \sum_n \boldsymbol{1}_{A_n} < \infty $ a.s.
+
+But
+\[
+  \sum_n \boldsymbol{1}_{A_n} < \infty  \text{ a.s.}
+  \Longleftrightarrow   P\Big(  \sum_n \boldsymbol{1}_{A_n} = \infty \Big) = 0
+  \Longleftrightarrow P(A_n \text{ i.o.}) = 0 .
+  \]
+The first equivalence   is by  the definitions and the second by
+\eqref{in3}.
+
+\medskip For (2) first note that if $ t_k \in [0,1] $ then $ 1 - t_k \leq e^{-t_k} $.  Hence 
+$   \sum_n P(A_n) = \infty $ implies $ \prod_{k \geq n} \big( 1 - P(A_k) \big) = 0$ for all $ n $.
+Hence
+\[
+0 = \lim_n \prod_{k \geq n}  P(A_k^c) 
+= \lim_n \prod_{k \geq n}  \mathbb{E}  \boldsymbol{1}_{A_k^c}
+=\lim_n \mathbb{E} \prod_{k \geq n}  \boldsymbol{1}_{A_k^c}
+= \mathbb{E} \lim_n  \prod_{k \geq n} \boldsymbol{1}_{A_k^c}
+= \mathbb{E} \liminf_n  \boldsymbol{1}_{A_n^c}.
+ \]
+The second equality is by definitions, the third by independence and D.C.T., the fourth by D.C.T., the last since 
+$ \boldsymbol{1}_{A_n^c} $ is zero or 1. 
+
+Hence $ P(\liminf   A_n^c  ) = 0 $, hence 
+$ P(\limsup   A_n  ) = 1 $  by \eqref{dm}, i.e.\  $ P(A_n\text{ i.o.})= 1 $ by 
+~\eqref{words}.
+
+
+\medskip \noindent \emph{Alternatively}, rewriting the proof of (2) a little we have:
+
+$   \sum_n P(A_n) = \infty $ implies (as above) for all $ n $ that $ \prod_{k \geq n} \big( 1 - P(A_k) \big) = 0$, i.e.\  $ \prod_{k \geq n}  P\big(A^c_k\big)  = 0$. 
+By independence (see below to be more rigorous), one has for all $ n $ that  $ P \big( \bigcap_{k \geq n } A^c_k\big) = 0 $, i.e.\ $ P \big( \bigcup_{k \geq n } A_k\big) = 1 $.
+Hence  $ P (\limsup A_n) = 1 $, i.e.\  $ P(A_n \text{ i.o.}) = 1 $. 
+
+ (More precisely  for the independence step above, one has 
+\[
+P\left( \bigcap_{k\geq n} A^c_k \right) = \lim_{m\to \infty} P\left( \bigcap_{k= n}^m A^c_k \right)
+  =  \lim_{m\to \infty} \prod_{k= n}^m P \left( A^c_k \right) =0 ,
+\]
+where the first equality is by having a decreasing sequence of sets and the second by independence.)
+\end{proof} 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Applications of Borel-Cantelli Lemma}
+
+\begin{proposition} \label{appbc} Suppose $ (X_n)_{n\geq 1} $ are real r.v.'s and $ \sum_nP\big(|X_n|> \epsilon \big) < \infty $ if $ \epsilon > 0 $.  Then $ X_n( \omega ) \to 0 $ a.s.
+\end{proposition}
+
+\begin{proof} By Borel-Cantelli, for each positive integer $ k $  there is a null set $ N_k $ such that
+\[
+\omega \notin N_k \Longrightarrow |X_n( \omega ) | \leq 1/k \text{ if } n \geq n_0(k, \omega ).
+\]
+Hence 
+\[
+ \omega \notin N:= \bigcup_{k \geq 1} N_k  \Longrightarrow X_n( \omega ) \to 0 \text{ as } n \to \infty .
+ \]
+\end{proof} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Strong Law of Large Numbers (moment restriction)} 
+
+\begin{theorem}   Suppose $ (X_n)_{n\geq 1} $ are iid real R.V.'s with mean $ \mu $ and finite fourth moment.  Then
+\[
+\frac{X_1 + \dots + X_n}{n} \to  \mu  \quad \text{a.s.}
+ \]
+\end{theorem} 
+
+\begin{proof} Let $ \mathbb{E} (X_1-\mu)^2 = \sigma ^ 2 $.
+By Chebyshev,
+\[
+P\left( \bigg| \sum_{i=1}^n (X_i - \mu) \bigg| \geq n \epsilon \right) 
+\leq \frac{ \mathbb{E} \left( \sum_{i=1}^n (X_i - \mu )\right)^4} { n^4 \epsilon ^4 } 
+   \leq \frac{ n\,  \mathbb{E} (X_1-\mu)^4  + 6 \binom{n}{2} \sigma ^4 } { n^4 \epsilon ^4 } \leq \frac{Cn^2}{n^4 \epsilon ^4}  .
+   \]
+Using the Borel-Cantelli lemma as in Proposition~\ref{appbc}, the result follows.
+\end{proof} 
+
+ 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Strong Law of Large Numbers (Kolmogorov)} 
+
+In this section we drop the fourth moment requirement.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Maximal Inequality; a.s.\ Convergence}
+
+ We first prove the following ``maximal'' inequality due to Kolmogorov. 
+For this result it is helpful to think of $ S_i = X_1+ \dots +   X_i $ as being the $ i$th position in a type of random walk beginning from the origin. The theorem gives an upper bound on the probability that the walk escapes $ (-a,a) $. 
+The same result and proof applies in $ \mathbb{R}^d  $ with $ B_a(0) $ instead of $ (-a,a) $.  
+
+%All that is used is that we have a series of orthogonal R.V.'s.  That is, consider a finite set of orthogonal functions $ f_1,\dots, f_n   \in L^2(\Omega,\mu) $ with $ \int f_i = 0 $.  Then 
+%\[
+% \mu \bigg\{x: \max_{1\leq i \leq n}\Big| f_1(x)+ \dots + f_i(x) \Big| \geq a \bigg\} \leq a^{-2} \sum_{i=1}^n \|f\|^2_{L^2} .
+% \]
+% FALSE, we use independence in the proof.
+%
+ 
+
+\medskip Note that the result reduces to a simple version of Chebyshev's inequality in case $ n=1 $.
+
+\begin{theorem} Let $ X_1,\dots, X_n $ be independent with zero means and variances $ \sigma _n^2 $. Then for any $ a > 0 $, 
+\[
+P \left( \max_{1\leq i \leq n} |X_1+\dots+ X_i | \geq a \right) \leq \frac { \sum_{i=1}^n \sigma _i^2 } { a^2 }.
+\]
+\end{theorem} 
+
+\begin{proof} Let $ S_i = X_1 +  \dots + X_i $.
+
+Let
+\begin{align*}
+A &= \big\{\text{ $ S_i \notin (-a,a) $ for some $ i \in \{1,\dots, n \} $ }\big\} \\
+A_j &= \big\{\text{ $ S_1,\dots, S_{j-1} \in (-a,a) $, \quad   $ S_j \notin (-a,a) $ }\big\}.
+\end{align*} 
+Note $ A = \bigcup_j A_j $ and this is a disjoint union.
+
+It follows
+\begin{align*}
+\sum_{i=1}^n \sigma _i ^2  = \mathbb{E} (S_n^2) &\geq \mathbb{E} (S_n^2 \, \mathbb{I}_A)  
+    = \sum_j \mathbb{E}  (S_n^2\,  \mathbb{I}_{A_j})  \\
+   &= \sum_j \mathbb{E} \left( (S_j + S_n-S_j)^2\,  \mathbb{I}_{A_j}\right)  \\
+   &= \sum_j \Big( \mathbb{E} (S_j^2\, \mathbb{I}_{A_j}) + \mathbb{E}\big( (S_n - S_j^2)\, \mathbb{I}_{A_j}\big) \Big)
+      \quad \text{($ S_j \, \mathbb{I}_{A_j}$ and $ S_n - S_j $ are independent)} \\
+      &\geq a^2 P(A_j)  
+       = a^2 P(A) . 
+\end{align*}  
+This is the required result.
+\end{proof} 
+ 
+
+ \begin{theorem} \label{kmia} Let $ (X_n)_{n\geq 1}   $ be independent R.V.'s with zero means and variances $ \sigma _n^2 $.  Suppose $ \sum_n \sigma ^2_n < \infty $.  Then
+ $   \sum_n X_n $ converges a.s.
+ \end{theorem}
+
+\begin{proof}
+Suppose $ \epsilon > 0 $. From the previous theorem, 
+\[
+P \left( \max_{m< i \leq n} |X_m+\dots+ X_i | \geq \epsilon  \right) 
+      \leq \frac { \sum_{i=m }^n \sigma _i^2 } { \epsilon ^2 }  \leq \frac { \sum_{i\geq m }  \sigma _i^2 } { \epsilon ^2 }      .% \to 0 \text{ as } m,n \to \infty.
+\]
+ Since this is true for any $ n $,
+ \[
+P \left( \sup_{  i >m} |X_m+\dots+ X_i | \geq \epsilon  \right) 
+      \leq \frac { \sum_{i\geq m }  \sigma _i^2 } { \epsilon ^2 } \to 0 \text{ as } m \to \infty.
+\]
+Hence, almost surely, the sequence of partial sums  eventually oscillates by at most $ \epsilon $.  Taking a sequence $ \epsilon _k \to 0 $,  the sequence of partial sums converges a.s.
+    \end{proof}  
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Kronecker's Lemma; SLLN for differing distributions}  
+ 
+ We first need
+ \begin{theorem}[Kronecker's Lemma] 
+ \[
+  \sum_j \frac{a_j}{j} \text{ converges} \quad  \Longrightarrow \quad  \frac{a_1 + \dots + a_n}{n} \to 0.
+  \]
+ \end{theorem}
+ 
+ 
+\begin{proof}  Let
+\[  
+s_n = \sum_{j=1}^n \frac{a_j}{j}  . 
+\] 
+Then
+\begin{align*} 
+\sum_{j=1}^n a_j  &=  \sum_{j=1}^n j s_j\\
+   &= s_1 + 2(s_2 - s_1 ) + 3(s_3 - s_2 )+ \dots + n(s_n - s_{n-1})\\
+  & = -\big(s_1 +s_2+ \dots + s_{n-1} \big)+ n s_n
+\end{align*} 
+Then 
+\[
+ \frac{a_1 + \dots + a_n}{n} = s_n - \frac{ s_1 +s_2+ \dots + s_{n-1}  } {n}  .
+\]
+We know $ s_n \to x $, say.  It follows easily that $ (s_1 +s_2+ \dots + s_{n-1})/n \to x $. This gives the result.
+\end{proof} 
+
+A more general version of the above is in \cite{Ash}*{p236}.
+
+
+Of course the following applies to any finite mean $ \mu $ by considering $ X_n - \mu $.
+\begin{theorem}[Kolmogorov] \label{ksl} Let $ (X_n)_{n\geq 1}   $ be independent R.V.'s with zero means and variances $ \sigma _n^2 $.  Suppose $ \sum_n \sigma ^2_n/n^2 < \infty $.  Then
+ \[
+\lim_{n\to \infty}\frac{X_1+\dots +X_n}{n} = 0 \quad \text{a.s.}
+\]
+\end{theorem}
+
+\begin{proof} By Theorem~\ref{kmia}, $ \sum_n X_n/n $ converges a.s.  
+ 
+ By Kronecker's Lemma, $ (X_1 + \dots + X_n )/n \to 0 $ a.s.
+\end{proof} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{SLLN for iid case}
+
+\begin{theorem}[Kolmogorov] Let $ (X_n)_{n\geq 1}   $ be iid with zero mean.  Then
+ \[
+\lim_{n\to \infty}\frac{X_1+\dots +X_n}{n} = 0 \quad \text{a.s.}
+\]
+If $ \mathbb{E}( |X_1| )= \infty $ then 
+\[
+\limsup_{n\to \infty } \frac{X_1+\dots +X_n}{n} =\infty  \quad \text{a.s.}
+\]
+\end{theorem}
+
+\begin{proof} In order to apply previous results we need a moment restriction.  For this, define
+\[
+Y_n = \begin{cases} X_n &\text{if } |X_n|\leq n \\
+                                     0 &\text{if } |X_n |> n
+           \end{cases}, \quad X_n + Y_n + Z_n.
+\]
+
+\medskip We next show that a.s.,  $ Z_n = 0 $ for all sufficiently large $ n $. By Borel-Cantelli it is sufficient to show that 
+$ \sum_n P(Z_n \neq 0) < \infty $, or equivalently that $ \sum_n P(|X_n|>n ) < \infty $.
+
+For this let $ E_n = \{ x : |x|> n \} $ and let $ P $ denote the probability distribution for $ X_1 $.  Then
+\begin{align*} 
+ \sum_{n\geq 1} P(|X_n|>n ) &=  \sum_{n\geq 1} \int \mathbb{I}_{E_n} (x) \, dP(x) \\
+     &= \int \sum_{n\geq 1}  \mathbb{I}_{E_n} (x) \, dP(x) \\
+     &\leq \int |x|\, dP(x) = \mathbb{E} (X_1) < \infty.
+     \end{align*} 
+
+\medskip  In order to apply Theorem~\ref{ksl} to $ Y_n $ first note
+\[
+\mathbb{E} (Y_n - \mathbb{E} (Y_n))^2 \leq \mathbb{E} (Y_n)^2 = \int_{[-n,n]}x^2 \, dP(x).
+\]
+It follows that
+\begin{align*}
+\sum_{n\geq 1} \frac{\var(Y_n)}{n^2} &\leq \sum_{n\geq 1} \frac{1}{n^2}\int_{[-n,n]}x^2 \, dP(x) \\
+         &= \sum_{n\geq 1} \sum_{1\leq \ell \leq n}  \frac{1}{n^2}\int \mathbb{I}_{F_\ell} (x) x^2 \, dP(x) \quad \text{where } F_\ell := \{ x : \ell-1 < |x|\leq \ell \} \\
+         &= \sum_{\ell \geq 1} \sum_{n \geq \ell} \frac{1}{n^2} \int  \mathbb{I}_{F_\ell} (x) x^2 \, dP(x) \\
+         &\leq \sum_{\ell \geq 1} \sum_{n \geq \ell} \frac{\ell}{n^2} \int  \mathbb{I}_{F_\ell} (x) |x| \, dP(x) .
+\end{align*} 
+But
+\[ 
+ \sum_{n \geq \ell} \frac{1}{n^2} \sim \int _\ell ^\infty \frac{dt}{t^2} \leq \frac{c}{\ell},
+\]
+so
+\[
+\sum_{n\geq 1} \frac{\var(Y_n)}{n^2}  \leq  c \sum_{\ell \geq 1}  \int  \mathbb{I}_{F_\ell} (x) |x| \, dP(x) = \int   |x| \, dP(x) = \mathbb{E} (X_1) < \infty .
+\]
+
+From Theorem~\ref{ksl} with $ \mu_n = \mathbb{E} (Y_n) $, 
+\[
+\frac{Y_1+\dots+Y_n}{n} - \frac{\mu_1 + \dots + \mu_n}{n} \to 0 \quad \text{a.s.}
+\]
+But 
+\[
+ \mu_n = \int_{[-n,n]} |x|\, dP(x) \to \mathbb{E} (X_1) = 0 \text{ as } n \to \infty.
+\]
+Hence
+\[
+\frac{Y_1+\dots+Y_n}{n}  \to 0 \quad \text{a.s.}
+\]
+ 
+Since eventually $ Z_n = 0 $ a.s., it follows that 
+\[
+\frac{Z_1+\dots+Z_n}{n}  \to 0 \quad \text{a.s.}
+\]
+Thus
+\[
+\frac{X_1+\dots+X_n}{n}  \to 0 \quad \text{a.s.}
+\]
+
+This completes the proof of the main part of the theorem.
+ 
+\bigskip
+For the last part, assume $ \mathbb{E} (|X_1|) = \infty $.
+
+Suppose $ C > 0 $ and let
+\begin{align*}
+A_n &= \{ \omega : |X_n|\geq Cn \} \subset \Omega \\
+E_n &= \{ x : |x| \geq Cn \} \subset \mathbb{R} .
+\end{align*}
+Then $ P(A_n) = P(E_n) $, where the second $ P $ is the probability on $ \mathbb{R} $ induced by $ X_n $, and is independent of $ n $.
+
+Hence
+\begin{align*}
+\sum_n P(A_n) &= \sum_n P(E_n) \\
+        &= \sum_n \int \mathbb{I}_{E_n}(x)\, dP(x) \\
+        &=  \int  \sum_n\mathbb{I}_{E_n}(x)\, dP(x) \\
+      &\sim c^{-1} \int |x|\, dP(x) = \infty.
+      \end{align*} 
+Since the $ A_n $ are independent, by Borel-Cantelli $ P(A_n \text{ i.o.}) = 1 $.  That is, almost surely 
+\[
+\frac{ |X_n|}{n}\geq C  \text{ i.o.}
+\]
+
+Assume 
+\[
+\limsup_{n\to \infty } \frac{|X_1+\dots +X_n|}{n}   < \infty
+\]
+on a set   of $ \omega $ of positive measure.  Then for some $ K > 0 $, there exists  $ A\subset \Omega $ with positive measure such that 
+for $ \omega \in A $ and for $ n \geq n_0( \omega ) $,
+\[ -K \leq \frac{X_1+\dots + X_n}{n}, \frac{X_1+\dots + X_{n-1}}{n} \leq K,
+\]
+and so by subtraction if $ \omega \in A $ and $ n \geq n_0 $, 
+\[
+\frac{|X_n|}{n} \leq 2K.
+\]
+
+Taking $ C = 3K $ gives a contradiction, and so 
+\[
+\limsup_{n\to \infty } \frac{X_1+\dots +X_n}{n} =\infty  \quad \text{a.s.}
+\]
+ \end{proof} 
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{thebibliography}{9} 
+
+\bib{Ash}{book}{
+   author={Ash, Robert B.},
+   title={Probability and measure theory},
+   edition={2},
+   note={With contributions by Catherine Dol\'eans-Dade},
+   publisher={Harcourt/Academic Press, Burlington, MA},
+   date={2000},
+   pages={xii+516},
+%   isbn={0-12-065202-1},
+%   review={\MR{1810041 (2001j:28001)}},
+}
+
+ 
+\bib{Lam}
+{book}{
+   author={Lamperti, John},
+   title={Probability. A survey of the mathematical theory},
+   publisher={W. A. Benjamin, Inc., New York-Amsterdam},
+   date={1966},
+   pages={x+150},
+%   review={\MR{0206996 (34 \#6812)}},
+}	
+
+\end{thebibliography}
+
+\end{document} 
+

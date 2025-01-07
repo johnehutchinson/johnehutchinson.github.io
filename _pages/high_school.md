@@ -1,6 +1,6 @@
 ---
 layout: high_school_with_toc
-title: "<span style='color: #8B4513;'>High School Related Material</span>"
+title: "<span style='color: #8B4513;'>High School Material</span>"
 permalink: /high_school/
 author_profile: false 
 

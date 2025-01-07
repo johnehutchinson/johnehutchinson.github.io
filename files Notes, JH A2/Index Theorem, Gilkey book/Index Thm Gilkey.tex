@@ -1,0 +1,285 @@
+\documentclass[a4paper]{amsbook}
+
+\usepackage{color}
+\usepackage[colorlinks=true, citecolor=red]{hyperref}  %needs to come before amsrefs package to work with \cite{}*{}
+\usepackage{amssymb,latexsym}
+\usepackage[alphabetic]{amsrefs}
+\usepackage[mathscr]{eucal}
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[all]{xy}
+\usepackage{titletoc}
+%\usepackage[show]{ed}
+%\usepackage{txfonts}   %  \fint  for integral average
+
+%\usepackage{showkeys}  %options notref  notcite 
+
+%\input{rgb.tex}
+
+%\textcolor{DarkRed}{text in DarkRed}
+
+
+\CompileMatrices
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}%[section]
+
+
+\theoremstyle{remark}
+\newtheorem{defn}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{discussion}[theorem]{Discussion}
+
+%\numberwithin{equation}{section}
+
+%\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\expected}{\mathbb{E}}
+\DeclareMathOperator{\prb}{Prob}
+\DeclareMathOperator{\spt}{spt}
+\DeclareMathOperator{\lap}{\Delta}
+\DeclareMathOperator{\Tr}{Tr}
+
+\raggedbottom
+
+\addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm} 
+\addtolength{\topmargin}{-1cm} 
+\addtolength{\textheight}{2cm}
+
+\newcommand{\side}[1]{\footnote{\emph{Draft Comment}:  #1}}
+%\newcommand{\side}[1]{} 
+
+\def\Xint#1{\mathchoice
+   {\XXint\displaystyle\textstyle{#1}}%
+   {\XXint\textstyle\scriptstyle{#1}}%
+   {\XXint\scriptstyle\scriptscriptstyle{#1}}%
+   {\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+   \!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+     \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+
+
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\title{Index Theory}  
+\author{John E.\ Hutchinson}
+\date{\today}
+
+ \begin{abstract}
+  I follow Gilkey's book
+ \end{abstract}
+
+\maketitle
+
+
+
+\tableofcontents
+
+\chapter{Pseudo Differential Operators}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Fourier Transforms, Schwartz class, Sobolev Spaces}} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \subsection{Notation}  We work in $  \mathbb{R}^m$.  For $ \alpha_i \geq 0 $ 
+  \begin{gather*}
+  \alpha  = (\alpha_1,\dots, \alpha_m )   , \quad 
+  | \alpha |   = \alpha_1+ \dots + \alpha _m, \\ 
+  \alpha !  = \alpha _1 ! \cdot \dots\cdot  \alpha _m ! , \quad 
+  x^ \alpha  = x_1^{\alpha _1} \cdot \dots \cdot x_m ^ {\alpha _m} \\
+  \partial^ \alpha = \partial_x^ \alpha 
+     = \left( \frac{\partial}{\partial x_1}\right)^{\alpha_1}\cdots   \left( \frac{\partial}{\partial x_m}\right)^{\alpha_m} , \quad 
+D^ \alpha  = D^ \alpha _x = (-i)^{| \alpha | }  d^ \alpha _x .
+\end{gather*}
+ 
+ \emph{Taylor's formula}: For $ f \in C^\infty $,
+ \[
+ f(x) = \sum_{|\alpha   |\leq n} \frac{1}{ \alpha !} \partial^ \alpha f(x_0) (x-x_0)^ \alpha + O(|x-x_0|).
+ \]
+ 
+ \emph{Schwartz class}: 
+ \[
+  \mathcal{S} = \{ f: \mathbb{R}^m \to \mathbb{C} \mid f \in C^\infty , \  \forall n  \forall \beta \ | D^\beta  f(x) | \leq C_{n, \beta }(1+ |x|)^{-n}\},
+  \]
+  where $ C_{n, \beta } $ depend on $ f $.
+  
+  To simplify the FT formulae, Lebesgue measure on $ \mathbb{R}^m $ is normalised by $ (2\pi)^{-m/2} $, so that
+  \[
+  \int e^{-\frac{1}{2} |x|^2} dx   = 1.
+  \]
+  
+ \emph{Convolution}: 
+  Define
+  \[
+  (f*g)(x) := \int f(x-y)\, g(y)\, dy = \int f(y)\, g(x-y)\,  dy.
+  \]
+  This defines an \emph{associative and commutative multiplication}.
+  
+  \begin{proposition}  If $ f \in \mathcal{S} $, $ \int f = 1 $, $ f_\epsilon (x) := \epsilon ^{-n}f \left(\frac{x}{\epsilon } \right) $, 
+ and $g  \in \mathcal{S} $, then  
+\[
+f_\epsilon * g \to g \quad \text{uniformly  as } \epsilon \to 0 .
+\]  
+\end{proposition}
+
+One can use this approach to show any \emph{$ g\in L^p $ can be approximated in the $ L^p $ norm by a $ C^\infty $ function of compact support}.  
+  
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\subsection{Definition of FT on $ \mathcal{S}$ and basic properties.}
+ Define 
+ \[
+ \hat{f}( \xi ) = \int e^{-ix\cdot \xi } f(x) \, dx.
+ \]
+ 
+ It follows, using integration by parts and dominated convergence for the first line, that %
+ \footnote{Typo in book}
+ \footnote{Where ``$ \leftrightarrow $'' means the right side is the FT of the left side.}
+\begin{gather}
+\notag  D^\alpha_x f (x)  \leftrightarrow \xi^ \alpha \hat{f}( \xi ), 
+                                    \quad  x^ \alpha f(x) \leftrightarrow D^ \alpha_\xi \hat{f} ( \xi ),\\
+ f(x-x_0)  \leftrightarrow e^{-ix_0\cdot \xi} \hat{f}(\xi), 
+                   \quad e^{ ix\cdot \xi_0 } f(x) \leftrightarrow \hat{f}(\xi-\xi_0). \label{tm}
+\end{gather} 
+ In particular, it follows $ \hat{f} \in \mathcal{S} $.
+
+Calculation shows
+\[
+e^{-\frac{1}{2} |x|^2} \leftrightarrow e^{-\frac{1}{2} |\xi|^2} .
+\]
+
+\begin{proposition}  $ f \leftrightarrow \hat{f} $ is a bijection on $ \mathcal{S} $.  In fact
+\[
+f(x) = \int e^{ix\cdot \xi } \hat{f} (\xi)\, d\xi = \hat{\hat{f}} (-x) =: Tf(x).
+\]
+\end{proposition}
+
+\begin{proof}Suppose $ f \in \mathcal{S}$.  
+
+First suppose $ f(0) = 0 $.  Use
+\[
+f(x) = \int_0^1 f(tx)\, dt 
+\quad 
+\text{to get} \quad 
+f(x) = \sum_j x_j h_j(x)  \text{ where } h_j \in \mathcal{S} ,
+\]
+and so%
+\footnote{missing ``$ - $'' in book.} 
+\[
+\hat{f}  = -i\sum_j \frac{\partial \hat{h}_j}{\partial \xi_j}  , \quad 
+\therefore Tf(0) = \int \hat{f}  = 0 = f(0).
+\]
+
+For general $ f $ subtract a multiple of $ e^{-\frac{1}{2} |x|^ 2 }$ and note that $ T $ is the identity on $ e^{-\frac{1}{2} |x|^ 2 }$.  It follows $ Tf(0) = f(0) $ for any $ f \in \mathcal{S} $.
+
+To get equality at any $ x \in \mathbb{R}^m $ use \eqref{tm}.
+\end{proof} 
+
+We also have
+\begin{gather*}
+f * g \leftrightarrow \hat{f}\cdot \hat{g}, \quad f \cdot g \leftrightarrow \hat{f}* \hat{g} \quad \forall f,g\in \mathcal{S}, \\
+(f,g) = (\hat{f}, \hat{g} ) \quad \forall f,g \in L^2(\mathbb{R}^m ).
+\end{gather*}
+The last gives a unitary map on $ L^2( \mathbb{R}^m)$ and is known as \emph{Plancherel's theorem}.
+
+  
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sobolev Spaces} \mbox{}
+
+\emph{Definition}:  For $ f \in \mathcal{S} $ and $ s \in \mathbb{R} $  let
+\[
+|f|^2_s = \int(1+|\xi|^2 )^s |\hat{f}(\xi)|\, d\xi .
+\]
+Note $ (1+|\xi|^2)^s $ and $ (1+|\xi|)^{2s} $ give equivalent norms.
+$ \mathcal{H}_s(\mathbb{R}^m ) $ is the completion of $ \mathcal{S} $ in this norm.
+
+\medskip\emph{Equivalent spaces}: $ \mathcal{H}_0\approx L^2 $ by Plancherel's theorem.
+$ \mathcal{H}_s\approx L^2 $ if the measure $ (1+|\xi|^2)^{s/2} $ is used.
+
+
+\medskip
+\emph{Connection with derivatives}:  $ s $ counts the number of derivatives in the sense 
+\[
+\sum_{| \alpha |\leq n} \int |D^ \alpha f(x) |^2 = \sum_{| \alpha |\leq n}  \int \left| \xi ^ \alpha \hat{f}( \xi) \right|^2 
+         \sim \| f \|^2_s,
+         \]
+  since
+  \[
+  c_1(1+|\xi|^2)^n  \leq \sum_{| \alpha |\leq n} |\xi^ \alpha |^2 \leq c_2(1+|\xi|^2)^n .
+  \]
+  
+  
+  \medskip  \emph{Continuous map}: The map $ D^ \alpha \mathcal{H} _s \to \mathcal{H} _{s- | \alpha | }$ is continuous.
+  
+\medskip \emph{Higher derivatives imply continuity}:  If $ s > k + m/2 $ and $  \mathcal{H}_s  \subset C^k $ and
+\[
+|f|_{\infty,k} \leq C |f|_s .
+\]
+
+\medskip \emph{Dense subset}:  $ C_0^\infty  $ is dense in $ \mathcal{H}_s $.
+\medskip \emph{Rellich's lemma}:  Suppose $ (f_n)_{n\geq 1} \in \mathcal{S} $ with uniform compact support, and uniform $ \mathcal{H}_s $ bound.  Then if $ t < s $, some subsequence converges in $ \mathcal{H}_t $.
+
+
+\medskip \emph{Natural dual pairing}: The map $ (f,g) \mapsto \int f\overline{g} $ extends to a map $ \mathcal{H}_s \times \mathcal{H}_{-s} \to \mathbb{C} $ which identifies $ \mathcal{H}_{-s} $ with $ \mathcal{H}_s^* $.  In fact
+\begin{align*}
+|(f,g)| & \leq |f|_s |g|_{-s},\\
+|f|_s &= \sup \{ |(f,g)| : |g|_{-s} = 1 \}.
+\end{align*}
+For the proof of (1) note 
+\[
+|(f,g)| = |(\hat{f},\hat{g}) = \int \hat{f}(\xi) (1+|\xi|^2)^{s/2}\,  \overline{\hat{g}}(\xi) (1+|\xi|^2)^{-s/2},
+\]
+and use Cauchy Schwartz.  For (2) choose $ g $ so $ \hat{g} = \hat{f}(1+|\xi |^1)^s $ and normalise.
+
+\medskip \emph{Peter Paul principle}: If $ s>t>u $ and $ \epsilon > 0 $ then 
+\[
+(1+|\xi|)^{2t} \leq \epsilon (1+|\xi|)^{2s} +  C(\epsilon) (1+|\xi|)^{2s},
+\]
+and so  
+\[
+|f|_t \leq \epsilon |f|_s + C(\epsilon) |f|_u.
+\]
+
+\medskip \emph{Vector-valued case}:  All the preceding generalises readily to functions with values in a $ k $ dimensional space.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\begin{thebibliography}{9} 
+
+%
+
+%\end{thebibliography}
+
+\end{document} 
+

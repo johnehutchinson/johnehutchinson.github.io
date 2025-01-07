@@ -1,0 +1,535 @@
+\documentclass[a4paper]{amsart}
+
+\usepackage{color}
+\usepackage[colorlinks=true, citecolor=red]{hyperref}  %needs to come before amsrefs package to work with \cite{}*{}
+\usepackage{amssymb,latexsym}
+\usepackage[alphabetic]{amsrefs}
+\usepackage[mathscr]{eucal}
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[all]{xy}
+\usepackage{titletoc}
+%\usepackage{showkeys}  %options notref  notcite 
+
+%\input{rgb.tex}
+
+\CompileMatrices
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}%[section]
+
+
+\theoremstyle{remark}
+\newtheorem{defn}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{discussion}[theorem]{Discussion}
+
+%\numberwithin{equation}{section}
+
+%\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\expected}{\mathbb{E}}
+\DeclareMathOperator{\prb}{Prob}
+\DeclareMathOperator{\spt}{spt}
+\DeclareMathOperator{\lap}{\Delta}
+\DeclareMathOperator{\Tr}{Tr}
+
+\raggedbottom
+
+\addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm} 
+\addtolength{\topmargin}{-1cm} 
+\addtolength{\textheight}{2cm}
+
+\setcounter{tocdepth}{3}
+
+
+\addtolength{\textwidth}{5cm}
+\addtolength{\oddsidemargin}{-2.5cm}
+\addtolength{\evensidemargin}{-2.5cm} 
+\addtolength{\topmargin}{-2cm} 
+\addtolength{\textheight}{3.5cm}
+
+
+%%% BEGIN DOCUMENT
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Huge
+
+\tableofcontents
+
+ \section*{Background} Generate $ SG(2) $ by a replacement rule $ F_2 $ 
+ 
+  \bigskip
+Generate $ SG(3) $ by a replacement rule  $ F_3 $
+ 
+\bigskip Generate random homogeneous ($ V=1 $) fractals\\
+ by choosing $ F_2 $ or $ F_3 $ \emph{at each level} according to   $ P = \{ p_2, p_3\} $.
+
+\bigskip Generate random recursive ($ V=\infty $) fractals by choosing $ F_2 $ or $ F_3 $ \emph{at each level} and \emph{within} each level according to   $ P = \{ p_2, p_3\} $.  
+
+(Number of possible replacements  grows exponentially with the level)
+
+\bigskip  Generate   $ V$ -variable fractals by means of just $ V $ different replacements  at each level.   (See diagram.)  It is necessary to work with \emph{$ V $-tuples} of fractals.
+ 
+%%%%%%%%%%%%%%%%%%%%%%%
+\newpage 
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6in]{V-vargenA.jpg} 
+   \caption{\huge \textbf{Organism growth from $ V=4$  initial cells via \emph{replacement/division}   rules.}}
+   \end{figure}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+ 
+ \section*{Notation}
+ Consider   $ V $-variable $ V $-tuple $ (K_1,\dots, K_V) $ of fractals with address
+  \begin{equation} \label{address}
+a_1a_2a_3\cdots  .
+  \end{equation} 
+ 
+\bigskip
+  Flow matrices $ M^i = M^{a_i} = M^i(\alpha ) $  are defined for $ i=1,2,\dots $.  
+  
+\bigskip
+  In the  diagram
+ \[
+M^1=
+ \begin{bmatrix}  
+  \frac{1}{2^\alpha} &  \frac{1}{2^\alpha} &  \frac{1}{2^\alpha} & 0 \\
+  \frac{2}{3^\alpha} &  \frac{2}{3^\alpha} &  \frac{1}{3^\alpha} &  \frac{1}{3^\alpha}  \\
+  \frac{2}{3^\alpha} &  0                              &  \frac{2}{3^\alpha} &  \frac{2}{3^\alpha}  \\
+  \frac{1}{2^\alpha} &  0                              &  \frac{1}{2^\alpha} &   \frac{1}{2^\alpha}  
+  \end{bmatrix}         
+ \quad
+  M^2 =  
+   \begin{bmatrix}  
+   \frac{2}{3^\alpha} &  \frac{3}{3^\alpha} & 0                              &  \frac{1}{3^\alpha}  \\
+ 0                               &  \frac{1}{2^\alpha} &  \frac{1}{2^\alpha} &  \frac{1}{2^\alpha}  \\
+  \frac{2}{2^\alpha} &  0                              &  \frac{1}{2^\alpha} &  0                               \\
+  0                              &\frac{1}{2^\alpha}   &  \frac{1}{2^\alpha} &   \frac{1}{2^\alpha}  
+  \end{bmatrix}         
+ \]
+ 
+ 
+\bigskip $ M^1 \circ \dots \circ M^n $ encodes the sum of the diameters to the power $ \alpha $ of the prefractal components
+ at level n (beginning with $ n=0 $).
+ 
+  \bigskip
+The 4 rows in $ M^1 \circ M^2 $ correspond to the 4 prefractals at level 2, and the entries in each column are the contribution from the red, green, yellow and black components respectively. 
+
+
+\bigskip
+ Let $ S_n = S_n(\alpha) $ be the sum of the diameters to the power $ \alpha $ of the components of the level $ n $ prefractal approximation to $ K^1 $. 
+ 
+ This is the sum of the entries in the \emph{first} row of $ M^1 \circ \dots \circ M^n $.  
+ 
+ 
+ 
+ 
+
+
+\bigskip Let $ \mathcal{O} $ be an open set for  the open set condition, rescale and define 
+   \begin{equation} \label{ss}
+\begin{aligned}
+    r_\emptyset(\omega) &:= |\overline{\mathcal{O}}| = 1,\\
+      r_{m_1\dots m_n}(\omega)
+     &:=  |\overline{\mathcal{O} }_{m_1\dots m_n} |
+       = r_{m_1}^{\omega(\emptyset)}\cdot \ldots \cdot r_{m_n}^{\omega(m_1\dots m_{n-1})}    
+ \end{aligned}
+  \end{equation}
+for $ m_1\dots m_n \in \omega$,  where $ \omega $ is the construction tree for $ K_1 $.  
+
+Suppressing $ \omega $, 
+\begin{equation} \label{ss2}  S_n(\alpha)
+:=  \sum_{\{\boldsymbol{m} \in \omega: | \boldsymbol{m} |=n\}} |\overline{\mathcal{O} }_{\boldsymbol{m} } |^\alpha
+=   \sum_{\{\boldsymbol{m} \in \omega: | \boldsymbol{m} |=n\}} \left(r_{\boldsymbol{m}}(\omega)\right)^\alpha, 
+\end{equation}
+ noting $ S(\omega,0,\alpha) = 1$.
+
+ 
+ $ S_n $ is the sum of the entries in the first row of $ M^1 \circ \dots \circ M^n$, 
+\begin{equation} \label{snp}
+ \boxed{S_n = e ^T M^1 \circ \dots \circ M^n \boldsymbol{1}} 
+\end{equation} 
+ where $ e  $ is the  unit column vector with $ 1 $ as \emph{first} entry, $ \boldsymbol{1}$ is the $ V $-dimensional  column vector of units.
+
+Take \eqref{snp}   as the definition of $ S_n $. 
+ 
+ 
+ %%%%%%%%%
+\newpage  \section*{Overview} Want an a.s.\  fixed  growth rate $ d= d(\alpha) $. That is,
+ \[  S_n( \alpha ) \sim e^{nd( \alpha )} \text{ a.s.\ as } n \to \infty, \]
+ Equivalently,
+ \[\lim_{n\to \infty}  \frac{1}{n} \log S_n (\alpha )= d( \alpha ) \text{ a.s.}, \quad
+ \left(\text{so } d( \alpha ) = \lim_{n\to \infty}  \frac{1}{n} \mathbb{E} \log S_n (\alpha )\right) .
+ \] 
+
+\bigskip
+The Furstenberg Kesten theorem shows this is true if we replace $ S_n $, the sum of the elements in the first row of $ M^1 \circ \dots \circ M^n$,  by the sum of all elements.  
+
+\bigskip A further argument shows the same result follows for any row, and in particular the first.   
+ 
+\bigskip Not difficult to show $ d (\alpha) $ is decreasing in $ \alpha  $ and has a unique zero. It is plausible, and true, that this gives the a.s.\ Hausdorff dimension of $ K_1 $, or indeed of any~$ K_v$.
+ 
+\bigskip
+Furstenberg Kesten theorem can be avoided by using \eqref{dfnm} to see that 
+  \[
+ S_n = e^T M^1 \circ \dots \circ M^n \boldsymbol{1} = \lambda_1 \cdots \lambda_k e^T E \boldsymbol{1},
+ \]
+ and then arguing as in Theorem~\ref{thmsn}.  The point is that  $ \lambda_i   $ is an eigenvalue with left eigenvector as in~\eqref{dfnm}.  Alternatively, one can see this directly from~\eqref{ss2}.
+ 
+\bigskip \emph{Key additional idea}   due to Bob Scealy.
+ 
+ \bigskip
+This gives, using the notation of  Definition~\ref{dfgl},
+ \begin{equation} \label{} 
+\boxed{ d (\alpha) = q\, \mathbb{E} \log \lambda ( \alpha )} 
+\end{equation}  
+where $ \lambda ( \alpha ) := S_\gamma ( \alpha ) $ and the  random integer $ \gamma $ is the first neck.
+
+
+
+
+\bigskip In particular, the Hausdorff dimension is the unique $ \alpha $ such that
+\begin{equation} \label{} 
+\boxed{ \mathbb{E} \log \lambda ( \alpha )  \left( =     \mathbb{E} \log S_\gamma ( \alpha ) \right) =     0}
+\end{equation} 
+
+ %%%%%%%%%
+\newpage\section*{Details}  
+\begin{definition} $ p $, or equivalently $ M^p $, is a \emph{neck} if all entries in $ M^p $ other than those in the first column are zero.
+\end{definition}
+
+In the diagram,  this means all small triangles on the right of each replacement rule are red.
+ 
+\begin{remark}
+If $ M^p $ is a neck then for any $ V \times V $ matrix $ M $, all elements in $ M \circ M^p $ other than those in the first column  are also zero.
+
+\bigskip It follows that $ e^T $  is a left eigenvector  of $ M \circ M^p $, i.e.
+\begin{equation} \label{lem}
+e^T M \circ M^p = \lambda e^T   
+\end{equation}
+for some $ \lambda $.
+\hfill $\square$  \end{remark} 
+
+\begin{definition}\label{dfgl}
+Choose iid sequence $ M^1,\dots ,M^\gamma $ until the first neck $ \gamma $ is obtained.  
+
+This defines an integer valued random variable    $ \gamma $. From 
+\eqref{lem} there is a real valued random variable $ \lambda $ defined by
+\begin{equation} \label{dfg}
+e^T M^1 \circ \dots \circ M^ \gamma = \lambda e^T.
+\end{equation}
+  \end{definition}
+  
+ \begin{remark}  
+ From \eqref{snp} and \eqref{dfg},
+\begin{equation} \label{} 
+ S_ \gamma ( \alpha ) = e^T M^1\circ\cdots \circ M^ \gamma \boldsymbol{1} = \lambda ( \alpha ) ,
+\end{equation} 
+ and this is the top left element of $ M^1 \circ \dots \circ M^ \gamma $.
+ \end{remark} 
+ 
+ \newpage
+ 
+ 
+\begin{proposition} Let $ 1 \leq n_2 < n_2 < \cdots $ be the necks in the  sequence~\eqref{address}.
+
+Let 
+\begin{equation} \label{dfnm}
+\begin{aligned} 
+e^T M^1\circ \dots \circ M^{n_1} &= \lambda_1e^T \\ 
+e^T M^{n_{i-1} +1} \circ \dots \circ M^{n_i}&= \lambda_ie^T \text{ if } 2 \leq i \leq k,
+\end{aligned} 
+\end{equation} 
+ where $ n_k $ is the largest neck such that $ n_k \leq n $.
+ 
+ Let
+ \begin{equation} \label{dfE}
+E = \begin{cases}
+   M^{n_k+1}\circ \dots \circ M^n & \text{if }n_k < n,\\
+   I & \text{if } n_k = n,
+   \end{cases}
+   \end{equation} 
+   where $ I $ is the $ V \times V $ identity matrix.
+   
+Then
+\begin{equation} \label{sprp}
+S_n = \lambda_1 \cdot \ldots \cdot \lambda_k e^T E \boldsymbol{1}.
+\end{equation} 
+\end{proposition} 
+
+\begin{proof} Immediate from \eqref{snp}, \eqref{dfnm} and \eqref{dfE}. 
+\end{proof} 
+
+ 
+
+ 
+ \begin{remark}  With the notation from \eqref{dfnm}, for $ i\geq 1 $, 
+ \begin{equation} \label{iidex}
+ \begin{aligned}
+\dist \lambda &= \dist \lambda _i, \\
+ \dist \gamma &= \dist (n_i - n_{i-1} ) ,
+ \end{aligned} 
+\end{equation}
+ where we set 
+\begin{equation} \label{}
+n_0 = 0 .
+\end{equation} 
+   \end{remark} 
+
+\begin{remark}
+Suppose $ q $ is the probability that $ M^i $ is a neck.  Then $ \gamma $ is given by the geometric distribution
+\begin{equation} \label{}
+P(\gamma = j ) = (1-q)^{j-1} q 
+\end{equation}
+for $ j \geq 1 $.  Moreover 
+\begin{equation} \label{}
+\mathbb{E} (\gamma) = q^{-1}.
+\end{equation} 
+ \end{remark} 
+
+ 
+\begin{remark}
+For some $ 0<a< \infty $ depending on $ \alpha $ 
+\begin{equation} \label{ufb}
+a^{-p} \leq \sum_{i=1}^V (M^1 \circ \dots \circ M^P )_{1i} \leq a^p
+\end{equation}
+for \emph{any} sequence $ M^1, \dots , M^p $ of allowable flow matrices.
+  \end{remark}
+
+\begin{theorem} \label{thmsn} Assuming \eqref{ufb},
+\begin{equation} \label{}
+\lim_{n\to \infty} \frac{1}{n} \log S_n (\alpha ) = q\, \mathbb{E}  \log \lambda (\alpha ) \
+ \left( = q\, \mathbb{E} \log S_ \gamma ( \alpha ) \right) \text{ a.s.,}
+\end{equation}
+where $ q $ and $ \lambda $ are as in Definition~\ref{dfgl}.
+
+The Hausdorff dimension of $ K_1 $ is the unique $ \alpha $ such that  $  \mathbb{E}  \log \lambda (\alpha )\  \left(= \mathbb{E} \log S_ \gamma ( \alpha ) \right) =0 $.
+\end{theorem}  
+
+
+\begin{proof}
+Let $ n_k $ be the largest neck such that $ n_k \leq n $ and note $ k = k(n) $ is independent of $ \alpha $.
+
+Then
+\begin{align*}
+\lim_{n\to \infty} \log S_n &= \lim_{n\to \infty} \frac{1}{n} \log (\lambda_1 \cdots \lambda_k e^T E \boldsymbol{1} )
+                           \quad \text{from \eqref{sprp}}  \\
+  &= \lim_{n\to \infty} \frac{ \sum_{i=i}^k \log \lambda_i + \log(e^T E \boldsymbol{1}) }
+                                            { \sum_{i=1}^k (n_i - n_{i-1} ) + ( n - n_k) }                        \\             
+  &= \lim_{n\to \infty} \frac{  \frac{1}{k} \sum_{i=1}^k \log \lambda_i + \frac{1}{k} \log ( e^T E \boldsymbol{1}) }
+                                             { \frac{1}{k} \sum_{i=1}^k (n_i - n_{i-1} ) + \frac{1}{k} (n-n_k) } \\
+  &= q \, \mathbb{E} (\log \lambda ) \quad \text{a.e.}                                                                                                                   
+                                       \end{align*}
+
+For  the last equality note 
+\[
+\frac{1}{k} \sum_{i=1}^k \log \lambda_i \to \mathbb{E} \log \lambda \quad \text{a.s.},
+\]
+since the $ \lambda_i $ are iid with $ \dist \lambda_i = \dist \lambda $ by \eqref{iidex}, and by using the strong law of large numbers.
+
+Similarly 
+\[
+\frac{1}{k} \sum_{i=1}^k (n_i - n_{i-1}) \to \mathbb{E} \gamma = q^{-1},
+\]
+since $ n_i - n_{i-1} $ are iid with $ \dist (n_i - n_{i-1} ) = \dist \gamma $ by  \eqref{iidex}, and again by using the strong law of large numbers and~\eqref{ufb} .
+
+Moreover,
+\[
+\frac{1}{k} (n-n_k) \leq \frac{1}{k} (n_{k+1} - n_k) \to 0 \quad \text{a.s.},
+\]
+since if $ a_k:= n_{k+1}- n_k $ then
+\[
+\frac{a_k}{k} = \frac{a_1+\dots a_k}{k} - \frac{k-1}{k}\, \frac{a_1+\dots + a_{k-1}}{k-1 } \to q^{-1}- q^{-1} = 0 \quad \text{a.s.}
+\]
+
+Finally, from \eqref{dfE} and \eqref{ufb},
+\[ 
+\frac{1}{k} \left| \log(e^T E \boldsymbol{1})\right| \leq \frac{1}{k} (n-n_k) \log a \to 0 \quad \text{a.s.}
+\]
+
+The last claim now follows from \cite{BHS}. 
+\end{proof} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{9} 
+
+   \bib{BHS}{article}{
+    author={Barnsley, M. F.},
+    author={Hutchinson, John E.},
+    author={Stenflo, {\"O}rjan},
+    title={V-variable Fractals: Dimension results},
+   note={submitted for publication},   
+   date={2009},   
+}
+
+
+\bib{Sce1}{thesis}{
+   author={Scealy, Bob},
+   title={V-variable fractals and interpolation},
+  note={draft Version, 7 September}, 
+  date={2007}
+     }
+
+\bib{Sce2}{thesis}{
+   author={Scealy, Bob},
+   title={V-variable fractals and interpolation},
+%  note={Preliminary Version, 7 September 2007}, 
+  date={2008}
+     }
+
+\end{thebibliography} 
+\end{document} 
+
+
+
+
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=5in]{V-vargen1T.jpg} \\ \mbox{} \\
+   \includegraphics[width=1in]{V-vargen0.jpg} \hspace{5cm}
+   \includegraphics[width=1in]{V-vargen1.jpg} 
+   \caption{Initial cell of type green.  The 4 transformation rules at time 1 (only the second is relevant).  The resulting organism at time 1.}
+   \label{V-vargen1}
+\end{figure}
+
+
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=5in]{V-vargen2T.jpg} \\ \mbox{} \\
+   \includegraphics[width=1in]{V-vargen1.jpg}  \hspace{4cm}
+    \includegraphics[width=1in]{V-vargen2.jpg} 
+   \caption{The organism at time 1. The transformation rules at time 2. The resulting organism at time 2.}
+   \label{V-vargen2}
+\end{figure}
+ 
+
+
+
+
+
+
+
+
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=5in]{V-vargen3T.jpg} \\ \mbox{} \\
+   \includegraphics[width=2.2in, height=2in]{V-vargen2.jpg}  \hspace{2cm}
+    \includegraphics[width=2.2in, height=2in]{V-vargen3.jpg} 
+   \caption{the organism at time 2. The transformation rules at time 3.  The resulting organism at time 3.}
+   \label{V-vargen3}
+\end{figure}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage \subsection{Backward Process}   See Figure~\ref{g3sg}.
+
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=3.5in]{V-cat.jpg} 
+   \caption{Level 1, 2 and 3 prefractals in the generation process  for a 3-variable Sierpinski Gasket.
+   On the left of the large arrows are indicated the IFSs used to transform the red, blue and green cells at the previous level.  The partitions of the new cells into red, blue and green are also indicated.}
+   \label{g3sg}
+\end{figure}
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=3.5in]{V-cat2.jpg} 
+   \caption{Box representation of the same example.  The red, blue and green boxes show the IFSs used to transform the red, blue and green cells at the previous level.  The partitions of the new cells into red, blue and green are also indicated.}
+   \label{g3sg2}
+\end{figure}
+
+
+Given data consists of a family $ \mathcal{F} $ of IFS's $ \{ F^ \lambda = (\psi^  \lambda _1,\dots, \psi^ \lambda _{M_\lambda });   \lambda \in \Lambda  \}$,    a natural number  $ V \geq 1 $ and a probability distribution $ P $ on $ \Lambda $.
+
+For the example in Figure~\ref{g3sg}, $ \mathcal{F} $ contains the two IFSs
+$F^2= (\psi^2_1,\psi^2_2,\psi^2_3)  $ and $F^3= (\psi^3_1,\dots,\psi^3_6)  $ generating $ SG(2) $ and $ SG(3) $ respectively.
+The corresponding probability distribution is given by  $ P(2) = p $ and $ P(3) = q $.
+
+\medskip Each realisation%
+\footnote{Not just a.e.\ realisation.}
+$ \omega $ of the generation process  produces 
+ a sequence of level $ n $ prefractals $ G^n = G^n(\omega) $ whose limit $ G = G(\omega) $ is a $ V  $-variable fractal.
+ The probability $ P $ is not required for this.
+
+The probability distribution  $ P $  gives a natural probability distribution on the generation process such that $ \omega \mapsto G(\omega) $ is a random $ V $-variable fractal with a natural probability distribution.
+
+
+\medskip
+It is helpful to assume each $ F^ \lambda $ is pcf with a common base set  $ V^{(0)} $.  In Figure~\ref{g3sg}, $ V^{(0)} $ is interpreted as the set of vertices of the standard equilateral triangle in~$ \mathbb{R}^2 $.  
+
+Alternatively, assume that there is a compact subset $ T $ independent of $ \lambda $ such that $ F^ \lambda (T) \subset T $ for each $ \lambda $.  In Figure~\ref{g3sg}, $ T $ is the closed convex hull of the standard equilateral triangle in~$ \mathbb{R}^2 $. 
+
+\medskip
+The case $ V=1 $  corresponds to the homogeneous random fractal case.
+The case $ V $ large approximates the random recursive case.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Summary}  (The process can be applied with or without using the probability distribution $ P $.  The probabilistic aspects of the construction are in parentheses.)
+
+In the first step an IFS is chosen (via $ P $), a level 1 prefractal is obtained by applying this IFS to the level 0 prefractal common to all the IFSs, and the resulting 1-cells are partitioned   into   $ V $ equivalence classes (each 1-cell independently according to the uniform distribution on $\{ 1,\dots, V \}$).
+
+After  step $ n $ for $ n\geq 1$, one has obtained a level $ n $ prefractal together with a partition of its $ n $-cells  into $ V $ equivalence classes. 
+In the subsequent step $ n + 1 $ one selects an IFS for each of these $ V $ equivalence classes of $ n $-cells (independently according to $ P $), applies this \emph{same} IFS to \emph{each} $ n $-cell in the equivalence class, and partitions the resulting $ n+1 $-cells into  $ V $ equivalence classes (independently for the $ n+1 $-cells corresponding to a fixed $ n$-cell) and in the \emph{``same''} way for the $ n+1 $-cell ``children'' of each $ n $-cell in the same equivalence class. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Details} 
+\begin{enumerate}
+\item The level 1 prefractal is obtained by applying $ F^\lambda $ to $  V^{(0)} $ or to $ T $, and then partitioning the resulting 1-cells into $ V $  possibly empty equivalence classes.  
+
+(In the probabilistic case $ F^\lambda $ is chosen via $ P $.  The equivalence class  for each 1-cell is then chosen independently according to the uniform distribution.)
+
+
+In Figure~\ref{g3sg}  see the bottom row, where the IFS $ F^2 $ is applied and equivalence classes of 1-cells are represented by   red, blue and green (the latter class is empty in the example).
+
+\item The level 2 prefractal is obtained by applying an  $ F^\lambda $ to each 1-cell in the level 1 prefractal and partitioning the resulting 2-cells into $ V $  possibly empty equivalence classes.  The same IFS is applied to equivalent 1-cells and the same partition is then applied to the resulting 2-cells.
+
+(In the probabilistic case the IFS for each equivalence class  is chosen independently via $ P $.  For a fixed 1-cell the equivalence class  for each resulting  2-cell is chosen independently  according to the uniform distribution.  The ``same'' partition is used for every 1-cell in the same equivalence class, but different equivalence classes are treated independently.)
+
+In Figure~\ref{g3sg}  the non empty classes of 1-cells correspond to red and blue, the corresponding IFS and partitions are indicated on the left of the middle row of figures, and the resulting  level 2 prefractal with its partition of 2-cells is shown on the right.
+
+\item  The level 3 prefractal is obtained by applying some  $ F^\lambda $ to each 2-cell in the level 2 prefractal and partitioning the resulting 3-cells into $ V $  possibly empty equivalence classes.  The same IFS is applied to equivalent 2-cells and the same partition is then applied to the resulting 3-cells.
+
+(In the probabilistic case the IFS for each equivalence class  is chosen independently via $ P $.  For a fixed 2-cell the equivalence classes for each resulting  3-cell is chosen independently   according to the uniform distribution. The ``same'' partition is used for every 2-cell in the same equivalence class, but different equivalence classes are treated independently.)
+
+In Figure~\ref{g3sg} the  equivalence classes of 1-cells again correspond to red, blue and green; the corresponding IFS and partitions are indicated on the left of the top row of figures, and the resulting  level 3 prefractal with its partition of 3-cells is shown on the right.
+\end{enumerate} 
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Forward Process}  
+
+

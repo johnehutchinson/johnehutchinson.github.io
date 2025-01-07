@@ -1,0 +1,672 @@
+\documentclass[a4paper]{amsart}
+
+\usepackage{color}
+\usepackage[colorlinks=true, citecolor=red]{hyperref}  %needs to come before amsrefs package to work with \cite{}*{}
+\usepackage{amssymb,latexsym}
+\usepackage[alphabetic]{amsrefs}
+\usepackage[mathscr]{eucal}
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[all]{xy}
+\usepackage{titletoc}
+
+%\usepackage{showkeys}  %options notref  notcite 
+
+%\input{rgb.tex}
+
+%\textcolor{DarkRed}{text in DarkRed}
+
+
+\CompileMatrices
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}%[section]
+\newtheorem{notation}[theorem]{Notation}%[section]
+
+
+\theoremstyle{remark}
+\newtheorem{defn}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{discussion}[theorem]{Discussion}
+
+%\numberwithin{equation}{section}
+
+%\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\expected}{\mathbb{E}}
+\DeclareMathOperator{\prb}{Prob}
+\DeclareMathOperator{\spt}{spt}
+\DeclareMathOperator{\lap}{\Delta}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\dom}{Dom}
+
+\raggedbottom
+
+\addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm} 
+\addtolength{\topmargin}{-1cm} 
+\addtolength{\textheight}{2cm}
+
+ 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\title{Dirichlet and Resistance Forms}  
+\author{John E.\ Hutchinson}
+\date{\today}
+
+\begin{abstract} 
+This mostly follows ~\cite{Kig}*{Appendix B}, which is a summary of parts of ~\cite{FOT}.
+
+\emph{See \cite{Eva}*{Appendix A} for a summary of the material on Dirichlet Forms.}
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Equivalence of Closed Forms, Non-Neg S.A.\ Operators, S.C.\ Semigroups}}
+
+$ \mathcal{H} $ is a real (or complex) Hilbert space with inner product $ (\cdot,\cdot) $ and norm $ \|\cdot \| $.  Think of an $ L^2 $ space.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Non-Negative Self Adjoint Operators}
+\begin{definition}\label{dsa}
+$ H : \mathcal{H} \to \mathcal{H} $ is a \emph{non-negative self adjoint operator} if 
+\begin{enumerate}
+\item $\dom (H) \subset \mathcal{H} $ is a dense subspace;
+\item $ H $ is linear and symmetric, i.e.
+\[  (Hf,g) = (f,Hg) \ \forall f,g \in \dom H ;\]
+\item $ H $ is non-negative, i.e.
+\[ (Hf,f) \geq 0 \quad \forall f \in \dom (H);\]
+\item $ H $ is self-adjoint, i.e. $ H=H^*$, i.e.\ (where $ h $ is denoted $ H^* g $)
+\[ \dom(H) = \Big\{ g : \exists h\in \mathcal{H}  \text{ s.t.\ }  (Hf,g) = (f,h) \quad  \forall f \in \dom (H) \Big\}.
+\]
+\end{enumerate} 
+\end{definition} 
+
+\begin{proposition} If $ H $ is non-negative self adjoint operator then there exists a unique non-negative self adjoint operator $ G $ (denoted $ H^{1/2} $) such that 
+ \[
+ \dom H = \{ f \in \dom G : G f \in \dom G \}, \quad G^2 = H .
+ \]
+ \end{proposition} 
+ 
+ Think of $ H = -\triangle $,  $\mathcal{H} =  L^2(\mathbb{R}^n ) $ or $ L^2(\Omega) $,  $ \dom H = W^{2,2}(\mathbb{R}^n )$ or $ W^{2,2}_0(\Omega) $, $ \dom H^{1/2} = W^{1,2}(\mathbb{R}^n )$ or $ W_0^{1,2}(\Omega) $.
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Closed Forms} 
+\begin{definition}\label{dcf}
+$ Q : \dom (Q) \times \dom (Q) \to \mathbb{R} $ is a \emph{(non-negative quadratic) closed  form} if 
+\begin{enumerate}
+
+\item $ \dom (Q) \subset \mathcal{H} $ is a dense subset;
+\item $ Q $ is bilinear and symmetric;
+\item $   Q $ is non-negative definite;
+\item $\dom (Q) $ is a Hilbert space under the inner product
+\[  Q_*(f,g) := Q(f,g) + (f,g) . \]
+ (or equivalently, $\dom (Q)  $ is closed in $ \mathcal{H} $ under the $ Q_* $ metric).
+ \end{enumerate} 
+\end{definition} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Strongly Continuous Semigroups} 
+
+\begin{definition}
+$   (T_t)_{t>0} $ is a strongly continuous semigroup on $ \mathcal{H}$ if
+\begin{enumerate}
+
+\item $ (T_t)_{t>0} $ are \emph{bounded} linear symmetric (hence self adjoint) operators on $ \mathcal{H} $;
+\item $ T_{t+s} = T_t\circ  T_s $ $ \forall t,s > 0 $ (i.e.\ $ (T_t)_{t>0} $ is a semigroup);
+\item $ \lim_{t\to 0^+} \|T_tu -u\| = 0$ (strong continuity at $ 0 $);
+\item $ \|T_tu\| \leq \|u\| $  $ \forall u \in H $, $ t>0 $ (contractivity).
+\end{enumerate} 
+\end{definition} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equivalence of These Notions}
+\begin{theorem}\label{equiv}
+There is a natural one-one correspondence between non-negative quadratic closed forms $ Q $, non-negative self adjoint operators $ H $, and strongly continuous semigroups $ (T_t)_{t>0} $.
+
+\medskip
+For   $ Q \Longleftrightarrow H $:
+\[
+\dom(Q) = \dom(H^{1/2}) \supset \dom (H) = \{f\in \dom(H^{1/2}) : H^{1/2} f \in \dom(H^{1/2}) \},
+\]
+and
+\begin{align*}
+Q(f,g) &= (f,Hg) \quad \forall f \in \dom(Q) , \forall g \in \dom (H), \\
+&= (H^{1/2}f, H^{1/2}g) \quad \forall f,g \in \dom Q.
+\end{align*} 
+In particular, $ Q $ determines $ H $ uniquely  and conversely, by density of domains.
+
+\medskip For   $ H \Longleftrightarrow (T_t)_{t\geq 0} $: 
+
+The generator of $ (T_t)_{t>0} $ equals $ -H $, i.e.
+\[
+-Hf = \lim_{t\to 0^+} \frac{T_tf - f}{t},
+\]
+where the limit is in the strong ($ \|\cdot\| $) sense, and $ \dom(H) $ is the set of $ f $ for which the limit exists.  This gives $ H $ in terms of $ T_t $.
+
+Conversely, there is a unique solution of 
+\footnote{Where it is required that $ u(t) $ is strongly continuous  in $ t $ for $t  \geq 0 $, $ u(t) \in \dom(H) $ for $ t>0 $, and the derivative is taken in the strong sense.} 
+\[
+u(0)= \phi\ (\in \mathcal{H}), \quad \frac{du}{dt} = - Hu \text{ for } t> 0 ,
+\]
+and it is given by $ u(t) = T_t \phi $.
+\end{theorem}
+
+It follows from the uniqueness of solutions that 
+\[    H\phi = \lambda \phi \Longrightarrow  T_t\phi = e^{-\lambda t } \phi .\]
+
+\medskip
+The following is straightforward to prove, see~\cite{Kig}*{p200}.
+
+\begin{proposition} If $ f,g \in \dom H $ then 
+\begin{enumerate}
+
+\item $ -HT_t f = -T_tH f  = \dfrac{d}{dt} T_tf$ (limit in the strong sense);
+\item $ Q(T_tf,g ) = Q(f,T_t g)$ for $ t>0 $, $ Q(T_sf,T_tg) = Q(T_t f, T_s g) = Q(f,T_{t+s}g) $ for $ s,t>0 $;
+\item $ Q(T_t f, T_t f) $ is monotonically decreasing on $ (0,\infty) $,  
+$ Q(T_t f, T_t f) \uparrow Q(f,f) $ as $ t \downarrow 0   $.
+\end{enumerate} 
+\end{proposition} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Dirichlet Forms}}
+
+Suppose $ X $ is a compact metric space and $ \mu $ is a finite measure on $ X $.  Suppose $ \mu(U)>0 $ for every nonempty open set $ U $.
+
+Let $ C(X) $ be the set of continuous real-valued functions on $ X $.
+
+Suppose $ \mathcal{E} $ is a closed form on $ L^2(X,\mu) $ with $ \dom \mathcal{E} = \mathcal{F} $.
+
+\begin{definition}\label{dfdir} Suppose $ \mathcal{E} $ is a closed form on $ L^2(X,\mu) $ with $ \dom \mathcal{E} = \mathcal{F} $.
+
+
+\begin{enumerate}
+
+\item $(\mathcal{E}, \mathcal{F} ) $ is \emph{Markovian} if the unit contraction operates on $ \mathcal{E} $, i.e.:
+\[
+f \in \mathcal{F} \Longrightarrow \overline{f} := (f\wedge 1)\vee 0 \in \mathcal{F} \text{ and } 
+\mathcal{E} (\overline{f})\leq \mathcal{E} (f) .
+\]
+We then say $ (\mathcal{E}, \mathcal{F} ) $ is a \emph{Dirichlet form}.
+\item $ \mathcal{C} \subset \mathcal{F} \cap C(X) $ is a \emph{core}  of $ (\mathcal{E}, \mathcal{F} ) $ if
+\begin{enumerate}
+
+\item $ \mathcal{C} $ is dense in $ \mathcal{F} $ in the $ \mathcal{E}_* $ norm (see Definition~\ref{dcf}(4)),
+\item $ \mathcal{C} $ is dense in $ C(X) $ in the sup norm.
+\end{enumerate}
+If $ (\mathcal{E}, \mathcal{F} ) $ is a Dirichlet form with a core then it is called a \emph{regular Dirichlet form}.
+
+\item $ (\mathcal{E}, \mathcal{F} ) $ has the \emph{local property} if 
+\[
+\spt f \cap \spt g = \emptyset \Longrightarrow \mathcal{E} (f,g) = 0 .
+\]
+If $ (\mathcal{E}, \mathcal{F} ) $ is a Dirichlet form with the local property it is called a \emph{local Dirichlet form}.
+\end{enumerate} 
+\end{definition} 
+
+\begin{definition}
+ A strongly continuous semigroup $ (T_t)_{t>0} $ on $ L^2(X,\mu) $ is \emph{Markovian} if 
+\[
+0\leq f \leq 1 \text{ a.e.\ } \Longrightarrow 0\leq T_t f \leq 1 \text{ a.e.\ } \forall t >0 .
+\]
+\end{definition}
+
+\begin{theorem} A Dirichlet form is Markovian iff the corresponding semigroup as in Theorem~\ref{equiv} is Markovian.
+\end{theorem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Dirichlet Forms on Finite Sets}}
+
+See \cite{Kig}*{\S2.1} 
+
+\begin{notation} \mbox{}
+\begin{enumerate}
+\item  $ V $ is a \emph{finite} set.
+\item $ \ell(V) = \{ f \mid f: V \to \mathbb{R} \} $.
+\item $ (u,v) = \sum_p u(p) v(p) $.
+\item For $ u \in \ell(V) $,
+\[
+ \overline{u}(p) = 
+\begin{cases} 1 & u(p) \geq 1 \\ u(p) & 0 \leq u(p) \leq 1 \\ 0 & u(p) \leq 0 
+\end{cases}
+\]
+\end{enumerate}
+\end{notation}
+
+\medskip
+The notion of  a Dirichlet form in Definition~\ref{dfdir} reduces to the following (except for the characterisation of the kernel):
+
+\begin{definition} \label{dfdff} A symmetric non-negative bilinear form $ \mathcal{E} $ on $ \ell(V) $ is a \emph{Dirichlet form} provided
+\begin{enumerate}
+\item $  \mathcal{E} (u) = 0 $ iff $ u $ is constant,
+\item $ \mathcal{E} (\overline{u} ) \leq \mathcal{E} (u ) $.  (The \emph{Markov} property.)
+\end{enumerate}
+\end{definition} 
+
+\begin{example}
+Let $ V = \{ p_1, p_2, p_3 \} $, set $ u_i = u(p_i)   $   and define
+\[
+ \mathcal{E} (u) = (u_1 - u_2)^2 + (u_2 - u_3)^2 + \epsilon (u_1 - u_3 )^ 2 .
+ \]
+Then $ \mathcal{E} $ is a Dirichlet form for $ \epsilon \geq 0 $, while for $ \epsilon > -1/2 $ it satisfies all conditions except the Markov property.
+\end{example}  
+
+The notion of a non-negative self adjoint operator in Definition~\ref{dsa} reduces to the following (except for the sign change and the characterisation of the kernel):
+\begin{definition} \label{dflap} A  symmetric non-positive linear operator (i.e.\ matrix) $ H $ on $ \ell(V) $ is a \emph{laplacian} provided
+\begin{enumerate}
+\item $ H(u) = 0 $ iff $ u $ is constant, (so rows sum to $ 0 $),
+\item $ H_{pq} \geq 0 $ if $ p \neq q $.
+\end{enumerate} 
+\end{definition}
+
+The following is a special case of Theorem~\ref{equiv}.
+\begin{proposition} \label{bihd} There is a natural bijection between the set of Laplacians $ H $  and the set of Dirichlet forms $ \mathcal{E} _H $, given by
+\[
+\mathcal{E} _H(u,v) = - (u,Hv) = - \sum _{p,q} H_{pq}u_p u_q = \frac{1}{2} \sum_{p,q} H_{pq}(u_p - u_q )^2 .
+\]
+\end{proposition} 
+
+\begin{proof} The main point is that $ \sum_{p,q}   H_{pq} u_p^2 = 0 =  \sum_{p,q}   H_{pq} u_q^2$ by the first condition in Definition~\ref{dflap}.
+\end{proof}
+
+
+\begin{remark} 
+There is a natural electrical network induced by $ H $ or equivalently $ \mathcal{E} $, with  \emph{resistance} $ r_{pq} := H_{pq}^{-1}$ and \emph{conductance} $ H_{pq} $ between $ p $ and $ q $ for $ p \neq q $.  
+
+We say \emph{$p $  is connected to $ q $}  if $ H_{pq} > 0 $, and $ V $ is connected if any two vertices can be joined by a path of connected pairs. 
+\hfill $\square$  
+\end{remark}  
+
+
+If $ U \subset V $ then there is a \emph{natural restriction} $ \widetilde{H} $ of $ H $, or equivalently $ \widetilde{ \mathcal{E} } $ of $ \mathcal{E} $, to $ U $.
+We often think of $ U $ as the ``boundary'' of $ V $.  We will see that $ \widetilde{H} $ and $ H $ have the same effective resistance on $ U $.
+
+\begin{theorem} \label{inlap} Suppose $ H $ is a Laplacian on $ V $ with corresponding Dirichlet form $ \mathcal{E} $.  Suppose $ U \subset V $. For $ u \in \ell(V) $ we write   $ u = \begin{bmatrix} u_0 \\ u_1\end{bmatrix}  $ where $ u_0 = u|_U $ and $ u_1 = u|_{V \setminus U }  $.
+
+Let
+\[
+H =   \begin{bmatrix}  
+      T & ^t J  \\
+      J & X  
+   \end{bmatrix}
+\]
+where the vertices in $ U $ are enumerated first and then those in $ V \setminus U $.  Thus $ T : \ell(U) \to \ell(U) $, $ J : \ell(U) \to \ell(V \setminus U ) $ and $ X : \ell(V\setminus U) \to \ell(V \setminus U) $. 
+
+
+Then
+\begin{equation} \label{cts} 
+\mathcal{E} _H(u) =  \mathcal{E} _{\widetilde{H}} (u_0) + \mathcal{E} _X( u_1 + X^{-1}J u_0 )  ,
+\end{equation} 
+where $ \widetilde{H} := T- \mbox{}^tJX^{-1} J $ and   $ X $    are Dirichlet forms (equivalently, Laplacians) on  $ U $ and $ V \setminus U $  respectively.
+
+If $ h \in \ell(V) $ is defined by   $ h_0 = u_0 $ and $ h_1 = - X^{-1}Ju_0 $, then $ h $ is the \underline{$ H $-harmonic extension} of $ u_0 $ in that 
+ $ (Hh)_{V\setminus U } = 0 $.   Moreover,
+ \[
+ \mathcal{E} _{\widetilde{H}} (u_0) \leq \mathcal{E} _H(u)  
+\]
+and equality holds iff $ u $ is the $ H $-harmonic extension  of $ u_0 $.
+\end{theorem} 
+
+\begin{proof} For \eqref{cts}, one just ``completes the square''.  In the   case  $ T $, $ J $ and $ X $  are scalars this is
+\begin{align*} 
+\langle Hu, u \rangle &= Tu_0^2 + Ju_1 u_0 + Ju_0 u_1 + Xu_1^2 \\
+           &= Tu_0^2 + X(u_1^2 + 2 X^{-1} Ju_0 u_1) \\
+           &= (T-X^{-1}J^2)u_0^2 + X(u_1 + X^{-1}Ju_0)^2.
+\end{align*}  
+In general, and similarly, 
+\[
+\big\langle Hu, u \big\rangle =  \big\langle(T- \mbox{}^t J X^{-1}J)u_0, u_0 \big\rangle + \big\langle X(u_1 + X^{-1}J u_0), u_1 + X^{-1} Ju_0\big\rangle  .
+\]
+
+The rest of the proof is straightforward.
+\end{proof} 
+
+
+\begin{proposition}[Maximum Principle] Suppose  $ V $ is connected, $ H $ is a Laplacian on $ V $ and $ U \subset V $. Suppose $ u \in \ell(V) $ is $ H $-harmonic on $ V \setminus U $.  Then  for any $ p \in V \setminus U $,
+\[
+\min_{q \in U }u(q)  \leq u(p) \leq \max_{q \in U} u(q).
+\]
+Each inequality is strict unless $ u $ is constant on $ U $.
+\end{proposition}           
+           
+ \begin{proof} Standard. \end{proof}
+ 
+ 
+\begin{proposition}[Harnack Inequality]  Suppose $ V $ is connected, $ H $ is a Laplacian on $ V $,   $ U \subset V $ and $ A \subset V \setminus U $.
+
+Then there exists $ c > 0 $ such that if $ u \geq 0 $ on $ V $, and $ u $ is $ H $-harmonic on   $ V \setminus   U    $,    then 
+\[
+\max_ {p\in A} u(p) \leq c \min _{p \in A} u(p).
+\]
+           \end{proposition}           
+           
+ \begin{proof}
+ Let 
+ \[
+ \mathcal{A} = \{ u \in \ell(V) :   \text{$ u \geq 0 $ on $ V $, $ u $  is $ H $-harmonic on   $ V \setminus   U    $, $ \max u|_A = 1 $} \}.
+ \]
+Then $ \mathcal{A} \subset \ell(V) = \mathbb{R}^d  $ for $ d = \text{card} (V) $ is compact, $ \min _{p \in A} u(p)> 0 $ for each $ u \in \mathcal{A} $ by the maximum principle, and so $ \gamma = \inf _{u \in \mathcal{A} } \min _{p \in A} u(p) > 0 $.  Let $ c = \gamma ^{-1} $.
+\end{proof} 
+
+\begin{definition} \label{dflfc} For $ H $ a Laplacian on $ V $ with Dirichlet form $ \mathcal{E} _H $ and $ p \neq q $, the \emph{effective resistance} is defined by 
+\[
+R_H (p,q)^{-1} = \min_{u \in \ell(V)}  \frac{\mathcal{E}  _H(u) }{ \big|u(p) - u(q) \big|^2}.
+\]
+In particular,
+\[
+\big|u(p) - u(q) \big|^2 \leq R_H (p,q)\,  \mathcal{E}  _H(u) .
+\]
+\end{definition} 
+
+(The minimum is achieved since w.l.o.g.\ we can assume $ u(p) = 1 $ and $ u(q) = 0 $, in which case we are minimising a quadratic over a finite dimensional space.  The minimum is positive since $ \mathcal{E} _H(u) = 0 $ iff $ u $ is constant.)
+
+
+\begin{definition} Suppose $ V_1 \subset V_2 $ are finite sets with Laplacians $ H_1 $ and $ H_2 $ respectively.  Then we write $ (V_1,H_1) \preccurlyeq (V_2,H_2 ) $ if $ H_1 = \widetilde{H_2} $ as in Theorem~\ref{inlap} and say the two networks are \emph{compatible}.
+\end{definition} 
+
+
+\begin{theorem} Suppose $ V_1 \subset V_2 $ are finite sets with Laplacians $ H_1 $ and $ H_2 $ respectively.  Then $ (V_1,H_1) \preccurlyeq (V_2,H_2 ) $ iff $ R_{H_1}(p,q) = R_{H_2}(p,q) $ for all $ p,q \in V_1 $.
+\end{theorem} 
+
+\begin{proof} The $ \Longrightarrow  $ direction is immediate.  
+
+The converse follows from the fact that a Laplacian is determined by its associated effective resistances.  This latter is by a somewhat tedious induction on the cardinality of $ V $.
+\end{proof} 
+
+
+\begin{theorem} \label{rfim} Suppose $ H  $ is a Laplacian on $ V $ and $ R_H $ is the associated effective resistance. Then $ R_H $ is a metric.
+\end{theorem} 
+
+\begin{proof} Use the $ \Delta - Y $ transform. \end{proof} 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Sequences of Discrete Laplacians}}
+
+See \cite{Kig}*{\S 2.2}
+
+\begin{notation} \label{ntcs}\mbox{}
+\begin{enumerate}
+ \item $ \mathcal{S} = \{ (V_m. H_m)\} _{m\geq 0} $ is a \emph{compatible sequence}, i.e.\ $ (V_m, H_m) \preccurlyeq  (V_{m+1}, H_{m+1}) $ for $ m\geq 0 $.
+\item $ V_* := \bigcup_{m\geq 0 } V_m $ , $ \ell(V_*) = \{ f \mid f : V_* \to \mathbb{R} \} $.
+\item $ \mathcal{F}( \mathcal{S} ) := \big\{ u : V_* \to \mathbb{R}\  \big| \lim_{m\to\infty } \mathcal{E} _m(u|_{V_m} ) < \infty \big\}$.
+\item $ \mathcal{E} _{ \mathcal{S} }(u,v) := \lim_{m \to \infty } \mathcal{E} _{H_m} \big( u|_{V_m}, v|_{V_m}\big)    $ for $ u,v \in  \mathcal{F}( \mathcal{S} ) $.
+\item The \emph{effective resistance} associated with $ \mathcal{S} $ is given by 
+\[
+ R_{ \mathcal{S} } (p,q) := R_{ H_m } (p,q) \text{ if } p,q \in V_m .
+ \]
+\end{enumerate} 
+\end{notation}
+
+\begin{lemma} There exist  unique $ h_m : \ell(V_m) \to \mathcal{F} ( \mathcal{S} ) $ satisfying 
+\begin{enumerate}
+\item $ h_m(u)|_{V_m} = u $;
+\item $ \mathcal{E} _{H_m} (u) = \mathcal{E} _{ \mathcal{S} } (h_m(u)) =
+  \min\{ \mathcal{E} _ { \mathcal{S} } (v) :  v \in \mathcal{F} ( \mathcal{S} ), \ v|_{V_m} = u \} $, and the unique minimiser is $ v = h_m(u) $;
+  \item If $ n > m $ then $ h_m(u)|_{V_n} $ is the harmonic extension of $ u|_{V_m} $ to $ V_n $.
+\end{enumerate} 
+\end{lemma} 
+
+\begin{proof} Straightforward. \end{proof} 
+
+\begin{lemma}[Maximum Principle] If $ v \in \ell(V_*) $ is $ H_n $ harmonic on $ V_n \setminus V_m $ for all $ n > m $ then 
+\[
+\min_{q \in V_m } v(q) \leq v(p) \leq \max_{q \in V_m } v(q) 
+\]
+for all $ p \in V_* $.
+\end{lemma}
+
+\begin{proof} Straightforward. \end{proof} 
+
+\begin{proposition} \label{rsm} $ R_{ \mathcal{S} } $  is a metric on $ V_* $.
+\end{proposition} 
+
+\begin{proof} Straightforward from the corresponding property for the $ R_{H_m} $. \end{proof} 
+
+
+\begin{lemma} \label{per} For   $ u \in \mathcal{F} ( \mathcal{S} ) $ and $ p,q \in V_* $,
+\begin{align*} 
+R_{ \mathcal{S} } (p,q)^{-1} &= \min \left\{ \frac{ \mathcal{E} _ { \mathcal{S} } (u) } { |u(p) - u(q)|^2 } : u \in \mathcal{F} ( \mathcal{S} ),\ u(p) \neq u(q) \right\}, \\
+|u(p) - u(q)|^2 &\leq R_{ \mathcal{S} } (p,q)\, \mathcal{E} _ { \mathcal{S} } (u) .
+\end{align*} 
+\end{lemma} 
+
+\begin{proof} Straightforward. \end{proof} 
+
+\begin{proposition} \label{prrs}\mbox{} 
+\begin{enumerate}
+ \item If $ u \in \mathcal{F} ( \mathcal{S} ) $ then $ u $ is uniformly continuous w.r.t.\ the metric $ R_ { \mathcal{S} } ^ {1/2} $.
+\item $ \mathcal{E} _ { \mathcal{S} } $ is a non-negative symmetric bilinear form on $ \mathcal{F} ( \mathcal{S} ) $ and $ \mathcal{E} _ { \mathcal{S} }(u) = 0 $ iff $ u $ is constant.
+\item $ ( \mathcal{F} ( \mathcal{S} ) /\!\! \sim , \mathcal{E} _ { \mathcal{S} } ) $ is a Hilbert space , where $ u \sim v $ iff $ u - v $ is constant.
+\item If $ u \in \mathcal{F} ( \mathcal{S} ) $ then $ \overline{u} \in \mathcal{F} ( \mathcal{S} ) $ and $ \mathcal{E} _ { \mathcal{S} }(\overline{u}) \leq \mathcal{E} _ { \mathcal{S} }(u)$.
+\end{enumerate} 
+\end{proposition} 
+
+\begin{proof} Straightforward except for (3).  For this, identify $  \mathcal{F} ( \mathcal{S} ) /\!\! \sim $ with  $  \mathcal{F}_p ( \mathcal{S} ) 
+= \{ u \in  \mathcal{F} ( \mathcal{S} : u(p) = 0 \} $ for some fixed $ p \in V_* $.
+
+To show a Cauchy sequence $ (v_k)_{k\geq 1} $ from $   \mathcal{F}_p ( \mathcal{S} ) $ has a limit in $  \mathcal{F}_p ( \mathcal{S} ) $, consider the sequence $ v_k^m := h_m(v_k|_{V_m}) $.  This has a limit $   v^m $  and there exists $ v \in V_* $ with   $v|_{V_m} = v^ m $ for all $ m $. Moreover, $ v \in \mathcal{F} ( \mathcal{S} ) $ and one can check that the original sequence converges to $ v $.
+\end{proof} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Resistance Forms and Resistance Metrics}}
+
+See \cite{Kig}*{\S 2.3}
+
+\bigskip
+Beginning with a compatible sequence $ \mathcal{S} = \{(V_m,H_m)\} $, we constructed in Notation~\ref{ntcs}   the ``resistance''  form   $ \mathcal{E} _ { \mathcal{S}} $ on $ \mathcal{F} ( \mathcal{S} ) $ and the resistance metric $ R_ { \mathcal{S} } $ on $ V_* $.  Motivated by the properties in Proposition~\ref{rsm}, Lemma~\ref{per} and Proposition~\ref{prrs} we define a general notion of ``resistance metric'' and ``resistance form'' and prove their equivalence.
+
+
+\begin{definition}[Resistance form] \label{dfrf} A pair $ ( \mathcal{E} , \mathcal{F} ) $ is a \emph{resistance form} on an arbitrary set $ X $ if 
+\begin{enumerate}
+\item $ \mathcal{F} $ is a subspace of $ \ell(X) $ which contains the constant functions.
+\item $ \mathcal{E} $ is a non-negative symmetric form on $ \mathcal{F} $ and $ \mathcal{E} (u) = 0 $ iff $ u $ is constant.
+\item $ ( \mathcal{F} /\!\!\sim, \mathcal{E} ) $ is a Hilbert space, where $ u \sim v $ iff $ u-v $ is a constant function.
+\item For any   finite $ V \subset X $ and $ v \in \ell(V) $ there exists an extension of $ v $ to some $ u \in \mathcal{F} $.
+\item For any $ p,q \in X $,
+\[
+ \inf \left\{ \frac{ \mathcal{E}   (u) } { |u(p) - u(q)|^2 } : u \in \mathcal{F} ,\ u(p) \neq u(q) \right\} > 0.
+ \]
+ \item If $ u \in \mathcal{F}  $ then $ \overline{u} \in \mathcal{F}  $ and $ \mathcal{E}  (\overline{u}) \leq \mathcal{E}  (u)$  (the \emph{Markov} property).
+\end{enumerate} 
+\end{definition}
+
+
+\begin{remark}
+\mbox{}
+\begin{enumerate}
+\item The positive quantity on the left side of (5) will define $ R(p,q)^{-1}$,  where $ R   $ is the resistance metric on $ X $ associated to the resistance form $   ( \mathcal{E} , \mathcal{F} ) $ .
+\item If $ X $ is finite then $ ( \mathcal{E} , \ell(X) ) $ is a resistance form iff $ ( \mathcal{E} , \ell(X) ) $ is a Dirichlet form as in Definition~\ref{dfdff}.  In this case the expression in (5) is positive by the parenthetical remark following Definition~\ref{dflfc}.
+\item If  $ \mathcal{S} = \{(V_m,H_m)\} $ is a compatible sequence then     $ (\mathcal{E} _ { \mathcal{S}}  , \mathcal{F} ( \mathcal{S} ) )$ is a resistance form on $ V_* $ by Lemma~\ref{per} and Proposition~\ref{prrs}.
+\end{enumerate}
+\hfill $\square$  \end{remark} 
+
+
+\begin{definition}[Resistance metric]  Suppose $ X $ is a set and $ R: X \times X \to [0,\infty) $. Then $ R $ is a \emph{resistance metric} if for any finite $ V \subset X $ there is a Laplacian $ H_V $ on $ V $ such that $ R|_{V\times V} = R_{H_V} $, where $ R_{H_V} $ is as in Definition~\ref{dflfc}.
+\end{definition} 
+
+\begin{remark}\label{remrf}
+\mbox{}
+\begin{enumerate}
+\item $ R $ is a metric on $ X $ since for any finite $ V \subset X $, $ R_{H_V} $ is a metric on $ V $ by Theorem~\ref{rfim}. 
+\item From Theorem~\ref{rfim}:
+\begin{enumerate}
+\item For any finite $ V\subset X $, the Laplacian $ H_V $ is uniquely determined by $ R $. 
+\item If  $ V_1 \subset V_2 \subset X $ where both $ V_1 $ and $ V_2 $ are finite then  $  (V_1,H_{V_1}) \preccurlyeq (V_2,H_{V_2} ) $.
+\item If $ X $ is finite then $ R $ is the effective resistance corresponding to $ H_X $. 
+\end{enumerate} 
+\item If  $ \mathcal{S} = \{(V_m,H_m)\} $ is a compatible sequence then   the resistance metric $ R_ { \mathcal{S} } $ on $ V_* $ is a resistance metric in the   sense of the above Definition.  (This follows by taking, for any finite $ V \subset   V_* $, a sufficiently large $ m $ such that $ V\subset V_m $.)
+\end{enumerate} 
+\hfill $\square$  \end{remark} 
+
+\begin{theorem} \label{rtrp1} Suppose $ ( \mathcal{E} , \mathcal{F} ) $ is a resistance form on a set $ X $.  
+
+Then for any finite $ V \subset X $ and any $ u \in \ell (V) $ there is an extension of $ u $ to $ h_V(u) \in \mathcal{F} $ such that
+\begin{equation} \label{humin}
+\mathcal{E} (h_V(u)) = \min \{ \mathcal{E} (v) :  v\in \mathcal{F} ,\ v|_V = u \}. 
+\end{equation} 
+The map $ h_V $ is linear and  $h_V(u) $ is the unique minimiser. 
+
+Moreover, $ \mathcal{E} ^V (u) := \mathcal{E} ( h_V (u)) $ defines a Dirichlet form $ (\mathcal{E}  ^V, \ell(V)) $ on $ \ell(V) $ (as in Definition~\ref{dfdff}) and hence a resistance form (as noted in Remark~\ref{remrf}), called the \underline{form induced from $  \mathcal{E}  $}.
+
+If $ V_1 \subset V_2 \subset X $ where both $ V_1 $ and $ V_2 $ are finite then the form induced on $ V_1 $ from $  \mathcal{E}  ^{V_2} $   is the same as the form induced from $ \mathcal{E} $.  
+
+Define
+\begin{equation} \label{}
+R_{p,q}^{-1} := \min \{ \mathcal{E} (v) :  v\in \mathcal{F} ,\ v(p) =1, \ v(q)=0  \} .
+\end{equation} 
+Then $ R_{p,q} $ defines a resistance metric on $ X $.  It agrees with the effective resistance given by Definition~\ref{dflfc}  on any finite $ V\subset X $ with $ p,q \in V $.
+\end{theorem}   
+
+\begin{proof} Suppose $ V \subset X $ is finite and $ u \in \ell(V) $. 
+ Suppose $ h_V(u),v \in \mathcal{F} $ agree  with $ u $ on $ V $,  and  let $   v = h_V(u) + \widetilde{v} $, in which case $ \widetilde{v} \in \mathcal{F} $ and $ \widetilde{v} = 0 $ on $ V $.  Then
+\begin{equation} \label{enexp} 
+ \mathcal{E} (v) = \mathcal{E} (h_V(u)) + 2\mathcal{E} (h_V(u), \widetilde {v} ) + \mathcal{E} (\widetilde {v} ) ,
+\end{equation} 
+Thus in order to obtain \eqref{humin} we need to define $ h_V(u) $   agreeing with $ u $ on $ V $ and  so that $ \mathcal{E} (h_V(u), \widetilde {v} ) = 0 $ for all $   \widetilde{v} \in \mathcal{F} $ with $ \widetilde{v} = 0 $ on $ V $. 
+
+For this, first fix $ p \in V $ and consider  $ \mathcal{X} _p \in \ell(V) $, where $ \mathcal{X} _p $ is   the characteristic function of the singleton $ \{p\} $.  Let 
+\[
+ \mathcal{F} ^p =  \big\{ v \in \mathcal{F}\ \big|\  v = 0 \text{ on } V \setminus \{p\} \big\}.
+ \]
+ Then $ ( \mathcal{F} ^p, \mathcal{E} ) $ is non trivial by  Definition~\ref{dfrf}(4) and is a Hilbert space by Definition~\ref{dfrf}(3) and (5). (Use (5) to show that  $ \mathcal{E} (v_n - v) \to 0  $ and $ v_n(q) = 0 $ implies $ v(q) = 0 $.)
+
+ Moreover, $ p \mapsto v(p) $ is a linear map on $ \mathcal{F} ^p $ and is bounded in the $ \mathcal{E} $ norm by Definition~\ref{dfrf}(5) after fixing some $ q \in V \setminus \{ p \} $.  Hence there exists $ g_p \in \mathcal{F} ^p $ such that 
+ \[
+ \mathcal{E} (g_p, v ) = v(p) \quad  \forall v \in \mathcal{F} ^p .
+ \]
+
+Define the function $ h_V(u) \in \mathcal{F} $ by 
+\[
+h_V(u) = \sum_{p\in V} u(p)\, \frac{g_p}{g_p(p)} .
+\]
+Then $ h_V(u) = u $ on $ V $.  Moreover, if $ \widetilde{v} \in \mathcal{F} $ and $ \widetilde{v} = 0 $ on $ V $, then
+\[
+\mathcal{E} (h_V(u), \widetilde{v} ) = \sum_{p\in V} \frac{u(p)}{g_p(p)}\, \mathcal{E} (g_p, \widetilde{v}) 
+   =  \sum_{p\in V} \frac{u(p)}{g_p(p)}\, \widetilde{v}(p) = 0 .
+\]
+
+Using the remark following \eqref{enexp} it follows that if $ v = u $ on $ V $ then $ \mathcal{E}(h_V(u) ) \leq \mathcal{E} (v) $. Moreover,  by Definition~\ref{dfrf}(3) equality holds by iff   $ \widetilde {v} $ is constant, i.e.\  $  \widetilde {v} = 0 $ and so $ h_V(u) = v $. Hence $ h_V(u) $ is the unique energy minimising extension of $ u $.
+
+\medskip The form $ \mathcal{E} ^V $ is clearly symmetric, bilinear and positive definite.  Next note that   $h_V(u)$ is constant iff $ u $  is constant, one direction being trivial and the other using the fact that the constant extension of a constant $ u $ minimises energy (being zero) and so is the unique extension $ h_V(u) $. Hence the first condition in Definition~\ref{dfdff} is satisfied.
+
+Next note
+\[
+\mathcal{E} \big( h_V(\overline{u}) \big) \leq \mathcal{E} \big(\, \overline{h_V(u)}\,  \big) \leq \mathcal{E} \big ( h_V(u) \big).
+\]
+The first inequality is since $ u = h_V(u) $ on $ V $ implies $ \overline{u} = \overline{h_V(u)} $ on $ V $, and by then applying the energy minimisation property of $ h_V $.  The second inequality is by the Markov property of $ \mathcal{E} $.
+
+It follows $ \mathcal{E} ^ V ( \overline{u}) \leq \mathcal{E} ^V (u) $.  This is the Markov property for $ \mathcal{E}^V $.  
+
+Hence $ \mathcal{E} ^V  $ is a Dirichlet form on $ V $  as in Definition~\ref{dfdff}. 
+
+\medskip
+Let $ \mathcal{E} ^{V_1\to V_2 }  $  be the form induced on $ V_1 $ from $ \mathcal{E} ^{V_2} $. Then for $ u \in \ell(V_1) $,
+\begin{align*}
+ \mathcal{E} ^{V_1\to V_2 }(u) &= \min \big\{ \mathcal{E} ^{V_2} (v) \ \big| \ v \in \ell(V_2),\, v|_{V_1} = u \big\} \\
+    &=    \min \Big\{     \min         \big\{ \mathcal{E} ^{X} (v') \ \big| \ v' \in \mathcal{F} ,\, v'|_{V_2} = v \big\} 
+                  \ \Big| \ v \in \ell(V_2),\, v|_{V_1} = u \Big\}    \\
+             &=        \min         \big\{ \mathcal{E} ^{X} (v') \ \big| \ v' \in \mathcal{F} ,\, v'|_{V_1} = u \big\}   \\
+             &=  \mathcal{E} ^{V_1} (u).     
+\end{align*} 
+The third equality is trivial, we are just splitting up the class of extensions into a union of disjoint subclasses.  Hence $\mathcal{E} ^{V_1\to V_2 } = \mathcal{E} ^{V_1 } $.
+
+\medskip Finally, if $ p,q \in V \subset X $ for \underline{any} finite $ V $, then from what we have just shown with $ V_1= \{ p,q\}$ and $ V_2 = V $, it follows that $ R_{p,q} $ is the effective resistance between $ p $ and $ q $ w.r.t.\ the Dirichelet form $ \mathcal{E} ^V $ induced from $ \mathcal{E} $. If $ H_V $ is the Laplacian on $ V $ corresponding to $ \mathcal{E} ^V $ then $ R_{p,q} = R_{H_V}(p,q) $ from Definition~\ref{dflfc}.  It follows $ R_{p,q} $ defines a resistance metric on $ X $.
+\end{proof} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{thebibliography}{9} 
+
+\bib{Eva}{book}{
+   author={Evans, Steven N.},
+   title={Probability and real trees},
+   series={Lecture Notes in Mathematics},
+   volume={1920},
+   note={Lectures from the 35th Summer School on Probability Theory held in
+   Saint-Flour, July 6--23, 2005},
+   publisher={Springer},
+   place={Berlin},
+   date={2008},
+   pages={xii+193},
+%   isbn={978-3-540-74797-0},
+%   review={\MR{2351587 (2009d:60014)}},
+%   doi={10.1007/978-3-540-74798-7},
+}
+
+\bib{FOT}{book}{
+   author={Fukushima, Masatoshi},
+   author={{\=O}shima, Y{\=o}ichi},
+   author={Takeda, Masayoshi},
+   title={Dirichlet forms and symmetric Markov processes},
+   series={de Gruyter Studies in Mathematics},
+   volume={19},
+   publisher={Walter de Gruyter \& Co.},
+%   place={Berlin},
+   date={1994},
+   pages={x+392},
+   isbn={3-11-011626-X},
+%   review={\MR{1303354 (96f:60126)}},
+}
+
+\bib{Kig}{book}{
+   author={Kigami, Jun},
+   title={Analysis on fractals},
+   series={Cambridge Tracts in Mathematics},
+   volume={143},
+   publisher={Cambridge University Press},
+%   place={Cambridge},
+   date={2001},
+   pages={viii+226},
+%   isbn={0-521-79321-1},
+%   review={\MR{1840042 (2002c:28015)}},
+}
+
+		
+
+\end{thebibliography}
+
+\end{document} 
+
+
+

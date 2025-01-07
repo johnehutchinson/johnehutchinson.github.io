@@ -1,0 +1,19 @@
+\contentsline {section}{\tocsection {}{1}{\textbf {Definitions}}}{1}{section.1}
+\contentsline {section}{\tocsection {}{2}{\textbf {Basics of bounded self-adjoint operators}}}{1}{section.2}
+\contentsline {subsection}{\tocsubsection {}{2.1}{Bounds}}{2}{subsection.2.1}
+\contentsline {subsection}{\tocsubsection {}{2.2}{Monotone sequences of s.a.\ operators}}{2}{subsection.2.2}
+\contentsline {subsection}{\tocsubsection {}{2.3}{Square root of s.a.\ operators}}{2}{subsection.2.3}
+\contentsline {subsection}{\tocsubsection {}{2.4}{Inverse of s.a.\ operators}}{2}{subsection.2.4}
+\contentsline {section}{\tocsection {}{3}{\textbf {Projections}}}{2}{section.3}
+\contentsline {subsection}{\tocsubsection {}{3.1}{Basics}}{2}{subsection.3.1}
+\contentsline {subsection}{\tocsubsection {}{3.2}{Further properties}}{2}{subsection.3.2}
+\contentsline {section}{\tocsection {}{4}{\textbf {Functions of a bounded s.a.\ operator}}}{3}{section.4}
+\contentsline {subsection}{\tocsubsection {}{4.1}{Polynomials}}{3}{subsection.4.1}
+\contentsline {subsection}{\tocsubsection {}{4.2}{Larger classes of functions}}{3}{subsection.4.2}
+\contentsline {section}{\tocsection {}{5}{\textbf {Spectral decomposition of bounded s.a.\ operators}}}{3}{section.5}
+\contentsline {subsection}{\tocsubsection {}{5.1}{Associated projection maps}}{3}{subsection.5.1}
+\contentsline {subsection}{\tocsubsection {}{5.2}{Approximate eigenspace and eigenvalue}}{3}{subsection.5.2}
+\contentsline {subsection}{\tocsubsection {}{5.3}{Spectral Resolution}}{4}{subsection.5.3}
+\contentsline {subsection}{\tocsubsection {}{5.4}{Examples}}{5}{subsection.5.4}
+\contentsline {section}{\tocsection {}{}{References}}{5}{section*.2}
+\contentsfinish 

@@ -1,6 +1,6 @@
 ---
 layout: undergraduate_with_toc
-title: "<span style='color: #8B4513;'>Undergraduate Related Material</span>"
+title: "<span style='color: #8B4513;'>Undergraduate Material</span>"
 permalink: /undergraduate/
 author_profile: false 
 ---

@@ -1,0 +1,10 @@
+\contentsline {section}{\tocsection {}{1}{\textbf {11/10/10 $ V $-Variability via Types}}}{1}{section.1}
+\contentsline {section}{\tocsection {}{2}{\textbf {The Probability Distribution on the Set of $ V $-Variable Trees}}}{2}{section.2}
+\contentsline {section}{\tocsection {}{3}{\textbf {Avoiding Furstenberg Kesten}}}{3}{section.3}
+\contentsline {section}{\tocsection {}{4}{\textbf {OLD: 7/9/09: Avoiding Furstenberg Kesten}}}{5}{section.4}
+\contentsline {subsection}{\tocsubsection {}{4.1}{Notation}}{5}{subsection.4.1}
+\contentsline {subsection}{\tocsubsection {}{4.2}{Overview}}{5}{subsection.4.2}
+\contentsline {subsection}{\tocsubsection {}{4.3}{Details}}{6}{subsection.4.3}
+\contentsline {section}{\tocsection {}{5}{\textbf {20/4/10: Construction of $ V $-Variable Trees}}}{8}{section.5}
+\contentsline {section}{\tocsection {}{}{References}}{12}{section*.2}
+\contentsfinish 

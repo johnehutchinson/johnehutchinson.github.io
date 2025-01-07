@@ -19,13 +19,12 @@ Currently I am interested in understanding more about quantum computing, A.I., a
 Teaching
 ======
 
-I have enjoyed teaching. My notes were well received by students and some of them are still used in MSI courses. I designed the course and wrote the books *Introduction to Contemporary Mathematics* for selected Year 11-12 high school students, and *Introduction to Analysis* for upper level second year mathematics students. For this and other teaching material see [High School](/high_school/), [Undergraduate](/undergraduate/), and [Graduate](/graduate/).
+I enjoy teaching. My notes were well received by students and some of them are still used in MSI courses. I designed the course and wrote the books *Introduction to Contemporary Mathematics* for selected Year 11-12 high school students, and *Introduction to Analysis* for upper level second year university mathematics students. For this and other course material see [High School](/high_school/), [Undergraduate](/undergraduate/), and [Graduate](/graduate/).
 
 
 In 2010 I was elected by students at large to give the symbolic ANU Last Lecture in the Great Hall at University House: *Mathematics, Free Will and the Human Condition.* (The Last Lecture was an ANU "tradition" that existed from 2006--2018.)
 
-
-
+# <a href="/files_from_ANU/cv%202024.pdf" style="color: black;">Curriculum Vita</a>
 
 
 

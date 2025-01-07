@@ -18,20 +18,23 @@ main:
   - title: "Graduate"
     url: /graduate/
     
-  - title: "Talks"
-    url: /talks/    
+#  - title: "Talks"
+#    url: /talks/    
 
-  - title: "Teaching"
-    url: /teaching/   
+#  - title: "Teaching"
+#    url: /teaching/   
 
-  - title: "CV"
-    url: /cv/
+#  - title: "CV"
+#    url: /cv/
 
-  - title: "Portfolio"
-    url: /portfolio/
+#  - title: "Portfolio"
+#    url: /portfolio/
 
 # - title: "Blog Posts"
 #   url: /year-archive/
 
-  - title: "Guide"
-    url: /markdown/
+  - title: "Quantium Computation & AI"
+    url: /quantum_AI/
+
+#  - title: "Guide"
+#    url: /markdown/

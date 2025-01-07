@@ -1,0 +1,46 @@
+\contentsline {section}{\tocsection {}{1}{\textbf {Notation}}}{2}{section.1}
+\contentsline {section}{\tocsection {}{2}{\textbf {Topological Entropy via an Open Cover}}}{3}{section.2}
+\contentsline {section}{\tocsection {}{3}{\textbf {Topological Entropy via the Metric}}}{4}{section.3}
+\contentsline {section}{\tocsection {}{4}{\textbf {Pressure}}}{5}{section.4}
+\contentsline {section}{\tocsection {}{5}{\textbf {Measure Theoretic Entropy}}}{6}{section.5}
+\contentsline {section}{\tocsection {}{6}{\textbf {Subshifts and Pressure}}}{9}{section.6}
+\contentsline {subsection}{\tocsubsection {}{6.1}{Overview}}{9}{subsection.6.1}
+\contentsline {subsection}{\tocsubsection {}{6.2}{Bernouilli Shifts}}{9}{subsection.6.2}
+\contentsline {subsection}{\tocsubsection {}{6.3}{Markov Shifts}}{10}{subsection.6.3}
+\contentsline {subsection}{\tocsubsection {}{6.4}{Pressure}}{10}{subsection.6.4}
+\contentsline {subsubsection}{\tocsubsubsection {}{6.4.1}{Markov case motivation}}{10}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{6.4.2}{General Case and Cylinder Weights}}{10}{subsubsection.6.4.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{6.4.3}{Problems}}{11}{subsubsection.6.4.3}
+\contentsline {subsection}{\tocsubsection {}{6.5}{Ruelle Transfer Operator}}{11}{subsection.6.5}
+\contentsline {subsubsection}{\tocsubsubsection {}{6.5.1}{Action on $ \mathcal {C} (X) $}}{12}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{6.5.2}{Action on $ \mathcal {M} (X) $}}{12}{subsubsection.6.5.2}
+\contentsline {section}{\tocsection {}{7}{\textbf {Cookie Cutter Sets and Pressure Functions}}}{13}{section.7}
+\contentsline {subsection}{\tocsubsection {}{7.1}{The Underlying Set}}{13}{subsection.7.1}
+\contentsline {subsection}{\tocsubsection {}{7.2}{Pressure Function}}{14}{subsection.7.2}
+\contentsline {subsection}{\tocsubsection {}{7.3}{Bounded Distortion}}{14}{subsection.7.3}
+\contentsline {section}{\tocsection {}{8}{\textbf {Perron Frobenius Theorem}}}{15}{section.8}
+\contentsline {subsection}{\tocsubsection {}{8.1}{Basic Notions}}{15}{subsection.8.1}
+\contentsline {subsection}{\tocsubsection {}{8.2}{Examples}}{15}{subsection.8.2}
+\contentsline {subsection}{\tocsubsection {}{8.3}{Interpretation}}{16}{subsection.8.3}
+\contentsline {subsection}{\tocsubsection {}{8.4}{Main Theorem}}{17}{subsection.8.4}
+\contentsline {subsection}{\tocsubsection {}{8.5}{Limit Theorem}}{19}{subsection.8.5}
+\contentsline {section}{\tocsection {}{9}{\textbf {Graph Directed IFS}}}{20}{section.9}
+\contentsline {subsection}{\tocsubsection {}{9.1}{Directed Graph}}{20}{subsection.9.1}
+\contentsline {subsection}{\tocsubsection {}{9.2}{Graph Directed IFS}}{20}{subsection.9.2}
+\contentsline {subsection}{\tocsubsection {}{9.3}{Associated Matrices}}{21}{subsection.9.3}
+\contentsline {subsection}{\tocsubsection {}{9.4}{The Dimension Theorem}}{22}{subsection.9.4}
+\contentsline {section}{\tocsection {}{10}{\textbf {Ruelle Perron Frobenius, Special case}}}{22}{section.10}
+\contentsline {subsection}{\tocsubsection {}{10.1}{Pressure}}{23}{subsection.10.1}
+\contentsline {subsection}{\tocsubsection {}{10.2}{IFS invariant Gibbs measure}}{23}{subsection.10.2}
+\contentsline {subsection}{\tocsubsection {}{10.3}{Shift invariant Gibbs measure}}{23}{subsection.10.3}
+\contentsline {section}{\tocsection {}{11}{\textbf {Thermodynamic Formalism and Cookie Cutters}}}{24}{section.11}
+\contentsline {subsection}{\tocsubsection {}{11.1}{Notation}}{24}{subsection.11.1}
+\contentsline {subsection}{\tocsubsection {}{11.2}{IFS with Weights}}{24}{subsection.11.2}
+\contentsline {subsection}{\tocsubsection {}{11.3}{Two Ways of Pushing Measures Forward}}{24}{subsection.11.3}
+\contentsline {subsection}{\tocsubsection {}{11.4}{The Adjoint Operators on Functions}}{25}{subsection.11.4}
+\contentsline {subsection}{\tocsubsection {}{11.5}{Properties of the Transfer Operator}}{25}{subsection.11.5}
+\contentsline {section}{\tocsection {}{12}{\textbf {Shannon Breiman McMillan Theorem}}}{26}{section.12}
+\contentsline {section}{\tocsection {}{13}{\textbf {Variational Principle}}}{26}{section.13}
+\contentsline {section}{\tocsection {}{14}{\textbf {Ruelle Perron Frobenius Theorem}}}{26}{section.14}
+\contentsline {section}{\tocsection {}{}{References}}{27}{section*.2}
+\contentsfinish 
