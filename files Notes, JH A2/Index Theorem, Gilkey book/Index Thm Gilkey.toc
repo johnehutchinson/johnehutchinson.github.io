@@ -1,6 +1,0 @@
-\contentsline {chapter}{\tocchapter {Chapter}{1}{Pseudo Differential Operators}}{5}{chapter.1}
-\contentsline {section}{\tocsection {}{1}{\textbf {Fourier Transforms, Schwartz class, Sobolev Spaces}}}{5}{section.1.1}
-\contentsline {subsection}{\tocsubsection {}{1.1}{Notation}}{5}{subsection.1.1.1}
-\contentsline {subsection}{\tocsubsection {}{1.2}{Definition of FT on $ \@mathcal {S}$ and basic properties.}}{5}{subsection.1.1.2}
-\contentsline {subsection}{\tocsubsection {}{1.3}{Sobolev Spaces}}{6}{subsection.1.1.3}
-\contentsfinish 

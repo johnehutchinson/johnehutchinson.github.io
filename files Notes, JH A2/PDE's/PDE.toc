@@ -1,6 +1,0 @@
-\contentsline {section}{\tocsection {}{1}{\textbf {22/4/09: Dirichlet Problem}}}{1}{section.1}
-\contentsline {subsection}{\tocsubsection {}{1.1}{Sobolev Spaces}}{1}{subsection.1.1}
-\contentsline {subsection}{\tocsubsection {}{1.2}{Dirichlet PDE Problem}}{2}{subsection.1.2}
-\contentsline {subsection}{\tocsubsection {}{1.3}{Dirichlet Energy Minimisation Problem}}{2}{subsection.1.3}
-\contentsline {section}{\tocsection {}{}{References}}{3}{section*.2}
-\contentsfinish 

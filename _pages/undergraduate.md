@@ -9,6 +9,7 @@ author_profile: false
 
 - [First Year University](#first-year-university)
 - [Second Year University](#second-year-university)
+- [Various Sets of Notes](#various-sets-of-notes)
 - [Last Lecture 2010](#last-lecture-2010)
 
 
@@ -34,6 +35,13 @@ The mathematics there is basic to most subsequent mathematics courses
 (e.g. diﬀerential equations, diﬀerential geometry, measure theory, numerical analysis, to name a few), as well as to much of theoretical physics, engineering, probability
 theory and statistics. Various interesting applications are included, in particular to
 fractals and to diﬀerential and integral equations.
+ 
+
+## Various Sets of Notes
+Some of the Notes in the [Graduate](/graduate/) page might be of interest.
+
+Here are some basic [notes](/files_from_ANU/Analysis%201%20Solutions.pdf) on self-adjoint, unitary and normal matrices.
+
 
 ## Last Lecture 2010
 
