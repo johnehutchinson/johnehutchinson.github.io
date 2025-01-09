@@ -7,15 +7,10 @@ author_profile: false
  
 I was fortunate to have the opportunity of doing research in a number of different areas of mathematics. Nowadays, with the pressure to continuously publish, it would be much more difficult if not impossible to have the luxury of exploring new fields. 
 
-
-- [Publications](#publications)
-  - [1 Fractals and Stochastics](#1-fractals-and-stochastics)
-  - [2 Geometric Measure Theory, Analytic Methods for Geometric Problems](#2-geometric-measure-theory-analytic-methods-for-geometric-problems)
-  - [3 Numerical Analysis for Geometric Problems](#3-numerical-analysis-for-geometric-problems)
-  - [4 Multivariable Variational Problems, Regularity and Singularities of Solutions](#4-multivariable-variational-problems-regularity-and-singularities-of-solutions)
-  - [5 Mathematical Logic, Model Theory and Set Theory](#5-mathematical-logic-model-theory-and-set-theory)
-- [Grants](#grants)
-- [Patent](#patent)
+<!--TOC-->
+* Table of Contents
+{:toc}
+<!--/TOC-->
 
 
 ## Publications

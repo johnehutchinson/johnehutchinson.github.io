@@ -20,14 +20,12 @@ author_profile: false
 }
 </style>
 
-- [Introduction to Contemporary Mathematics (for Year 11 and 12 Students)](#introduction-to-contemporary-mathematicsfor-year-11-and-12-students)
-  - [Text](#text)
-  - [Videos](#videos)
-  - [Final Days](#final-days)
-- [Professional Development Workshops for Teachers](#professional-development-workshops-for-teachers)
-- [1962 High School Exams and Solutions](#1962-high-school-exams-and-solutions)
+<!--TOC-->
+* Table of Contents
+{:toc}
+<!--/TOC-->
 
-## Introduction to Contemporary Mathematics<br>&nbsp;(for Year 11 and 12 Students)
+## Contemporary Mathematics
 
 ### Text
 [*Introduction to Contemporary Mathematics*](/files_from_ANU/Contemporary Math.pdf) is the main text
@@ -67,7 +65,7 @@ Sets 2--5 develop RSA cryptography from scratch, with essentially no prerequisit
 
     **Personal Opinion**: The ANU is indeed financially constrained for a variety of reasons. But regarding the "equity targets" -- the program was always intended for suitably qualified students.  To admit less qualified students would be demoralising for these students, and to lower the standards of the programs would defeat the purpose of providing an early bridging between high school and university for gifted students. The equity issues need to be addressed in early primary and high school programs. It is not fair to students to put them in programs for which they are not prepared, nor should should such programs be cancelled if they are too high a level for most students.**  
 
-## Professional Development Workshops for Teachers
+## Workshops for Teachers
 
 One spin-off from the *Introduction to Contemporary Mathematics* course was a series of one day workshops for mathematics teachers in the ACT system, introducing the teachers to a variety of applications of mathematics. 
 
@@ -78,7 +76,7 @@ To obtain an idea of what was done, and what could be done in future workshops, 
 [Slides](/files_from_ANU/Canberra Grammar 15:5:15.pdf) for a 2015 talk to Canberra Grammar students in Years 8 to 12.
 -->
 
-## 1962 High School Exams and Solutions  
+## 1962 High School Exams
 
 Until 1966 there were 5 years of high school in New South Wales, the standard age of completion was 17 years, and the final set of (public) exams were known as the *Leaving Certificate Examinations*. It was not uncommon to complete the Leaving Certificate at the age of 16.  Most students, however, left school at the Intermediate Certificate level, after 3 years of high school, and the standard age of completion was then 15.
 

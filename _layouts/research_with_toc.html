@@ -14,16 +14,12 @@ layout: default
 
 <div id="main" role="main">
   <aside class="sidebar research-sidebar">
-    <ul>
-      <li class="mainheading"><a href="#publications">Publications</a></li>
-      <li class="subheading"><a href="#1-fractals-and-stochastics">Fractals and Stochastics</a></li>
-      <li class="subheading"><a href="#2-geometric-measure-theory-analytic-methods-for-geometric-problems">Geometric Measure Theory</a></li>
-      <li class="subheading"><a href="#3-numerical-analysis-for-geometric-problems">Numerical Analysis for Geometric Problems</a></li>
-      <li class="subheading"><a href="#4-multivariable-variational-problems-regularity-and-singularities-of-solutions">Multivariable Variational Problems</a></li>
-      <li class="subheading"><a href="#5-mathematical-logic-model-theory-and-set-theory">Mathematical Logic</a></li>
-      <li class="mainheading"><a href="#grants">Grants</a></li>
-      <li class="mainheading"><a href="#patent">Patent</a></li>
-    </ul>
+    <nav>
+      <!--<h3>Table of Contents</h3>-->
+      <ul>
+        {{ content | split: '<!--TOC-->' | last | split: '<!--/TOC-->' | first }}
+      </ul>
+    </nav>
   </aside>
 
   <div class="archive">

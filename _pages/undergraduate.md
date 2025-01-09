@@ -7,10 +7,10 @@ author_profile: false
 
 *Books and Notes for upper level first and second year courses. <br> The 2010 "ANU Last Lecture".*
 
-- [First Year University](#first-year-university)
-- [Second Year University](#second-year-university)
-- [Various Sets of Notes](#various-sets-of-notes)
-- [Last Lecture 2010](#last-lecture-2010)
+<!--TOC-->
+* Table of Contents
+{:toc}
+<!--/TOC-->
 
 
 ## First Year University
@@ -38,9 +38,11 @@ fractals and to diﬀerential and integral equations.
  
 
 ## Various Sets of Notes
-Some of the Notes in the [Graduate](/graduate/) page might be of interest.
-
 Here are some basic [notes](/files_from_ANU/Analysis%201%20Solutions.pdf) on self-adjoint, unitary and normal matrices.
+
+Some of the material in the [Graduate](/graduate/) page might also be of interest.
+
+
 
 
 ## Last Lecture 2010

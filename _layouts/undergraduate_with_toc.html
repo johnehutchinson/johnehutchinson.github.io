@@ -14,11 +14,12 @@ layout: default
 
 <div id="main" role="main">
   <aside class="sidebar research-sidebar">
-    <ul>
-      <li><a href="#first-year-university">First Year University</a></li>
-      <li><a href="#second-year-university">Second Year University</a></li>
-      <li><a href="#last-lecture-2010">Last Lecture 2010</a></li>
-    </ul>
+    <nav>
+      <!--<h3>Table of Contents</h3>-->
+      <ul>
+        {{ content | split: '<!--TOC-->' | last | split: '<!--/TOC-->' | first }}
+      </ul>
+    </nav>
   </aside>
 
   <div class="archive">

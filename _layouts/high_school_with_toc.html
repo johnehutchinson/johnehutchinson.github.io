@@ -14,14 +14,12 @@ layout: default
 
 <div id="main" role="main">
   <aside class="sidebar research-sidebar">
-    <ul>
-      <li class="mainheading"><a href="#introduction-to-contemporary-mathematicsfor-year-11-and-12-students">Years 11, 12:  Introduction to Contemporary Mathematics</a></li>
-      <li class="subheading"><a href="#text">Text</a></li>
-      <li class="subheading"><a href="#videos">Videos</a></li>
-      <li class="subheading"><a href="#final-days">Final Days</a></li>
-      <li class="mainheading"><a href="#professional-development-workshops-for-teachers">Professional Development Workshops for Teachers</a></li>
-      <li class="mainheading"><a href="#1962-high-school-exams-and-solutions">1962 High School Exams and Solutions</a></li>
-    </ul>
+    <nav>
+      <!--<h3>Table of Contents</h3>-->
+      <ul>
+      {{ content | split: '<!--TOC-->' | last | split: '<!--/TOC-->' | first }}
+      </ul>
+    </nav>
   </aside>
 
   <div class="archive">

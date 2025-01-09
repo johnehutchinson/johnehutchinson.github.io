@@ -6,15 +6,10 @@ author_profile: false
 ---
 *Upper undergraduate, graduate or post-doc level  material*
 
-- [Analysis 2](#analysis-2)
-- [Measure Theory](#measure-theory)
-- [The Elements of Finite Elements](#the-elements-of-finite-elements)
-- [Elliptic Systems](#elliptic-systems)
-- [History of Foundations of Mathematics](#history-of-foundations-of-mathematics)
-- [Axiom of Choice](#axiom-of-choice)
-- [Mathematical Economics](#mathematical-economics)
-- [Probability Basics](#probability-basics)
-
+<!--TOC-->
+* Table of Contents
+{:toc}
+<!--/TOC-->
 
 In the following I try to motivate the results and the proofs as much as possible.
 

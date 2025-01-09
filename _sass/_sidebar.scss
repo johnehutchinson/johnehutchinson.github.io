@@ -264,6 +264,16 @@
 
 .research-sidebar {
   padding-top: 0 !important; /* Override any padding at the top */
+  margin-top: 40px; /* Add margin to the top, adjust the value as needed */
+}
+
+.research-sidebar nav ul {
+  list-style-type: disc !important; /* Use disc for bullet points */
+  padding-left: 20px !important; /* Add padding to align bullets */
+}
+
+.research-sidebar nav ul li {
+  margin-bottom: 5px !important; /* Add space between items */
 }
 
 .research-sidebar ul li.subheading {
@@ -277,4 +287,13 @@
 .main-content {
   margin-left: 220px; /* Adjust the value to ensure it does not overlap with the sidebar */
   padding: 20px;
+}
+
+/* Add padding to the top of the target elements */
+h2::before, h3::before, h4::before, h5::before, h6::before {
+  display: block;
+  content: " ";
+  margin-top: -10px; /* Adjust the value to match the height of your menu bar */
+  height: 10px; /* Adjust the value to match the height of your menu bar */
+  visibility: hidden;
 }
