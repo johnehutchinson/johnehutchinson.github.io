@@ -293,7 +293,7 @@
 h2::before, h3::before, h4::before, h5::before, h6::before {
   display: block;
   content: " ";
-  margin-top: -30px; /* Adjust the value to match the height of your menu bar */
-  height: 30px; /* Adjust the value to match the height of your menu bar */
+  margin-top: -50px; /* Adjust the value to match the height of your menu bar */
+  height: 50px; /* Adjust the value to match the height of your menu bar */
   visibility: hidden;
 }
