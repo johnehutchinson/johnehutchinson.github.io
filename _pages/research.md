@@ -5,7 +5,7 @@ permalink: /research/
 author_profile: false 
 ---
  
-I was fortunate to have the opportunity of doing research in a number of different areas of mathematics. Nowadays, with the pressure to continuously publish, it would be much more difficult if not impossible to have the luxury of exploring new fields. 
+I was fortunate to have the opportunity of doing research in a number of different areas of mathematics. Nowadays, with the pressure to continuously publish, it is more difficult if not impossible to have the luxury of exploring new fields. 
 
 <!--TOC-->
 * Table of Contents
