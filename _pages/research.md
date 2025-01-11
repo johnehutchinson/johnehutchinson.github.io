@@ -15,6 +15,8 @@ I was fortunate to have the opportunity of doing research in a number of differe
 
 ## Publications
 
+*Links to publications are on my [Google Scholar page](https://scholar.google.com.au/citations?user=tJQZjKUAAAAJ&hl=en&oi=ao).  Some are publicly available, others via a university link.*
+
 ### 1 Fractals and Stochastics 
 
 A lucky break came with [Hut81](#Hut81), it languished for a few years but then generated a lot of activity. On sabbatical in 1978 in Princeton, and at the suggestion of Fred Almgren, I undertook the project of putting some of the work on fractals by Benoit Mandelbrot into a unified mathematical framework. There has been a lot of subsequent work by others and each year since 2000 (when records were first kept), according to the American Mathematical Society this paper has been in the top 100 most cited articles in the mathematical literature, and some years in the top 10. Michael Barnsley and John Elton later took a different approach via "the chaos game" and Michael subsequently created a company and successfully developed software and hardware to extend these ideas to image compression.

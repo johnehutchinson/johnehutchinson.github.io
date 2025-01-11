@@ -43,11 +43,9 @@ Here are some basic [notes](/files_from_ANU/Analysis%201%20Solutions.pdf) on sel
 Some of the material in the [Graduate](/graduate/) page might also be of interest.
 
 
-
-
 ## Last Lecture 2010
 
 In 2010 I was nominated, and then elected by ANU students at large, to give the symbolic "Last Lecture" in the Great Hall at University House: *Mathematics, Free Will and the Human Condition.* (The "Last Lecture" was an ANU "tradition" that existed from 2006--2018.)<br>
-[Last Lecture 2010](/files_from_ANU/Last%20Lecture.mp4) (poor video quality)<br>
+[Last Lecture 2010](/files_from_ANU/Last%20Lecture.mp4) (Unfortunately there is occasional loud static. The video consists of zooming and panning photographs, together with the slides.)<br>
 [Last Lecture Slides](/files_from_ANU/Last%20Lecture.pdf) (Just the slides)
 
