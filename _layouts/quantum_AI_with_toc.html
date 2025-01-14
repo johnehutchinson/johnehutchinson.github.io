@@ -13,19 +13,18 @@ layout: default
 {% endif %}
 
 <div id="main" role="main">
-<!--
-  <aside class="sidebar quantum_AI-sidebar">
-    <ul>
-      {% capture toc %}
-      - [Heading 1](#heading-1)
-        - [Subheading 1.1](#subheading-11)
-      - [Heading 2](#heading-2)
-      - [Heading 3](#heading-3)
-      {% endcapture %}
-      {{ toc | markdownify | replace: '<ul>', '<ul class="toc-list">' | replace: '<li>', '<li class="toc-item">' }}
+  <aside class="sidebar research-sidebar">
+    <img src="/images/JH_Schrod.jpeg" 
+    alt="Quantum"
+    class="sidebar-image" 
+    style="width: 50%; margin: 10px auto; display: block;">
+    <nav>
+      <ul>
+      {{ content | split: '<!--TOC-->' | last | split: '<!--/TOC-->' | first }}
       </ul>
+    </nav>
   </aside>
--->
+
   <div class="archive">
     {% unless page.header.overlay_color or page.header.overlay_image %}
       <h1 class="page__title">{{ page.title }}</h1>
