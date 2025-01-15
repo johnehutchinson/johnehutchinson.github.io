@@ -30,9 +30,6 @@ I enjoy teaching. My notes were well received by students and some of them are s
 
 I was elected by students at large to give the symbolic ANU [2010 Last Lecture](/undergraduate/#last-lecture-2010): *Mathematics, Free Will and the Human Condition,* in the Great Hall at University House.
 
-<!--
-# <a href="/files_from_ANU/cv%202024.pdf" style="color: black;">Curriculum Vita</a>
--->
 
 
 History of Mathematics at ANU
@@ -46,7 +43,7 @@ Curriculum Vita
 Available [here](/files_from_ANU/cv%202024.pdf).
 
 
-Recent Material
+<span style="color: #8B4513;">Recent Material</span>
 =========
 
 [History of Foundations of mathematics](/graduate/#history-of-foundations-of-mathematics) from 1870 and the crises involving infinity and various paradoxes to current times.  Slides and annotated bibliography.
