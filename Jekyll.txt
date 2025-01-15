@@ -23,5 +23,5 @@ _pages/about.md			file for main homepage
 _pages/publications.md		file for publications page
 _publications			contains .md files linked to from _pages/publications.md
 
-_sass/_sidebar.scss 		is important for various sidebar settings
-
+_sass/_sidebar.scss 		for various sidebar settings
+_includes/sidebar.html		for contents of sidebar

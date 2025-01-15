@@ -59,6 +59,36 @@
   }
 }
 
+/* Adjust the space between specific elements */
+.sidebar h3 {
+  margin-bottom: .5em; /* Adjust this value to reduce the space */
+}
+
+.sidebar p {
+  margin-top: -.5em; /* Adjust this value to reduce the space */
+}
+
+/* Adjust the space between list items */
+.sidebar ul li {
+  margin-bottom: -.5em; /* Adjust this value to reduce the space */
+}
+
+/* Adjust the space between "Contents" items */
+.sidebar nav ul li {
+  margin-bottom: 0em; /* Adjust this value to increase the space */
+}
+
+/* Adjust the sidebar position for the homepage */
+.homepage-sidebar {
+  @media screen and (min-width: $sidebar-screen-min-width) {
+    top: 30px; /* Adjust this value to raise the sidebar contents */
+  }
+
+  img {
+    margin-top: -20px; /* Adjust this value to raise the image */
+  }
+}
+
 .sidebar__right {
   margin-bottom: 1em;
 

@@ -13,7 +13,7 @@ author_profile: false
 {:toc}
 <!--/TOC-->
 
-## Interesting Recent Reading 
+## Recent Reading 
 Books of a mostly non-technical nature.  The date is when I finished reading them.
 
 
