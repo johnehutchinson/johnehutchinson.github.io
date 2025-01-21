@@ -24,4 +24,39 @@ _pages/publications.md		file for publications page
 _publications			contains .md files linked to from _pages/publications.md
 
 _sass/_sidebar.scss 		for various sidebar settings
+_sass/_page.scss			for various page settings
 _includes/sidebar.html		for contents of sidebar
+
+CoPilot gives the following summary
+Summary
+_pages/graduate.md: Contains the content for the "Graduate" page in Markdown format.
+_layouts/graduate_with_toc.html: Defines the layout and structure for the "Graduate" page.
+_site/graduate/index.html: The generated HTML file for the "Graduate" page, created by Jekyll during the build process.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Relevant files (overall, and specifid to "Graduate" page, include 
+
+assets		for static assets
+
+_config.yml for site-wide configuration, 
+
+_data	data files used in generating content
+	_data/authors.yml		not relevant, unless more than one person for website
+	_data/navigation.yml		to change order etc in top menu bar
+
+_includes for reusable HTML snippets, 
+	_includes/author-profile.html	more customization after config.yml, e.g. items in sidebar 
+	_includes/sidebar.html		contents of sidebar
+
+_layouts
+	_layouts/graduate_with_toc.html   layout and structure for "Graduate" page.
+
+_pages
+	_pages/about.md			file for main homepage
+	_pages/graduate.md:  content for "Graduate" page in Markdown format.
+	_pages/publications.md		file for publications page
+
+_sass for styling, 
+	_sass/_sidebar.scss 		for various sidebar settings
+	_sass/_page.scss			for various page settings

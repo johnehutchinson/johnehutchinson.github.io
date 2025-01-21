@@ -52,10 +52,12 @@ Sets 2--5 develop RSA cryptography from scratch, with essentially no prerequisit
 4. [Modular Arithmetic, Fermat's Little Theorem (Section 2.4)](https://www.youtube.com/playlist?list=PLoYM65JT1SUMxxjlbXWrdceM5KcvMKUG8)  (17 videos, approx 78 minutes)
 5. [RSA Cryptography: Algorithm, Theorem, Examples (Section 2.5)](https://www.youtube.com/playlist?list=PLoYM65JT1SUMLjymPFbFjdSrwZJhzTLZy)  (16 videos, approx 82 minutes)
 
+The above lectures are those in an [EdX mini-mooc](https://learning.edge.edx.org/course/course-v1:ANU+Extension1+2017/block-v1:ANU+Extension1+2017+type@sequential+block@6b027e0a459442a3b85413a3d0c7571e/block-v1:ANU+Extension1+2017+type@vertical+block@506a9c29d7494371bd404197e1992f3f) style course, with various small questions along the way. (When you first click the link you may be prompted to sign up for an edge.edx.org  account.  This is necessary even if you already have an edx.org account. The platform is essentially the same in both cases).
+
 ### Final Days
  The last student intake for the ANU Extension Program was 2024 and the course will terminate at the end of 2025.[^2]  
  
- When and if the environment improves, I believe it would be possible to have a similar program in mathematics and computer science, with an introduction to quantum computing and A.I. as topics.  It would indeed be a lot of work to develop such a program!
+ When and if the environment improves, I believe it would be possible to have a similar program in mathematics and computer science, with an introduction to quantum computing and A.I. as topics.  It would be a lot of work to develop such a program, but well worthwhile!
 
 [^2]:
     Over breakfast in China in 2004, Ian Chubb (ANU vice chancellor/president at the time) and John Stanhope (Australian Capital Territory [ACT] chief minister) decided it would be appropriate and advantageous to the ACT community to allow gifted Year 11 and 12 students to do -- and gain credit for -- first year university mathematics, physics or chemistry courses.  For appropriately capable  students this was possible for physics and chemistry, particularly since high school studies in those two subjects were not prerequities for the university courses. For mathematics this was not the case.
