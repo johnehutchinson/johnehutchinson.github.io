@@ -35,7 +35,7 @@ _site/graduate/index.html: The generated HTML file for the "Graduate" page, crea
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Relevant files (overall, and specifid to "Graduate" page, include 
+Relevant files overall, and those specific to "Graduate" page, include 
 
 assets		for static assets
 
