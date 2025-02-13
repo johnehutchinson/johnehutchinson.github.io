@@ -11,12 +11,15 @@ author_profile: false
 .footnotes {
   margin-top: 50px; /* Adjust the value as needed */
 }
-</style>
 
-<style>
 /* Ensure footnotes have the same text color as the rest of the content */
 .footnotes, .footnotes p, .footnotes li {
   color: inherit; /* Inherit the color from the parent element */
+}
+
+/* Increase the font size of footnotes */
+.footnotes, .footnotes p, .footnotes li {
+  font-size: .9em; /* Adjust the value as needed */
 }
 </style>
 
