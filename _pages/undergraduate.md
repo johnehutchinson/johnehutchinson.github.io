@@ -38,7 +38,7 @@ fractals and to diﬀerential and integral equations.
  
 
 ## Various Sets of Notes
-Here are some basic [notes](/files_from_ANU/Analysis%201%20Solutions.pdf) on self-adjoint, unitary and normal matrices.
+Here are some basic [notes](/files_from_ANU/Normal%20Matrices.pdf) on self-adjoint, unitary and normal matrices.
 
 Some of the material in the [Graduate](/graduate/) page might also be of interest.
 
