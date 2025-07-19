@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ page.title | strip_html }} - {{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include seo.html %}
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  </head>
+  <body>
+    {% include masthead.html %}
+
+    <div class="page__wrapper">
+      <div class="sidebar sticky {% if page.url == '/history/' %}homepage-sidebar{% endif %}">
+        {% include sidebar.html %}
+      </div>
+      <main class="page__content" aria-label="Content">
+        <article>
+          <header>
+            <h1 class="page__title">{{ page.title }}</h1>
+          </header>
+          {{ content }}
+        </article>
+      </main>
+    </div>
+
+    {% include footer.html %}
+    {% include scripts.html %}
+  </body>
+</html>

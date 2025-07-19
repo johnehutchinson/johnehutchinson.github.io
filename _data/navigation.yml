@@ -36,5 +36,8 @@ main:
   - title: "Quantum & Information"
     url: /quantum_AI/
 
+  - title: "History"
+    url: /history/
+    
 #  - title: "Guide"
 #    url: /markdown/
