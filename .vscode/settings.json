@@ -1,0 +1,27 @@
+// filepath: /Users/john/VSCode/Website/.vscode/settings.json
+{
+  "files.exclude": {
+    "_posts": true,
+    "_portfolio": true,
+    "_publications": true,
+    "_talks": true,
+    "_teaching": true,
+    "_drafts": true,
+    "files": true,
+    "markdown_generator": true,  //automates generation of markdown files
+    "Dockerfile": true,
+    "_site": true,
+    "vendor": true,
+    ".sass-cache": true,
+    ".bundle": true,
+    "talkmap": true,
+    "CONTRIBUTING.md": true,
+    ".github": true,
+    ".htmlhintrc": true,
+    "Gemfile": true,
+    "Gemfile.lock": true,
+    "LICENSE": true,
+    "package.json": true,
+    "talkmap.ipynb": true,
+    "talkmap.py": true}
+}
