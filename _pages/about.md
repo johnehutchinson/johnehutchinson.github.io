@@ -47,3 +47,5 @@ Available [here](/files_from_ANU/cv%202024.pdf).
 =========
 
 [History of Foundations of mathematics](/graduate/#history-of-foundations-of-mathematics) from 1870 and the crises involving infinity and various paradoxes to current times.  Slides and annotated bibliography.
+
+[History of Mathematics in Australia](/history/)
