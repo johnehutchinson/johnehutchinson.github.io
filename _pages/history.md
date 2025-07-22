@@ -75,6 +75,7 @@ is organised by the School of Mathematics and Statistics at the University of Ne
 The [School](https://en.wikipedia.org/wiki/Professor_Harry_Messel_International_Science_School) was first held for students (but previously for teachers) in January 1962, and was for high school students beginning their last year of school.  The proceedings: [A Journey Through Space and the Atom (Internet Archive)](https://archive.org/details/journeythroughsp0000butl/page/n7/mode/2up) are available online. 
 
 Lecture series were given by [Hermann Bondi](https://en.wikipedia.org/wiki/Hermann_Bondi), [Werner von Braun](https://en.wikipedia.org/wiki/Wernher_von_Braun), [Ron Bracewell](https://en.wikipedia.org/wiki/Ronald_N._Bracewell), [Stuart Butler](https://en.wikipedia.org/wiki/Stuart_Thomas_Butler) and [Harry Messell](https://en.wikipedia.org/wiki/Harry_Messel). Heady material for High School students!
+I recall von Braun predicting in 1962 that the U.S. would have a man on the moon by the end of the decade. That seemed absurd and wishful thinking at the time. 
 
 Messel was of the opinion that Australians were too interested in football and cricket, and not enough in science and mathematics.  He arranged for lectures at the 1962 and  a few subsequent Summer Schools to be televised nationwide by Channel 9 during the early 1960's, but the program did not compete well against other morning programs and this initiative was discontinued.
 
