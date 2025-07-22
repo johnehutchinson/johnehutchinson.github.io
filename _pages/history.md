@@ -24,9 +24,10 @@ This page contains [links to] books and documents concerning mathematics in Aust
 
 ## Historical Documents
 
-- **Cohen, Graeme**: [*Counting Australia In: The People, Organisations and Institutions of Australian Mathematics*](https://www.dropbox.com/scl/fi/5289wu3bt0gots7vd21xt/CAI_booklet.pdf?rlkey=e21onppgvb6q2q59y7apuhev9&dl=0), Sydney, Halstead Press (2006); 431 pages. Written on the occasion of the 50th anniversary of the founding of the Australian Mathematical Society. (Now out of copyright.)<br>
-(Faster download) [Chapters 1--7](/history_math/CAI_booklet_to_7.pdf), [Chapters 8--end](/history_math/CAI_booklet_from_8.pdf).<br>
-*For ANU, and mathematics in Canberra more generally, see Chapter 7, pp213--246.*
+- **Cohen, Graeme**: <span style="font-family: inherit; font-size: 1em; color: #7B5C2E;">
+<em>Counting Australia In: The People, Organisations and Institutions of Australian Mathematics, </em>
+</span> [Chapters 1--7](/history_math/CAI_booklet_to_7.pdf), [Chapters 8--end](/history_math/CAI_booklet_from_8.pdf), Sydney, Halstead Press (2006); 431 pages. Written on the occasion of the 50th anniversary of the founding of the Australian Mathematical Society. (Now out of copyright.)<br>
+*For the ANU, and mathematics in Canberra more generally, see Chapter 7, pp213--246.*
 <div style="font-size: 0.8em; color: #555; line-height: 1.1;margin-top: -0.9em;"> From the Introduction:<br> 
 "Mathematics as an academic pursuit began in Australia with the ﬁrst lecture given in the University of Sydney in October 1852. Chapter 2 starts out with those details but before that there were many instances of the use of mathematics, and of quantitative thinking by Aboriginals and Islanders, and these are the content of Chapter 1. In particular, there is a survey of mathematics in the schools prior to the 1850s, given partly as background to the establishment of the ﬁrst universities." 
 </div>  
