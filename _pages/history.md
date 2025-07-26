@@ -68,7 +68,7 @@ The latter was comparable in scope and difficulty to the Cambridge and Oxford en
 The Russian satellite "Sputnik" launched in 1958 instigated a surge of public and political interest in promoting physics and mathematics. For students interested in these areas this provided opportunities previously unavailable. 
 One example is the cadetship scheme discussed in Michael Barber's article linked above.
 
-As a consequence of this milieu, and the competition between the Universities of Sydney and of New South Wales, various schemes and competitions were initiated, in which students in my year were the first able to participate.
+As a consequence of this milieu, and the competition between the Universities of Sydney and of New South Wales, various schemes and competitions were initiated, in which students in my year were first able to participate.
 
 ### UNSW School Mathematics Competition 
 This [Competition](https://www.unsw.edu.au/science/our-schools/maths/engage-with-us/high-school-students-and-teachers/unsw-school-mathematics-competition) has been held annually since 1962 (see the "General Information" on that page).  It 
