@@ -25,7 +25,7 @@ A brief introduction, assuming some background in Sobolev spaces. Convergence es
 ### [Elliptic Systems](/files_from_ANU/CMA%201996%20Elliptic%20Systems.pdf)
 A series of 5 lectures at a workshop for graduate students.  Elliptic systems model vector-valued quantities in an equilibrium situation. Examples are a vector-field describing the molecular orientation of a liquid crystal, and the displacement of an elastic body under an external force. Solutions of elliptic systems typically have singularities, unlike the situation for scalar-valued elliptic problems. 
 
-### [History of Foundations of Mathematics](/files_from_ANU/Foundations%20Seminar.pdf) 
+### [History of Foundations of Mathematics](/files_from_ANU/Foundations%20Seminar.pdf) (/files_from_ANU/Foundations_Slides.pdf)
 (A 2024 MSI colloquium.) From 1870 to current. Some of the material is more technical than I could give in the colloquium. But at least the history and the individuals involved will be interesting! There is an *extensive annotated bibliography*.
 
 ### [Axiom of Choice](/files_from_ANU/Ax%20choice.pdf)
