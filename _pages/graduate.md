@@ -37,5 +37,5 @@ Basic terminology, Edgeworth box, core of an economy, Walras equilibrium.
 ### [Probability Basics](/files_from_ANU/Probability%20basics.pdf)
 Measure theoretic approach to probability. Borel-Cantelli lemma, weak and strong versions of the law of large numbers, renewal theorem, continuous-time jump Markov processes [CJM].
 
-### [Mathematical Logic & Foundations of Mathematics](/files_from_ANU/Course_Notes_partial_draft.pdf)
+### [Mathematical Logic & Foundations of Mathematics](/files_from_ANU/Math_Logic_JH.pdf)
 Partial Incomplete draft (date on front page) of Notes for the 2026 courses MATH4343 and MATH8343.  These notes will be updated frequently over the next few months.  But they should already give a reasonable idea of the course level, background needed, and approach I will take.
